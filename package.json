@@ -1,9 +1,9 @@
 {
   "name": "@votekio/cyberpunk-ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A 3D-styled UI component library built with TailwindCSS",
   "author": "John Tran <rintran720@gmail.com>",
-  "homepage": "https://cyberpunk-ui-tawny.vercel.app/",
+  "homepage": "https://cyberpunk-ui-mxpo.vercel.app/",
   "repository": {
     "type": "git",
     "url": "https://github.com/rintran720/cyberpunk-ui.git"

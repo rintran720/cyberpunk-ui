@@ -378,8 +378,6 @@ export interface DialogHeaderProps
 
 const DialogHeader = React.forwardRef<HTMLDivElement, DialogHeaderProps>(
   ({ className, ...props }, ref) => {
-    const { variant } = useDialogContext();
-
     return (
       <div
         ref={ref}
@@ -422,8 +420,6 @@ const DialogDescription = React.forwardRef<
   HTMLParagraphElement,
   DialogDescriptionProps
 >(({ className, ...props }, ref) => {
-  const { variant } = useDialogContext();
-
   return (
     <p
       ref={ref}
@@ -443,8 +439,6 @@ export interface DialogBodyProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const DialogBody = React.forwardRef<HTMLDivElement, DialogBodyProps>(
   ({ className, ...props }, ref) => {
-    const { variant } = useDialogContext();
-
     return (
       <div
         ref={ref}
@@ -467,8 +461,6 @@ export interface DialogFooterProps
 
 const DialogFooter = React.forwardRef<HTMLDivElement, DialogFooterProps>(
   ({ className, ...props }, ref) => {
-    const { variant } = useDialogContext();
-
     return (
       <div
         ref={ref}
