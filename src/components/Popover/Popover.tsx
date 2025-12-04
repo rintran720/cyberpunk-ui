@@ -342,10 +342,9 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
           "z-50 min-w-[200px]",
           // Only apply default padding if not provided via style prop
           !props.style?.padding && "p-4",
-          "rounded-lg border border-surface-600",
-          "bg-surface-800 text-surface-200",
-          // 3D effect
-          "shadow-[0_8px_24px_rgba(0,0,0,0.4),0_4px_0_0_rgba(0,0,0,0.2)]",
+          "rounded-lg border border-cyber",
+          "bg-black/90 backdrop-blur-md text-primary-500 font-mono",
+          "shadow-cyber-border-lg",
           // Animation
           "animate-[fade-in_150ms_ease-out]",
           className

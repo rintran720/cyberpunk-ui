@@ -29,12 +29,10 @@ const Menubar = React.forwardRef<HTMLDivElement, MenubarProps>(
       ref={ref}
       className={cn(
         "relative flex h-10 items-center space-x-1 rounded-lg",
-        "bg-surface-800 border border-surface-700",
-        // 3D effect
-        "shadow-[0_4px_0_0_rgba(0,0,0,0.2),0_6px_12px_-2px_rgba(0,0,0,0.25)]",
-        "before:absolute before:inset-0 before:rounded-lg",
-        "before:bg-gradient-to-b before:from-white/5 before:to-transparent before:pointer-events-none",
+        "bg-black/80 border-2 border-cyber",
+        "shadow-cyber-border-lg",
         "p-1",
+        "before:absolute before:inset-0 before:rounded-lg before:bg-[linear-gradient(90deg,transparent,var(--cyber-glow-primary),transparent)] before:opacity-10 before:pointer-events-none",
         className
       )}
       role="menubar"
@@ -72,19 +70,22 @@ const MenubarTrigger = React.forwardRef<HTMLButtonElement, MenubarTriggerProps>(
       ref={ref}
       className={cn(
         "relative flex cursor-default select-none items-center rounded-md px-3 py-1.5 text-sm font-medium outline-none",
-        "text-surface-300 transition-all duration-150",
-        // Hover state with 3D effect
-        "hover:bg-surface-700/80 hover:text-surface-100",
-        "hover:shadow-[0_2px_0_0_rgba(0,0,0,0.1)]",
-        "hover:-translate-y-0.5",
+        "text-primary-500 font-mono transition-all duration-150",
+        "border border-transparent",
+        // Cyberpunk hover state
+        "hover:bg-primary-500/10 hover:text-primary-500",
+        "hover:shadow-cyber-border-lg hover:border-cyber",
+        "hover:drop-shadow-[0_0_8px_rgba(64,244,255,0.4)]",
         // Focus state
-        "focus:bg-surface-700 focus:text-surface-100",
-        "focus:shadow-[0_2px_0_0_rgba(0,0,0,0.1)]",
+        "focus:bg-primary-500/10 focus:text-primary-500",
+        "focus:shadow-cyber-border-lg focus:border-cyber",
+        "focus:drop-shadow-[0_0_8px_rgba(64,244,255,0.4)]",
         // Open state
-        "data-[state=open]:bg-surface-700 data-[state=open]:text-surface-100",
-        "data-[state=open]:shadow-[0_2px_0_0_rgba(0,0,0,0.1)]",
+        "data-[state=open]:bg-primary-500/20 data-[state=open]:text-primary-500",
+        "data-[state=open]:shadow-cyber-primary data-[state=open]:border-primary-500",
+        "data-[state=open]:drop-shadow-[0_0_12px_rgba(64,244,255,0.8)]",
         // Active state
-        "active:translate-y-0 active:shadow-none",
+        "active:bg-primary-500/20 active:border-primary-500",
         className
       )}
       {...props}

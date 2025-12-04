@@ -1,5 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./Card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "./Card";
 import { Button } from "../Button";
 import { Badge } from "../Badge";
 
@@ -28,8 +35,12 @@ export const Default: Story = {
         </p>
       </CardContent>
       <CardFooter className="justify-end gap-2">
-        <Button variant="ghost" size="sm">Cancel</Button>
-        <Button variant="primary" size="sm">Save</Button>
+        <Button variant="ghost" size="sm">
+          Cancel
+        </Button>
+        <Button variant="primary" size="sm">
+          Save
+        </Button>
       </CardFooter>
     </Card>
   ),
@@ -118,26 +129,46 @@ export const Paddings: Story = {
 
 export const ProductCard: Story = {
   render: () => (
-    <Card className="w-[300px]" padding="none">
-      <div className="h-40 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-t-2xl" />
+    <Card className="w-[300px] overflow-hidden" padding="none">
+      {/* Image section with border - ensures border continuity */}
+      <div className="relative h-40 bg-gradient-to-br from-primary-500/20 to-secondary-500/20 border-b border-primary-500/30">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-secondary-500/10" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-4xl font-mono text-primary-500/50">[IMG]</div>
+        </div>
+      </div>
+
+      {/* Content section with proper borders - no gaps */}
       <div className="p-5">
         <div className="flex items-start justify-between mb-2">
-          <CardTitle>Premium Plan</CardTitle>
+          <CardTitle className="text-primary-500">Premium Plan</CardTitle>
           <Badge variant="accent">Popular</Badge>
         </div>
         <CardDescription>Everything you need to grow</CardDescription>
-        <CardContent>
-          <div className="text-3xl font-bold text-surface-100">
-            $29<span className="text-sm font-normal text-surface-400">/mo</span>
+        <CardContent className="pt-4 border-t border-primary-500/20 mt-4">
+          <div className="text-3xl font-bold font-mono text-primary-500">
+            $29
+            <span className="text-sm font-normal text-primary-500/60">/mo</span>
           </div>
-          <ul className="mt-4 space-y-2 text-sm text-surface-300">
-            <li>✓ Unlimited projects</li>
-            <li>✓ Priority support</li>
-            <li>✓ Advanced analytics</li>
+          <ul className="mt-4 space-y-2 text-sm text-primary-500/80 font-mono">
+            <li className="flex items-center gap-2">
+              <span className="text-accent-500">✓</span>
+              <span>Unlimited projects</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-accent-500">✓</span>
+              <span>Priority support</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-accent-500">✓</span>
+              <span>Advanced analytics</span>
+            </li>
           </ul>
         </CardContent>
-        <CardFooter>
-          <Button variant="primary" className="w-full">Get Started</Button>
+        <CardFooter className="pt-4 border-t border-primary-500/20 mt-4">
+          <Button variant="primary" className="w-full">
+            Get Started
+          </Button>
         </CardFooter>
       </div>
     </Card>
@@ -153,7 +184,9 @@ export const StatsCard: Story = {
           <CardTitle className="text-2xl">$45,231.89</CardTitle>
         </CardHeader>
         <CardContent>
-          <Badge variant="success" size="sm">+20.1%</Badge>
+          <Badge variant="success" size="sm">
+            +20.1%
+          </Badge>
           <span className="text-xs text-surface-400 ml-2">from last month</span>
         </CardContent>
       </Card>
@@ -163,7 +196,9 @@ export const StatsCard: Story = {
           <CardTitle className="text-2xl">2,350</CardTitle>
         </CardHeader>
         <CardContent>
-          <Badge variant="success" size="sm">+180</Badge>
+          <Badge variant="success" size="sm">
+            +180
+          </Badge>
           <span className="text-xs text-surface-400 ml-2">new this week</span>
         </CardContent>
       </Card>
@@ -173,7 +208,9 @@ export const StatsCard: Story = {
           <CardTitle className="text-2xl">12.5%</CardTitle>
         </CardHeader>
         <CardContent>
-          <Badge variant="warning" size="sm">-2.3%</Badge>
+          <Badge variant="warning" size="sm">
+            -2.3%
+          </Badge>
           <span className="text-xs text-surface-400 ml-2">from last week</span>
         </CardContent>
       </Card>
@@ -193,14 +230,16 @@ export const GlassCard: Story = {
         </CardHeader>
         <CardContent>
           <p className="text-white/80">
-            This card uses backdrop blur and subtle borders to create a glass effect.
+            This card uses backdrop blur and subtle borders to create a glass
+            effect.
           </p>
         </CardContent>
         <CardFooter className="gap-2">
-          <Button variant="glass" size="sm">Learn More</Button>
+          <Button variant="glass" size="sm">
+            Learn More
+          </Button>
         </CardFooter>
       </Card>
     </div>
   ),
 };
-

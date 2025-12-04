@@ -12,9 +12,10 @@ import { ChartTooltip } from "./ChartTooltip";
 const pieChartVariants = cva(
   [
     "relative w-full",
-    "bg-surface-800 rounded-2xl border border-surface-700",
-    "shadow-[0_4px_0_0_rgba(0,0,0,0.15),0_8px_16px_-4px_rgba(0,0,0,0.2)]",
+    "bg-black/80 rounded-2xl border-2 border-cyber",
+    "shadow-cyber-border",
     "p-6",
+    "before:absolute before:inset-0 before:rounded-2xl before:bg-[linear-gradient(135deg,transparent_30%,var(--cyber-glow-primary)_50%,transparent_70%)] before:opacity-10 before:pointer-events-none",
   ],
   {
     variants: {
@@ -71,8 +72,8 @@ export interface PieChartProps
 
 const colorGradients = {
   primary: {
-    from: "rgb(59, 130, 246)",
-    to: "rgb(37, 99, 235)",
+    from: "rgb(64, 244, 255)",
+    to: "rgb(40, 200, 220)",
   },
   secondary: {
     from: "rgb(168, 85, 247)",
@@ -212,12 +213,12 @@ export const PieChart = React.forwardRef<HTMLDivElement, PieChartProps>(
         {(title || description) && (
           <div className="mb-6">
             {title && (
-              <h3 className="text-lg font-semibold text-surface-100 mb-1">
+              <h3 className="text-lg font-semibold text-primary-500 font-mono mb-1">
                 {title}
               </h3>
             )}
             {description && (
-              <p className="text-sm text-surface-400">{description}</p>
+              <p className="text-sm text-primary-500/70 font-mono">{description}</p>
             )}
           </div>
         )}
@@ -230,19 +231,45 @@ export const PieChart = React.forwardRef<HTMLDivElement, PieChartProps>(
                   const color = item.color || "primary";
                   const gradient = colorGradients[color];
                   return (
-                    <linearGradient
-                      key={`gradient-${index}`}
-                      id={`gradient-${index}`}
-                      x1="0%"
-                      y1="0%"
-                      x2="100%"
-                      y2="100%"
-                    >
-                      <stop offset="0%" stopColor={gradient.from} />
-                      <stop offset="100%" stopColor={gradient.to} />
-                    </linearGradient>
+                    <React.Fragment key={`defs-${index}`}>
+                      <linearGradient
+                        id={`gradient-${index}`}
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                      >
+                        <stop offset="0%" stopColor={gradient.from} stopOpacity="1" />
+                        <stop offset="50%" stopColor={gradient.from} stopOpacity="0.9" />
+                        <stop offset="100%" stopColor={gradient.to} stopOpacity="0.8" />
+                      </linearGradient>
+                      {/* Glow filter for slices */}
+                      <filter id={`glow-${index}`} x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                        <feMerge>
+                          <feMergeNode in="coloredBlur"/>
+                          <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                      </filter>
+                      {/* Strong glow for hover */}
+                      <filter id={`glow-hover-${index}`} x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                        <feMerge>
+                          <feMergeNode in="coloredBlur"/>
+                          <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                      </filter>
+                    </React.Fragment>
                   );
                 })}
+                {/* Inner glow for donut chart */}
+                {innerR > 0 && (
+                  <radialGradient id="inner-glow" cx="50%" cy="50%">
+                    <stop offset="0%" stopColor="rgba(64, 244, 255, 0.15)" />
+                    <stop offset="50%" stopColor="rgba(64, 244, 255, 0.05)" />
+                    <stop offset="100%" stopColor="rgba(64, 244, 255, 0)" />
+                  </radialGradient>
+                )}
               </defs>
 
               {data.map((item, index) => {
@@ -260,26 +287,39 @@ export const PieChart = React.forwardRef<HTMLDivElement, PieChartProps>(
 
                 currentAngle = endAngle;
 
+                const color = item.color || "primary";
+                const gradient = colorGradients[color];
+                const isPrimary = color === "primary";
+                
                 return (
                   <g key={`slice-${index}`}>
-                    {/* Shadow */}
+                    {/* Deep shadow with glow */}
                     <path
                       d={arcPath}
-                      fill="rgba(0,0,0,0.3)"
-                      transform="translate(4, 4)"
+                      fill="rgba(0,0,0,0.4)"
+                      transform="translate(2, 2)"
                       className="pointer-events-none"
+                      style={{
+                        filter: `drop-shadow(0 0 4px ${gradient.from})`,
+                      }}
                     />
-                    {/* Slice */}
+                    {/* Slice with neon border and glow */}
                     <path
                       d={arcPath}
                       fill={`url(#gradient-${index})`}
-                      stroke="rgba(0,0,0,0.2)"
-                      strokeWidth="2"
-                      className="cursor-pointer transition-all hover:opacity-90"
+                      stroke={gradient.from}
+                      strokeWidth={isPrimary ? "2.5" : "2"}
+                      strokeOpacity="0.7"
+                      className="cursor-pointer transition-all"
                       style={{
-                        filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.3))",
+                        filter: `url(#glow-${index}) drop-shadow(0 0 6px ${gradient.from})`,
                       }}
                       onMouseEnter={(e) => {
+                        // Enhance glow on hover
+                        e.currentTarget.style.filter = `url(#glow-hover-${index}) drop-shadow(0 0 12px ${gradient.from})`;
+                        e.currentTarget.style.strokeWidth = isPrimary ? "4" : "3";
+                        e.currentTarget.style.strokeOpacity = "1";
+                        
                         // Cancel any pending hide timeout
                         if (tooltipTimeoutRef.current) {
                           clearTimeout(tooltipTimeoutRef.current);
@@ -305,11 +345,11 @@ export const PieChart = React.forwardRef<HTMLDivElement, PieChartProps>(
                           renderTooltip(item)
                         ) : (
                           <div className="text-sm">
-                            <div className="font-semibold">{item.label}</div>
-                            <div className="text-surface-300">
+                            <div className="font-semibold font-mono">{item.label}</div>
+                            <div className="text-primary-500/70 font-mono">
                               Value: {item.value}
                             </div>
-                            <div className="text-surface-400 text-xs">
+                            <div className="text-primary-500/50 text-xs font-mono">
                               {((item.value / total) * 100).toFixed(1)}%
                             </div>
                           </div>
@@ -320,24 +360,63 @@ export const PieChart = React.forwardRef<HTMLDivElement, PieChartProps>(
                           y: tooltipY,
                         });
                       }}
-                      onMouseLeave={() => setTooltip(null)}
+                      onMouseLeave={(e) => {
+                        // Reset glow
+                        e.currentTarget.style.filter = `url(#glow-${index}) drop-shadow(0 0 6px ${gradient.from})`;
+                        e.currentTarget.style.strokeWidth = isPrimary ? "2.5" : "2";
+                        e.currentTarget.style.strokeOpacity = "0.7";
+                        setTooltip(null);
+                      }}
                     />
-                    {/* Label */}
+                    {/* Label with cyberpunk glow and background */}
                     {showLabels && (
-                      <text
-                        x={labelX}
-                        y={labelY}
-                        textAnchor="middle"
-                        dominantBaseline="middle"
-                        className="text-sm font-semibold fill-white pointer-events-none"
-                        style={{ textShadow: "0 1px 2px rgba(0,0,0,0.5)" }}
-                      >
-                        {Math.round((item.value / total) * 100)}%
-                      </text>
+                      <g>
+                        {/* Background circle/rect for label */}
+                        <rect
+                          x={labelX - 20}
+                          y={labelY - 10}
+                          width="40"
+                          height="20"
+                          rx="4"
+                          fill="rgba(0, 0, 0, 0.6)"
+                          stroke={gradient.from}
+                          strokeWidth="1"
+                          strokeOpacity="0.3"
+                          className="pointer-events-none"
+                          style={{
+                            filter: `drop-shadow(0 0 4px ${gradient.from})`,
+                          }}
+                        />
+                        {/* Label text */}
+                        <text
+                          x={labelX}
+                          y={labelY}
+                          textAnchor="middle"
+                          dominantBaseline="middle"
+                          className="text-sm font-semibold font-mono pointer-events-none"
+                          fill={gradient.from}
+                          style={{ 
+                            textShadow: `0 0 3px ${gradient.from}, 0 1px 2px rgba(0,0,0,0.9)`,
+                            filter: `drop-shadow(0 0 2px ${gradient.from})`,
+                          }}
+                        >
+                          {Math.round((item.value / total) * 100)}%
+                        </text>
+                      </g>
                     )}
                   </g>
                 );
               })}
+              {/* Inner glow circle for donut chart */}
+              {innerR > 0 && (
+                <circle
+                  cx={centerX}
+                  cy={centerY}
+                  r={innerR}
+                  fill="url(#inner-glow)"
+                  className="pointer-events-none"
+                />
+              )}
             </svg>
             {/* Tooltip */}
             {tooltip && (
@@ -364,19 +443,20 @@ export const PieChart = React.forwardRef<HTMLDivElement, PieChartProps>(
                     className="flex items-center gap-3"
                   >
                     <div
-                      className="w-4 h-4 rounded"
+                      className="w-4 h-4 rounded border-2"
                       style={{
                         background: `linear-gradient(135deg, ${
                           colorGradients[item.color || "primary"].from
                         }, ${colorGradients[item.color || "primary"].to})`,
-                        boxShadow: "0 2px 0 0 rgba(0,0,0,0.2)",
+                        borderColor: colorGradients[item.color || "primary"].from,
+                        boxShadow: `0 0 4px ${colorGradients[item.color || "primary"].from}, 0 1px 2px rgba(0,0,0,0.5)`,
                       }}
                     />
                     <div className="flex-1">
-                      <div className="text-sm font-medium text-surface-200">
+                      <div className="text-sm font-medium text-primary-500 font-mono">
                         {item.label}
                       </div>
-                      <div className="text-xs text-surface-400">
+                      <div className="text-xs text-primary-500/70 font-mono">
                         {item.value} ({percentage}%)
                       </div>
                     </div>

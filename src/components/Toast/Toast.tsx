@@ -172,20 +172,20 @@ const ToastViewport: React.FC = () => {
 const toastVariants = cva(
   [
     "relative w-full p-4 rounded-lg pointer-events-auto",
-    "border",
-    // 3D effect
-    "shadow-[0_8px_16px_rgba(0,0,0,0.3),0_4px_0_0_rgba(0,0,0,0.2)]",
-    // Transition for smooth animations
+    "border-2",
+    "shadow-cyber-border-lg",
+    "backdrop-blur-md",
     "transition-all duration-300 ease-out",
+    "before:absolute before:inset-0 before:rounded-lg before:bg-[linear-gradient(135deg,transparent_30%,var(--cyber-glow-primary)_50%,transparent_70%)] before:opacity-15 before:pointer-events-none",
   ],
   {
     variants: {
       type: {
-        default: "bg-surface-800 border-surface-600 text-surface-100",
-        success: "bg-green-900/90 border-green-700 text-green-100",
-        error: "bg-red-900/90 border-red-700 text-red-100",
-        warning: "bg-yellow-900/90 border-yellow-700 text-yellow-100",
-        info: "bg-blue-900/90 border-blue-700 text-blue-100",
+        default: "bg-black/90 border-cyber text-primary-500 font-mono",
+        success: "bg-black/90 border-emerald-500 text-emerald-500 font-mono",
+        error: "bg-black/90 border-red-500 text-red-500 font-mono",
+        warning: "bg-black/90 border-amber-500 text-amber-500 font-mono",
+        info: "bg-black/90 border-primary-500 text-primary-500 font-mono",
       },
     },
     defaultVariants: {
@@ -197,22 +197,22 @@ const toastVariants = cva(
 const iconsByType: Record<ToastType, React.ReactNode> = {
   default: null,
   success: (
-    <svg className="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <svg className="w-5 h-5 text-emerald-500 drop-shadow-[0_0_8px_rgba(16,185,129,0.8)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
   ),
   error: (
-    <svg className="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <svg className="w-5 h-5 text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
   ),
   warning: (
-    <svg className="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <svg className="w-5 h-5 text-amber-500 drop-shadow-[0_0_8px_rgba(245,158,11,0.8)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
     </svg>
   ),
   info: (
-    <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <svg className="w-5 h-5 text-primary-500 drop-shadow-[0_0_8px_rgba(64,244,255,0.8)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
   ),
@@ -246,11 +246,11 @@ const ToastItem: React.FC<ToastItemProps> = ({ toast }) => {
         {/* Content */}
         <div className="flex-1 min-w-0">
           {toast.title && (
-            <p className="font-medium text-sm">{toast.title}</p>
+            <p className="font-medium text-sm font-mono">{toast.title}</p>
           )}
           {toast.description && (
             <p className={cn(
-              "text-sm opacity-90",
+              "text-sm opacity-90 font-mono",
               toast.title && "mt-1"
             )}>
               {toast.description}
@@ -262,7 +262,7 @@ const ToastItem: React.FC<ToastItemProps> = ({ toast }) => {
                 toast.action?.onClick();
                 removeToast(toast.id);
               }}
-              className="mt-2 text-sm font-medium underline underline-offset-2 hover:no-underline"
+              className="mt-2 text-sm font-medium font-mono underline underline-offset-2 hover:no-underline hover:drop-shadow-[0_0_8px_rgba(64,244,255,0.6)] transition-all"
             >
               {toast.action.label}
             </button>
@@ -272,9 +272,9 @@ const ToastItem: React.FC<ToastItemProps> = ({ toast }) => {
         {/* Close button */}
         <button
           onClick={() => removeToast(toast.id)}
-          className="flex-shrink-0 p-1 rounded hover:bg-white/10 transition-colors"
+          className="flex-shrink-0 p-1 rounded hover:bg-primary-500/10 transition-colors"
         >
-          <svg className="w-4 h-4 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-4 h-4 opacity-70 text-primary-500/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>

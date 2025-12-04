@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Label, SimpleLabel } from "./Label";
+import { TextField, TextArea } from "../TextField";
 
 const meta: Meta<typeof Label> = {
   title: "Components/Label",
@@ -92,11 +93,11 @@ export const WithFormField: Story = {
         <Label htmlFor="name" required>
           Full Name
         </Label>
-        <input
+        <TextField
           id="name"
           type="text"
           placeholder="John Doe"
-          className="w-full px-3 py-2 rounded-lg bg-surface-800 border border-surface-600 text-surface-200 placeholder:text-surface-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+          fullWidth
         />
       </div>
       
@@ -104,11 +105,11 @@ export const WithFormField: Story = {
         <Label htmlFor="email" required description="We'll never share your email">
           Email Address
         </Label>
-        <input
+        <TextField
           id="email"
           type="email"
           placeholder="john@example.com"
-          className="w-full px-3 py-2 rounded-lg bg-surface-800 border border-surface-600 text-surface-200 placeholder:text-surface-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+          fullWidth
         />
       </div>
 
@@ -116,11 +117,11 @@ export const WithFormField: Story = {
         <Label htmlFor="bio">
           Bio
         </Label>
-        <textarea
+        <TextArea
           id="bio"
           placeholder="Tell us about yourself"
           rows={3}
-          className="w-full px-3 py-2 rounded-lg bg-surface-800 border border-surface-600 text-surface-200 placeholder:text-surface-500 focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none"
+          fullWidth
         />
       </div>
 
@@ -128,10 +129,10 @@ export const WithFormField: Story = {
         <Label htmlFor="password" error="Password is too weak">
           Password
         </Label>
-        <input
+        <TextField
           id="password"
           type="password"
-          className="w-full px-3 py-2 rounded-lg bg-surface-800 border border-red-500 text-surface-200 focus:outline-none focus:ring-2 focus:ring-red-500"
+          fullWidth
         />
       </div>
     </div>

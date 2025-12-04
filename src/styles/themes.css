@@ -14,316 +14,316 @@
  */
 
 /* ============================================
-   BASE THEME VARIABLES (Dark - Default)
+   BASE THEME VARIABLES (Cyberpunk Dark - Default)
    ============================================ */
 :root,
 [data-theme="dark"],
 .theme-dark {
-  /* Primary - Blue */
-  --color-primary-50: #e6f4ff;
-  --color-primary-100: #b3ddff;
-  --color-primary-200: #80c6ff;
-  --color-primary-300: #4dafff;
-  --color-primary-400: #33a6ff;
-  --color-primary-500: #1a9dff;
-  --color-primary-600: #147fe1;
-  --color-primary-700: #0f61b3;
-  --color-primary-800: #0a4385;
-  --color-primary-900: #052557;
-  --color-primary-950: #021229;
+  /* Primary - Cyber Cyan #40F4FF */
+  --color-primary-50: #e0f9ff;
+  --color-primary-100: #b3f0ff;
+  --color-primary-200: #80e6ff;
+  --color-primary-300: #4ddcff;
+  --color-primary-400: #40f4ff;
+  --color-primary-500: #40f4ff;
+  --color-primary-600: #36d9e6;
+  --color-primary-700: #2cbecc;
+  --color-primary-800: #22a3b3;
+  --color-primary-900: #188899;
+  --color-primary-950: #0e6d66;
 
-  /* Secondary - Purple */
-  --color-secondary-50: #faf5ff;
-  --color-secondary-100: #f3e8ff;
-  --color-secondary-200: #e9d5ff;
-  --color-secondary-300: #d8b4fe;
-  --color-secondary-400: #c084fc;
-  --color-secondary-500: #a855f7;
-  --color-secondary-600: #9333ea;
-  --color-secondary-700: #7e22ce;
-  --color-secondary-800: #6b21a8;
-  --color-secondary-900: #581c87;
-  --color-secondary-950: #3b0764;
+  /* Secondary - Electric Magenta */
+  --color-secondary-50: #fff0ff;
+  --color-secondary-100: #ffe0ff;
+  --color-secondary-200: #ffc0ff;
+  --color-secondary-300: #ff80ff;
+  --color-secondary-400: #ff40ff;
+  --color-secondary-500: #ff00ff;
+  --color-secondary-600: #e600e6;
+  --color-secondary-700: #cc00cc;
+  --color-secondary-800: #b300b3;
+  --color-secondary-900: #990099;
+  --color-secondary-950: #660066;
 
-  /* Accent - Green */
-  --color-accent-50: #ecfdf5;
-  --color-accent-100: #d1fae5;
-  --color-accent-200: #a7f3d0;
-  --color-accent-300: #6ee7b7;
-  --color-accent-400: #34d399;
-  --color-accent-500: #10b981;
-  --color-accent-600: #059669;
-  --color-accent-700: #047857;
-  --color-accent-800: #065f46;
-  --color-accent-900: #064e3b;
-  --color-accent-950: #022c22;
+  /* Accent - Cyber Lime */
+  --color-accent-50: #f0fff0;
+  --color-accent-100: #d0ffd0;
+  --color-accent-200: #a0ffa0;
+  --color-accent-300: #70ff70;
+  --color-accent-400: #40ff40;
+  --color-accent-500: #00ff00;
+  --color-accent-600: #00e600;
+  --color-accent-700: #00cc00;
+  --color-accent-800: #00b300;
+  --color-accent-900: #009900;
+  --color-accent-950: #006600;
 
-  /* Surface - Dark grays */
-  --color-surface-50: #fafafa;
-  --color-surface-100: #f4f4f5;
-  --color-surface-200: #e4e4e7;
-  --color-surface-300: #d4d4d8;
-  --color-surface-400: #a1a1aa;
-  --color-surface-500: #71717a;
-  --color-surface-600: #52525b;
-  --color-surface-700: #3f3f46;
-  --color-surface-800: #27272a;
-  --color-surface-900: #18181b;
-  --color-surface-950: #09090b;
+  /* Surface - Deep Cyberpunk Dark */
+  --color-surface-50: #1a1a2e;
+  --color-surface-100: #16213e;
+  --color-surface-200: #0f1419;
+  --color-surface-300: #0a0e14;
+  --color-surface-400: #05080a;
+  --color-surface-500: #030506;
+  --color-surface-600: #020304;
+  --color-surface-700: #010203;
+  --color-surface-800: #000102;
+  --color-surface-900: #000001;
+  --color-surface-950: #000000;
 
   /* Semantic */
-  --color-background: #09090b;
-  --color-foreground: #fafafa;
-  --color-muted: #27272a;
-  --color-muted-foreground: #a1a1aa;
-  --color-border: #27272a;
-  --color-ring: #1a9dff;
+  --color-background: #000000;
+  --color-foreground: #40f4ff;
+  --color-muted: #0a0e14;
+  --color-muted-foreground: #40f4ff;
+  --color-border: #40f4ff;
+  --color-ring: #40f4ff;
 
   color-scheme: dark;
 }
 
 /* ============================================
-   LIGHT THEME
+   LIGHT THEME (Cyberpunk Light)
    ============================================ */
 [data-theme="light"],
 .theme-light {
-  /* Primary - Same blue */
-  --color-primary-50: #e6f4ff;
-  --color-primary-100: #b3ddff;
-  --color-primary-200: #80c6ff;
-  --color-primary-300: #4dafff;
-  --color-primary-400: #33a6ff;
-  --color-primary-500: #1a9dff;
-  --color-primary-600: #147fe1;
-  --color-primary-700: #0f61b3;
-  --color-primary-800: #0a4385;
-  --color-primary-900: #052557;
-  --color-primary-950: #021229;
+  /* Primary - Neon Cyan */
+  --color-primary-50: #e0f7ff;
+  --color-primary-100: #b3ebff;
+  --color-primary-200: #80ddff;
+  --color-primary-300: #4dcfff;
+  --color-primary-400: #1ac4ff;
+  --color-primary-500: #00b8ff;
+  --color-primary-600: #00a0e6;
+  --color-primary-700: #0088cc;
+  --color-primary-800: #0070b3;
+  --color-primary-900: #005899;
+  --color-primary-950: #003d66;
 
-  /* Surface - Inverted for light mode */
-  --color-surface-50: #09090b;
-  --color-surface-100: #18181b;
-  --color-surface-200: #27272a;
-  --color-surface-300: #3f3f46;
-  --color-surface-400: #52525b;
-  --color-surface-500: #71717a;
-  --color-surface-600: #a1a1aa;
-  --color-surface-700: #d4d4d8;
-  --color-surface-800: #e4e4e7;
-  --color-surface-900: #f4f4f5;
-  --color-surface-950: #fafafa;
+  /* Surface - Dark cyberpunk for light mode (still dark) */
+  --color-surface-50: #1a1a2e;
+  --color-surface-100: #16213e;
+  --color-surface-200: #0f1419;
+  --color-surface-300: #0a0e14;
+  --color-surface-400: #05080a;
+  --color-surface-500: #030506;
+  --color-surface-600: #020304;
+  --color-surface-700: #010203;
+  --color-surface-800: #000102;
+  --color-surface-900: #000001;
+  --color-surface-950: #000000;
 
-  /* Semantic - Light mode */
-  --color-background: #ffffff;
-  --color-foreground: #09090b;
-  --color-muted: #f4f4f5;
-  --color-muted-foreground: #71717a;
-  --color-border: #e4e4e7;
-  --color-ring: #1a9dff;
+  /* Semantic - Light mode (but still dark for cyberpunk) */
+  --color-background: #0a0e14;
+  --color-foreground: #00ffff;
+  --color-muted: #1a1a2e;
+  --color-muted-foreground: #00b8ff;
+  --color-border: #00ffff;
+  --color-ring: #00ffff;
 
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 /* ============================================
-   OCEAN THEME
+   OCEAN THEME (Cyberpunk Ocean)
    ============================================ */
 [data-theme="ocean"],
 .theme-ocean {
-  /* Primary - Cyan */
-  --color-primary-50: #e0f7fa;
-  --color-primary-100: #b2ebf2;
-  --color-primary-200: #80deea;
-  --color-primary-300: #4dd0e1;
-  --color-primary-400: #26c6da;
-  --color-primary-500: #00bcd4;
-  --color-primary-600: #00acc1;
-  --color-primary-700: #0097a7;
-  --color-primary-800: #00838f;
-  --color-primary-900: #006064;
-  --color-primary-950: #004d40;
+  /* Primary - Deep Cyan */
+  --color-primary-50: #e0f7ff;
+  --color-primary-100: #b3ebff;
+  --color-primary-200: #80ddff;
+  --color-primary-300: #4dcfff;
+  --color-primary-400: #1ac4ff;
+  --color-primary-500: #00b8ff;
+  --color-primary-600: #00a0e6;
+  --color-primary-700: #0088cc;
+  --color-primary-800: #0070b3;
+  --color-primary-900: #005899;
+  --color-primary-950: #003d66;
 
-  /* Secondary - Green */
-  --color-secondary-50: #e8f5e9;
-  --color-secondary-100: #c8e6c9;
-  --color-secondary-200: #a5d6a7;
-  --color-secondary-300: #81c784;
-  --color-secondary-400: #66bb6a;
-  --color-secondary-500: #4caf50;
-  --color-secondary-600: #43a047;
-  --color-secondary-700: #388e3c;
-  --color-secondary-800: #2e7d32;
-  --color-secondary-900: #1b5e20;
-  --color-secondary-950: #0d3d12;
+  /* Secondary - Electric Blue */
+  --color-secondary-50: #e0f0ff;
+  --color-secondary-100: #b3d9ff;
+  --color-secondary-200: #80c0ff;
+  --color-secondary-300: #4da7ff;
+  --color-secondary-400: #1a8eff;
+  --color-secondary-500: #0075ff;
+  --color-secondary-600: #0066e6;
+  --color-secondary-700: #0057cc;
+  --color-secondary-800: #0048b3;
+  --color-secondary-900: #003999;
+  --color-secondary-950: #002666;
 
-  /* Accent - Yellow */
-  --color-accent-50: #fff8e1;
-  --color-accent-100: #ffecb3;
-  --color-accent-200: #ffe082;
-  --color-accent-300: #ffd54f;
-  --color-accent-400: #ffca28;
-  --color-accent-500: #ffc107;
-  --color-accent-600: #ffb300;
-  --color-accent-700: #ffa000;
-  --color-accent-800: #ff8f00;
-  --color-accent-900: #ff6f00;
-  --color-accent-950: #e65100;
+  /* Accent - Neon Aqua */
+  --color-accent-50: #e0fff7;
+  --color-accent-100: #b3ffeb;
+  --color-accent-200: #80ffdd;
+  --color-accent-300: #4dffcf;
+  --color-accent-400: #1affc1;
+  --color-accent-500: #00ffb3;
+  --color-accent-600: #00e699;
+  --color-accent-700: #00cc80;
+  --color-accent-800: #00b366;
+  --color-accent-900: #00994d;
+  --color-accent-950: #006633;
 
-  /* Surface - Blue-gray */
-  --color-surface-50: #eceff1;
-  --color-surface-100: #cfd8dc;
-  --color-surface-200: #b0bec5;
-  --color-surface-300: #90a4ae;
-  --color-surface-400: #78909c;
-  --color-surface-500: #607d8b;
-  --color-surface-600: #546e7a;
-  --color-surface-700: #455a64;
-  --color-surface-800: #37474f;
-  --color-surface-900: #263238;
-  --color-surface-950: #1a252a;
+  /* Surface - Deep Ocean Dark */
+  --color-surface-50: #0a1a2e;
+  --color-surface-100: #081620;
+  --color-surface-200: #061218;
+  --color-surface-300: #040e14;
+  --color-surface-400: #020a0f;
+  --color-surface-500: #010608;
+  --color-surface-600: #010405;
+  --color-surface-700: #000304;
+  --color-surface-800: #000203;
+  --color-surface-900: #000102;
+  --color-surface-950: #000000;
 
   /* Semantic */
-  --color-background: #0d1b2a;
-  --color-foreground: #e0f7fa;
-  --color-muted: #1b3a4b;
-  --color-muted-foreground: #90a4ae;
-  --color-border: #1b3a4b;
-  --color-ring: #00bcd4;
+  --color-background: #000000;
+  --color-foreground: #00b8ff;
+  --color-muted: #0a1a2e;
+  --color-muted-foreground: #00b8ff;
+  --color-border: #00b8ff;
+  --color-ring: #00b8ff;
 
   color-scheme: dark;
 }
 
 /* ============================================
-   SUNSET THEME
+   SUNSET THEME (Cyberpunk Neon Orange)
    ============================================ */
 [data-theme="sunset"],
 .theme-sunset {
-  /* Primary - Orange */
-  --color-primary-50: #fff3e0;
-  --color-primary-100: #ffe0b2;
+  /* Primary - Neon Orange */
+  --color-primary-50: #fff4e0;
+  --color-primary-100: #ffe0b3;
   --color-primary-200: #ffcc80;
-  --color-primary-300: #ffb74d;
-  --color-primary-400: #ffa726;
-  --color-primary-500: #ff9800;
-  --color-primary-600: #fb8c00;
-  --color-primary-700: #f57c00;
-  --color-primary-800: #ef6c00;
-  --color-primary-900: #e65100;
-  --color-primary-950: #bf360c;
+  --color-primary-300: #ffb84d;
+  --color-primary-400: #ffa41a;
+  --color-primary-500: #ff9000;
+  --color-primary-600: #e68000;
+  --color-primary-700: #cc7000;
+  --color-primary-800: #b36000;
+  --color-primary-900: #995000;
+  --color-primary-950: #663300;
 
-  /* Secondary - Pink */
-  --color-secondary-50: #fce4ec;
-  --color-secondary-100: #f8bbd9;
-  --color-secondary-200: #f48fb1;
-  --color-secondary-300: #f06292;
-  --color-secondary-400: #ec407a;
-  --color-secondary-500: #e91e63;
-  --color-secondary-600: #d81b60;
-  --color-secondary-700: #c2185b;
-  --color-secondary-800: #ad1457;
-  --color-secondary-900: #880e4f;
-  --color-secondary-950: #560027;
+  /* Secondary - Hot Pink */
+  --color-secondary-50: #ffe0f0;
+  --color-secondary-100: #ffb3d9;
+  --color-secondary-200: #ff80c2;
+  --color-secondary-300: #ff4dab;
+  --color-secondary-400: #ff1a94;
+  --color-secondary-500: #ff007d;
+  --color-secondary-600: #e60070;
+  --color-secondary-700: #cc0063;
+  --color-secondary-800: #b30056;
+  --color-secondary-900: #990049;
+  --color-secondary-950: #660030;
 
-  /* Accent - Purple */
-  --color-accent-50: #f3e5f5;
-  --color-accent-100: #e1bee7;
-  --color-accent-200: #ce93d8;
-  --color-accent-300: #ba68c8;
-  --color-accent-400: #ab47bc;
-  --color-accent-500: #9c27b0;
-  --color-accent-600: #8e24aa;
-  --color-accent-700: #7b1fa2;
-  --color-accent-800: #6a1b9a;
-  --color-accent-900: #4a148c;
-  --color-accent-950: #2a0a52;
+  /* Accent - Electric Yellow */
+  --color-accent-50: #fffce0;
+  --color-accent-100: #fff8b3;
+  --color-accent-200: #fff480;
+  --color-accent-300: #fff04d;
+  --color-accent-400: #ffec1a;
+  --color-accent-500: #ffe800;
+  --color-accent-600: #e6d100;
+  --color-accent-700: #ccba00;
+  --color-accent-800: #b3a300;
+  --color-accent-900: #998c00;
+  --color-accent-950: #665c00;
 
-  /* Surface - Warm gray */
-  --color-surface-50: #fafafa;
-  --color-surface-100: #f5f5f5;
-  --color-surface-200: #eeeeee;
-  --color-surface-300: #e0e0e0;
-  --color-surface-400: #bdbdbd;
-  --color-surface-500: #9e9e9e;
-  --color-surface-600: #757575;
-  --color-surface-700: #616161;
-  --color-surface-800: #424242;
-  --color-surface-900: #212121;
-  --color-surface-950: #121212;
+  /* Surface - Deep Dark */
+  --color-surface-50: #1a0a0a;
+  --color-surface-100: #160808;
+  --color-surface-200: #120606;
+  --color-surface-300: #0e0404;
+  --color-surface-400: #0a0202;
+  --color-surface-500: #060101;
+  --color-surface-600: #040101;
+  --color-surface-700: #020000;
+  --color-surface-800: #010000;
+  --color-surface-900: #000000;
+  --color-surface-950: #000000;
 
   /* Semantic */
-  --color-background: #1a0a0a;
-  --color-foreground: #fff3e0;
-  --color-muted: #2d1810;
-  --color-muted-foreground: #bdbdbd;
-  --color-border: #3d2820;
-  --color-ring: #ff9800;
+  --color-background: #000000;
+  --color-foreground: #ff9000;
+  --color-muted: #1a0a0a;
+  --color-muted-foreground: #ff9000;
+  --color-border: #ff9000;
+  --color-ring: #ff9000;
 
   color-scheme: dark;
 }
 
 /* ============================================
-   FOREST THEME
+   FOREST THEME (Cyberpunk Neon Green)
    ============================================ */
 [data-theme="forest"],
 .theme-forest {
-  /* Primary - Green */
-  --color-primary-50: #e8f5e9;
-  --color-primary-100: #c8e6c9;
-  --color-primary-200: #a5d6a7;
-  --color-primary-300: #81c784;
-  --color-primary-400: #66bb6a;
-  --color-primary-500: #4caf50;
-  --color-primary-600: #43a047;
-  --color-primary-700: #388e3c;
-  --color-primary-800: #2e7d32;
-  --color-primary-900: #1b5e20;
-  --color-primary-950: #0d3d12;
+  /* Primary - Neon Green */
+  --color-primary-50: #e0ffe0;
+  --color-primary-100: #b3ffb3;
+  --color-primary-200: #80ff80;
+  --color-primary-300: #4dff4d;
+  --color-primary-400: #1aff1a;
+  --color-primary-500: #00ff00;
+  --color-primary-600: #00e600;
+  --color-primary-700: #00cc00;
+  --color-primary-800: #00b300;
+  --color-primary-900: #009900;
+  --color-primary-950: #006600;
 
-  /* Secondary - Yellow */
-  --color-secondary-50: #fff8e1;
-  --color-secondary-100: #ffecb3;
-  --color-secondary-200: #ffe082;
-  --color-secondary-300: #ffd54f;
-  --color-secondary-400: #ffca28;
-  --color-secondary-500: #ffc107;
-  --color-secondary-600: #ffb300;
-  --color-secondary-700: #ffa000;
-  --color-secondary-800: #ff8f00;
-  --color-secondary-900: #ff6f00;
-  --color-secondary-950: #e65100;
+  /* Secondary - Electric Lime */
+  --color-secondary-50: #f0ffe0;
+  --color-secondary-100: #d9ffb3;
+  --color-secondary-200: #c2ff80;
+  --color-secondary-300: #abff4d;
+  --color-secondary-400: #94ff1a;
+  --color-secondary-500: #7dff00;
+  --color-secondary-600: #70e600;
+  --color-secondary-700: #63cc00;
+  --color-secondary-800: #56b300;
+  --color-secondary-900: #499900;
+  --color-secondary-950: #336600;
 
-  /* Accent - Brown */
-  --color-accent-50: #efebe9;
-  --color-accent-100: #d7ccc8;
-  --color-accent-200: #bcaaa4;
-  --color-accent-300: #a1887f;
-  --color-accent-400: #8d6e63;
-  --color-accent-500: #795548;
-  --color-accent-600: #6d4c41;
-  --color-accent-700: #5d4037;
-  --color-accent-800: #4e342e;
-  --color-accent-900: #3e2723;
-  --color-accent-950: #2a1a17;
+  /* Accent - Cyber Yellow */
+  --color-accent-50: #fffce0;
+  --color-accent-100: #fff8b3;
+  --color-accent-200: #fff480;
+  --color-accent-300: #fff04d;
+  --color-accent-400: #ffec1a;
+  --color-accent-500: #ffe800;
+  --color-accent-600: #e6d100;
+  --color-accent-700: #ccba00;
+  --color-accent-800: #b3a300;
+  --color-accent-900: #998c00;
+  --color-accent-950: #665c00;
 
-  /* Surface - Blue-gray */
-  --color-surface-50: #eceff1;
-  --color-surface-100: #cfd8dc;
-  --color-surface-200: #b0bec5;
-  --color-surface-300: #90a4ae;
-  --color-surface-400: #78909c;
-  --color-surface-500: #607d8b;
-  --color-surface-600: #546e7a;
-  --color-surface-700: #455a64;
-  --color-surface-800: #37474f;
-  --color-surface-900: #263238;
-  --color-surface-950: #1a252a;
+  /* Surface - Deep Dark Green */
+  --color-surface-50: #0a150a;
+  --color-surface-100: #081208;
+  --color-surface-200: #060f06;
+  --color-surface-300: #040c04;
+  --color-surface-400: #020902;
+  --color-surface-500: #010601;
+  --color-surface-600: #010401;
+  --color-surface-700: #000300;
+  --color-surface-800: #000200;
+  --color-surface-900: #000100;
+  --color-surface-950: #000000;
 
   /* Semantic */
-  --color-background: #0a1510;
-  --color-foreground: #e8f5e9;
-  --color-muted: #1a2f20;
-  --color-muted-foreground: #90a4ae;
-  --color-border: #2a4030;
-  --color-ring: #4caf50;
+  --color-background: #000000;
+  --color-foreground: #00ff00;
+  --color-muted: #0a150a;
+  --color-muted-foreground: #00ff00;
+  --color-border: #00ff00;
+  --color-ring: #00ff00;
 
   color-scheme: dark;
 }

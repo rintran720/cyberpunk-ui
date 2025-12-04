@@ -138,7 +138,7 @@ const SheetOverlay = React.forwardRef<HTMLDivElement, SheetOverlayProps>(
       <div
         ref={ref}
         className={cn(
-          "fixed inset-0 z-50 bg-black/60 backdrop-blur-sm",
+          "fixed inset-0 z-50 bg-black/80 backdrop-blur-sm",
           "data-[state=open]:animate-[fade-in_200ms_ease-out]",
           "data-[state=closed]:animate-[fade-out_200ms_ease-in]",
           className
@@ -160,9 +160,8 @@ SheetOverlay.displayName = "SheetOverlay";
 const sheetContentVariants = cva(
   [
     "fixed z-50 flex flex-col",
-    "bg-surface-800 border-surface-700",
-    // 3D effect
-    "shadow-[0_0_50px_rgba(0,0,0,0.5)]",
+    "bg-black/90 backdrop-blur-md border-cyber",
+    "shadow-cyber-border-lg",
   ],
   {
     variants: {
@@ -246,9 +245,9 @@ const SheetContent = React.forwardRef<HTMLDivElement, SheetContentProps>(
           {...props}
         >
           {children}
-          <SheetClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-surface-900 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
+          <SheetClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-black transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
             <svg
-              className="h-5 w-5 text-surface-400"
+              className="h-5 w-5 text-primary-500/70"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -364,7 +363,7 @@ const SheetTitle = React.forwardRef<HTMLHeadingElement, SheetTitleProps>(
   ({ className, ...props }, ref) => (
     <h2
       ref={ref}
-      className={cn("text-lg font-semibold text-surface-100", className)}
+      className={cn("text-lg font-semibold text-primary-500 font-mono", className)}
       {...props}
     />
   )
@@ -385,7 +384,7 @@ const SheetDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-sm text-surface-400", className)}
+    className={cn("text-sm text-primary-500/70 font-mono", className)}
     {...props}
   />
 ));

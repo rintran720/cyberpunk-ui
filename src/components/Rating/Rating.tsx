@@ -60,7 +60,7 @@ const Rating = React.forwardRef<HTMLDivElement, RatingProps>(
       readOnly = false,
       disabled = false,
       size = "md",
-      color = "warning",
+      color = "primary",
       allowHalf = false,
       filledIcon,
       emptyIcon,
@@ -77,13 +77,22 @@ const Rating = React.forwardRef<HTMLDivElement, RatingProps>(
 
     const isInteractive = !readOnly && !disabled;
 
-    // Color classes
-    const colorClasses = {
-      primary: "text-primary-500",
-      secondary: "text-secondary-500",
-      accent: "text-accent-500",
-      warning: "text-amber-500",
-      success: "text-green-500",
+    // Color classes for filled stars
+    const filledColorClasses = {
+      primary: "text-primary-500 fill-primary-500",
+      secondary: "text-primary-500/80 fill-primary-500/80",
+      accent: "text-primary-500 fill-primary-500",
+      warning: "text-amber-500 fill-amber-500",
+      success: "text-emerald-500 fill-emerald-500",
+    };
+
+    // Glow classes for filled stars
+    const glowClasses = {
+      primary: "drop-shadow-[0_0_8px_rgba(64,244,255,0.9)]",
+      secondary: "drop-shadow-[0_0_6px_rgba(64,244,255,0.7)]",
+      accent: "drop-shadow-[0_0_8px_rgba(64,244,255,0.9)]",
+      warning: "drop-shadow-[0_0_8px_rgba(245,158,11,0.9)]",
+      success: "drop-shadow-[0_0_8px_rgba(16,185,129,0.9)]",
     };
 
     // Handle click
@@ -119,7 +128,11 @@ const Rating = React.forwardRef<HTMLDivElement, RatingProps>(
       <svg
         fill="currentColor"
         viewBox="0 0 24 24"
-        className={cn("transition-colors", colorClasses[color])}
+        className={cn(
+          "transition-all duration-200",
+          filledColorClasses[color],
+          glowClasses[color]
+        )}
       >
         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
       </svg>
@@ -130,12 +143,12 @@ const Rating = React.forwardRef<HTMLDivElement, RatingProps>(
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
-        className="text-surface-500"
+        className="text-primary-500/20 stroke-primary-500/30 transition-all duration-200"
       >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth={2}
+          strokeWidth={1.5}
           d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
         />
       </svg>
@@ -159,32 +172,46 @@ const Rating = React.forwardRef<HTMLDivElement, RatingProps>(
           const isFilled = starValue <= displayValue;
           const isHalfFilled = allowHalf && displayValue >= starValue - 0.5 && displayValue < starValue;
 
+          const isHovered = isInteractive && hoverValue !== null && starValue <= hoverValue;
+          const isActive = starValue <= displayValue;
+
           return (
             <div
               key={starValue}
               className={cn(
-                "relative inline-flex items-center",
+                "relative inline-flex items-center justify-center",
                 ratingVariants({ size }),
-                isInteractive && "hover:scale-110 transition-transform"
+                "transition-all duration-200",
+                isInteractive && [
+                  "cursor-pointer",
+                  "hover:scale-125",
+                  isHovered && !isActive && "drop-shadow-[0_0_10px_rgba(64,244,255,0.6)]",
+                ],
+                isActive && "drop-shadow-[0_0_12px_rgba(64,244,255,0.9)]"
               )}
               onClick={() => handleClick(starValue)}
               onMouseEnter={() => handleMouseEnter(starValue)}
             >
               {isFilled ? (
-                <div className="absolute inset-0 overflow-hidden">
+                <div className="w-full h-full flex items-center justify-center">
                   {filledIcon || defaultFilledIcon}
                 </div>
               ) : isHalfFilled ? (
                 <div className="relative w-full h-full">
-                  <div className="absolute inset-0 overflow-hidden" style={{ width: "50%" }}>
+                  <div className="absolute inset-0 overflow-hidden flex items-center justify-center" style={{ width: "50%" }}>
                     {filledIcon || defaultFilledIcon}
                   </div>
-                  <div className="absolute inset-0 opacity-30">
+                  <div className="w-full h-full flex items-center justify-center opacity-40">
                     {emptyIcon || defaultEmptyIcon}
                   </div>
                 </div>
               ) : (
-                emptyIcon || defaultEmptyIcon
+                <div className={cn(
+                  "w-full h-full flex items-center justify-center transition-all duration-200",
+                  isHovered && "text-primary-500/40 stroke-primary-500/50"
+                )}>
+                  {emptyIcon || defaultEmptyIcon}
+                </div>
               )}
             </div>
           );

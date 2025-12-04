@@ -98,7 +98,7 @@ const BreadcrumbLink = React.forwardRef<HTMLAnchorElement, BreadcrumbLinkProps>(
       return React.cloneElement(children as React.ReactElement<any>, {
         ref,
         className: cn(
-          "text-surface-400 hover:text-surface-100 transition-colors",
+          "text-primary-500/70 hover:text-primary-500 font-mono transition-colors",
           "underline-offset-4 hover:underline",
           className
         ),
@@ -110,8 +110,9 @@ const BreadcrumbLink = React.forwardRef<HTMLAnchorElement, BreadcrumbLinkProps>(
       <a
         ref={ref}
         className={cn(
-          "text-surface-400 hover:text-surface-100 transition-colors",
+          "text-primary-500/70 hover:text-primary-500 font-mono transition-all",
           "underline-offset-4 hover:underline",
+          "hover:drop-shadow-[0_0_8px_rgba(64,244,255,0.6)]",
           className
         )}
         {...props}
@@ -138,7 +139,11 @@ const BreadcrumbPage = React.forwardRef<HTMLSpanElement, BreadcrumbPageProps>(
       role="link"
       aria-disabled="true"
       aria-current="page"
-      className={cn("text-surface-200 font-medium", className)}
+      className={cn(
+        "text-primary-500 font-mono font-medium",
+        "drop-shadow-[0_0_8px_rgba(64,244,255,0.8)]",
+        className
+      )}
       {...props}
     />
   )
@@ -163,7 +168,7 @@ const BreadcrumbSeparator = ({
   <li
     role="presentation"
     aria-hidden="true"
-    className={cn("text-surface-600", className)}
+    className={cn("text-primary-500/50", className)}
     {...props}
   >
     {children ?? (
@@ -197,7 +202,7 @@ const BreadcrumbEllipsis = ({
     role="presentation"
     aria-hidden="true"
     className={cn(
-      "flex h-6 w-6 items-center justify-center text-surface-500",
+      "flex h-6 w-6 items-center justify-center text-primary-500/70",
       className
     )}
     {...props}
@@ -233,8 +238,10 @@ const Breadcrumb3D = React.forwardRef<HTMLElement, Breadcrumb3DProps>(
       ref={ref}
       className={cn(
         "px-4 py-2 rounded-lg",
-        "bg-surface-800 border border-surface-700",
-        "shadow-[0_2px_0_0_rgba(0,0,0,0.2),inset_0_1px_0_0_rgba(255,255,255,0.05)]",
+        "bg-black/80 border border-cyber",
+        "shadow-cyber-border-lg",
+        "relative overflow-hidden",
+        "before:absolute before:inset-0 before:bg-[linear-gradient(90deg,transparent,var(--cyber-glow-primary),transparent)] before:opacity-20 before:animate-[scan_3s_linear_infinite]",
         className
       )}
       {...props}
@@ -257,4 +264,3 @@ export {
   Breadcrumb3D,
   breadcrumbVariants,
 };
-

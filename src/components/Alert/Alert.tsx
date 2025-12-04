@@ -81,10 +81,10 @@ const ErrorIcon = ({ className }: { className?: string }) => (
 const alertVariants = cva(
   [
     "relative w-full",
-    "rounded-xl",
+    "rounded",
     "p-4",
     "transition-all duration-200",
-    // 3D effect base
+    "font-mono",
     "[&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4",
     "[&>svg~*]:pl-8",
     "[&>svg+div]:translate-y-[-3px]",
@@ -93,64 +93,46 @@ const alertVariants = cva(
     variants: {
       variant: {
         default: [
-          "bg-surface-800/90",
-          "border border-surface-700/50",
-          "text-surface-100",
-          // 3D shadow
-          "shadow-[0_4px_0_0_rgba(0,0,0,0.2),0_6px_12px_-4px_rgba(0,0,0,0.25)]",
-          // Top highlight
-          "before:absolute before:inset-x-0 before:top-0 before:h-px before:rounded-t-xl before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent",
-          "[&>svg]:text-surface-400",
+          "bg-black/80",
+          "border border-primary-500/30",
+          "text-primary-500",
+          "shadow-cyber-border",
+          "[&>svg]:text-primary-500/60",
         ],
         info: [
-          "bg-gradient-to-br from-primary-900/90 to-primary-950/90",
-          "border border-primary-700/50",
-          "text-primary-100",
-          // 3D shadow with color
-          "shadow-[0_4px_0_0_rgba(20,111,225,0.3),0_6px_12px_-4px_rgba(0,0,0,0.25)]",
-          // Top highlight
-          "before:absolute before:inset-x-0 before:top-0 before:h-px before:rounded-t-xl before:bg-gradient-to-r before:from-transparent before:via-primary-400/30 before:to-transparent",
-          "[&>svg]:text-primary-400",
+          "bg-black/80",
+          "border border-primary-500",
+          "text-primary-500",
+          "shadow-cyber-primary",
+          "[&>svg]:text-primary-500",
         ],
         success: [
-          "bg-gradient-to-br from-emerald-900/90 to-emerald-950/90",
-          "border border-emerald-700/50",
-          "text-emerald-100",
-          // 3D shadow with color
-          "shadow-[0_4px_0_0_rgba(5,150,105,0.3),0_6px_12px_-4px_rgba(0,0,0,0.25)]",
-          // Top highlight
-          "before:absolute before:inset-x-0 before:top-0 before:h-px before:rounded-t-xl before:bg-gradient-to-r before:from-transparent before:via-emerald-400/30 before:to-transparent",
-          "[&>svg]:text-emerald-400",
+          "bg-black/80",
+          "border border-green-500",
+          "text-green-500",
+          "shadow-[0_0_10px_rgba(0,255,0,0.6),0_0_20px_rgba(0,255,0,0.4)]",
+          "[&>svg]:text-green-500",
         ],
         warning: [
-          "bg-gradient-to-br from-amber-900/90 to-amber-950/90",
-          "border border-amber-700/50",
-          "text-amber-100",
-          // 3D shadow with color
-          "shadow-[0_4px_0_0_rgba(217,119,6,0.3),0_6px_12px_-4px_rgba(0,0,0,0.25)]",
-          // Top highlight
-          "before:absolute before:inset-x-0 before:top-0 before:h-px before:rounded-t-xl before:bg-gradient-to-r before:from-transparent before:via-amber-400/30 before:to-transparent",
-          "[&>svg]:text-amber-400",
+          "bg-black/80",
+          "border border-amber-500",
+          "text-amber-500",
+          "shadow-[0_0_10px_rgba(255,193,7,0.6),0_0_20px_rgba(255,193,7,0.4)]",
+          "[&>svg]:text-amber-500",
         ],
         destructive: [
-          "bg-gradient-to-br from-red-900/90 to-red-950/90",
-          "border border-red-700/50",
-          "text-red-100",
-          // 3D shadow with color
-          "shadow-[0_4px_0_0_rgba(185,28,28,0.3),0_6px_12px_-4px_rgba(0,0,0,0.25)]",
-          // Top highlight
-          "before:absolute before:inset-x-0 before:top-0 before:h-px before:rounded-t-xl before:bg-gradient-to-r before:from-transparent before:via-red-400/30 before:to-transparent",
-          "[&>svg]:text-red-400",
+          "bg-black/80",
+          "border border-red-500",
+          "text-red-500",
+          "shadow-[0_0_10px_rgba(255,0,0,0.6),0_0_20px_rgba(255,0,0,0.4)]",
+          "[&>svg]:text-red-500",
         ],
         glass: [
-          "bg-white/5 backdrop-blur-xl",
-          "border border-white/10",
-          "text-white",
-          // Glass shadow
-          "shadow-[0_4px_0_0_rgba(255,255,255,0.05),0_6px_12px_-4px_rgba(0,0,0,0.3)]",
-          // Top highlight
-          "before:absolute before:inset-x-0 before:top-0 before:h-px before:rounded-t-xl before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent",
-          "[&>svg]:text-white/70",
+          "bg-primary-500/10 backdrop-blur-xl",
+          "border border-primary-500/30",
+          "text-primary-500",
+          "shadow-cyber-border",
+          "[&>svg]:text-primary-500/70",
         ],
       },
       size: {
@@ -245,15 +227,15 @@ const AlertTitle = React.forwardRef<HTMLParagraphElement, AlertTitleProps>(
 AlertTitle.displayName = "AlertTitle";
 
 // Alert Description
-const alertDescriptionVariants = cva("leading-relaxed", {
+const alertDescriptionVariants = cva("leading-relaxed font-mono", {
   variants: {
     variant: {
-      default: "text-surface-300",
-      info: "text-primary-200",
-      success: "text-emerald-200",
-      warning: "text-amber-200",
-      destructive: "text-red-200",
-      glass: "text-white/80",
+      default: "text-primary-500/70",
+      info: "text-primary-500/70",
+      success: "text-green-500/70",
+      warning: "text-amber-500/70",
+      destructive: "text-red-500/70",
+      glass: "text-primary-500/70",
     },
     size: {
       sm: "text-xs",

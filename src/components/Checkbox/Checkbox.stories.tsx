@@ -74,7 +74,7 @@ export const Controlled: Story = {
           checked={checked}
           onCheckedChange={setChecked}
         />
-        <p className="text-sm text-surface-400">
+        <p className="text-sm text-primary-500/70 font-mono">
           Current state: {checked ? "true" : "false"}
         </p>
       </div>
@@ -95,8 +95,8 @@ export const CheckboxGroup: Story = {
     };
 
     return (
-      <div className="w-[400px] p-6 rounded-xl bg-surface-800 border border-surface-700">
-        <h3 className="text-lg font-semibold text-surface-100 mb-4">
+      <div className="w-[400px] p-6 rounded-xl bg-black/80 border border-cyber shadow-cyber-border">
+        <h3 className="text-lg font-semibold text-primary-500 font-mono mb-4">
           Notification Preferences
         </h3>
         <div className="space-y-4">
@@ -125,7 +125,7 @@ export const CheckboxGroup: Story = {
             onCheckedChange={() => toggleItem("inapp")}
           />
         </div>
-        <p className="mt-4 text-xs text-surface-400">
+        <p className="mt-4 text-xs text-primary-500/70 font-mono">
           Selected: {selected.length > 0 ? selected.join(", ") : "none"}
         </p>
       </div>
@@ -151,8 +151,8 @@ export const TodoList: Story = {
     };
 
     return (
-      <div className="w-[350px] p-6 rounded-xl bg-surface-800 border border-surface-700">
-        <h3 className="text-lg font-semibold text-surface-100 mb-4">
+      <div className="w-[350px] p-6 rounded-xl bg-black/80 border border-cyber shadow-cyber-border">
+        <h3 className="text-lg font-semibold text-primary-500 font-mono mb-4">
           Todo List
         </h3>
         <div className="flex flex-col gap-3">
@@ -166,7 +166,7 @@ export const TodoList: Story = {
             />
           ))}
         </div>
-        <p className="mt-4 text-xs text-surface-400">
+        <p className="mt-4 text-xs text-primary-500/70 font-mono">
           {todos.filter(t => t.done).length} of {todos.length} completed
         </p>
       </div>

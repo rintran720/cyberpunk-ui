@@ -173,15 +173,15 @@ export const GroupWithMax: Story = {
 
 export const UserCard: Story = {
   render: () => (
-    <div className="flex items-center gap-4 p-4 rounded-xl bg-surface-800 border border-surface-700">
+    <div className="flex items-center gap-4 p-4 rounded-xl bg-black/80 border border-cyber shadow-cyber-border">
       <AvatarWithStatus status="online" size="lg">
         <AvatarImage src="https://i.pravatar.cc/150?img=5" alt="John Doe" />
         <AvatarFallback>JD</AvatarFallback>
       </AvatarWithStatus>
       <div>
-        <h3 className="text-sm font-semibold text-surface-100">John Doe</h3>
-        <p className="text-xs text-surface-400">Software Engineer</p>
-        <p className="text-xs text-green-400">Online</p>
+        <h3 className="text-sm font-semibold text-primary-500 font-mono">John Doe</h3>
+        <p className="text-xs text-primary-500/70 font-mono">Software Engineer</p>
+        <p className="text-xs text-primary-500 font-mono">Online</p>
       </div>
     </div>
   ),

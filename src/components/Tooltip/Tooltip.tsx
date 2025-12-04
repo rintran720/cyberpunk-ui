@@ -197,12 +197,12 @@ const alignStyles: Record<TooltipAlign, Record<TooltipSide, string>> = {
 };
 
 const arrowStyles: Record<TooltipSide, string> = {
-  top: "bottom-0 left-1/2 -translate-x-1/2 translate-y-full border-t-surface-700 border-x-transparent border-b-transparent",
+  top: "bottom-0 left-1/2 -translate-x-1/2 translate-y-full border-t-[var(--cyber-border-color)] border-x-transparent border-b-transparent",
   bottom:
-    "top-0 left-1/2 -translate-x-1/2 -translate-y-full border-b-surface-700 border-x-transparent border-t-transparent",
-  left: "right-0 top-1/2 -translate-y-1/2 translate-x-full border-l-surface-700 border-y-transparent border-r-transparent",
+    "top-0 left-1/2 -translate-x-1/2 -translate-y-full border-b-[var(--cyber-border-color)] border-x-transparent border-t-transparent",
+  left: "right-0 top-1/2 -translate-y-1/2 translate-x-full border-l-[var(--cyber-border-color)] border-y-transparent border-r-transparent",
   right:
-    "left-0 top-1/2 -translate-y-1/2 -translate-x-full border-r-surface-700 border-y-transparent border-l-transparent",
+    "left-0 top-1/2 -translate-y-1/2 -translate-x-full border-r-[var(--cyber-border-color)] border-y-transparent border-l-transparent",
 };
 
 const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentProps>(
@@ -228,12 +228,11 @@ const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentProps>(
         role="tooltip"
         className={cn(
           "absolute z-50 px-3 py-1.5",
-          "text-sm text-surface-100",
+          "text-sm text-primary-500 font-mono",
           "rounded-lg",
           "whitespace-nowrap",
-          // 3D effect
-          "bg-surface-800 border border-surface-600",
-          "shadow-[0_4px_8px_rgba(0,0,0,0.3),0_2px_0_0_rgba(0,0,0,0.2)]",
+          "bg-black/90 border border-cyber",
+          "shadow-cyber-border-lg",
           // Simple fade animation (no slide to avoid transform conflicts)
           "animate-[tooltip-in_150ms_ease-out]",
           sideStyles[side],

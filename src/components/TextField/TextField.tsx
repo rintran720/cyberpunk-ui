@@ -17,46 +17,52 @@ const inputVariants = cva(
     variants: {
       variant: {
         default: [
-          "bg-surface-900",
-          "border border-surface-700",
-          "text-surface-100",
-          // 3D inset effect
-          "shadow-[inset_0_2px_4px_rgba(0,0,0,0.2),0_1px_0_rgba(255,255,255,0.05)]",
+          "bg-black",
+          "border border-primary-500/30",
+          "text-primary-500",
+          "font-mono",
+          "placeholder:text-primary-500/40",
+          // Cyberpunk glow
+          "shadow-cyber-border",
           // Focus state
           "focus:border-primary-500",
-          "focus:shadow-[inset_0_2px_4px_rgba(0,0,0,0.2),0_0_0_3px_rgba(51,166,255,0.15)]",
+          "focus:shadow-cyber-border-lg",
+          "focus:bg-primary-500/5",
         ],
         filled: [
-          "bg-surface-800",
-          "border-2 border-transparent",
-          "text-surface-100",
-          // 3D effect
-          "shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)]",
+          "bg-black",
+          "border-2 border-primary-500/30",
+          "text-primary-500",
+          "font-mono",
+          "placeholder:text-primary-500/40",
+          "shadow-cyber-border",
           // Focus state
-          "focus:bg-surface-900",
           "focus:border-primary-500",
-          "focus:shadow-[inset_0_2px_4px_rgba(0,0,0,0.2),0_0_0_3px_rgba(51,166,255,0.15)]",
+          "focus:shadow-cyber-border-lg",
+          "focus:bg-primary-500/10",
         ],
         outline: [
           "bg-transparent",
-          "border-2 border-surface-600",
-          "text-surface-100",
-          // Subtle shadow
-          "shadow-[0_2px_0_rgba(0,0,0,0.1)]",
+          "border-2 border-primary-500",
+          "text-primary-500",
+          "font-mono",
+          "placeholder:text-primary-500/40",
+          "shadow-cyber-border",
           // Focus state
-          "focus:border-primary-500",
-          "focus:shadow-[0_2px_0_rgba(0,0,0,0.1),0_0_0_3px_rgba(51,166,255,0.15)]",
+          "focus:border-primary-400",
+          "focus:shadow-cyber-border-lg",
         ],
         glass: [
-          "bg-white/5 backdrop-blur-md",
-          "border border-white/20",
-          "text-white",
-          "placeholder:text-white/40",
-          // Glass shadow
-          "shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_0_rgba(0,0,0,0.1)]",
+          "bg-primary-500/10 backdrop-blur-md",
+          "border border-primary-500/30",
+          "text-primary-500",
+          "font-mono",
+          "placeholder:text-primary-500/40",
+          "shadow-cyber-border",
           // Focus state
-          "focus:border-white/40",
-          "focus:shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_0_0_3px_rgba(255,255,255,0.1)]",
+          "focus:border-primary-500",
+          "focus:shadow-cyber-border-lg",
+          "focus:bg-primary-500/15",
         ],
       },
       inputSize: {
@@ -77,7 +83,7 @@ const inputVariants = cva(
         className: [
           "border-red-500",
           "focus:border-red-500",
-          "focus:shadow-[inset_0_2px_4px_rgba(0,0,0,0.2),0_0_0_3px_rgba(239,68,68,0.15)]",
+          "focus:shadow-[0_0_10px_rgba(255,0,0,0.6),0_0_20px_rgba(255,0,0,0.4)]",
         ],
       },
       {
@@ -86,7 +92,7 @@ const inputVariants = cva(
         className: [
           "border-red-500",
           "focus:border-red-500",
-          "focus:shadow-[inset_0_2px_4px_rgba(0,0,0,0.2),0_0_0_3px_rgba(239,68,68,0.15)]",
+          "focus:shadow-[0_0_10px_rgba(255,0,0,0.6),0_0_20px_rgba(255,0,0,0.4)]",
         ],
       },
       {
@@ -95,16 +101,16 @@ const inputVariants = cva(
         className: [
           "border-red-500",
           "focus:border-red-500",
-          "focus:shadow-[0_2px_0_rgba(0,0,0,0.1),0_0_0_3px_rgba(239,68,68,0.15)]",
+          "focus:shadow-[0_0_10px_rgba(255,0,0,0.6),0_0_20px_rgba(255,0,0,0.4)]",
         ],
       },
       {
         variant: "glass",
         hasError: true,
         className: [
-          "border-red-400/50",
-          "focus:border-red-400/50",
-          "focus:shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_0_0_3px_rgba(239,68,68,0.15)]",
+          "border-red-500",
+          "focus:border-red-500",
+          "focus:shadow-[0_0_10px_rgba(255,0,0,0.6),0_0_20px_rgba(255,0,0,0.4)]",
         ],
       },
     ],
@@ -127,17 +133,16 @@ const wrapperVariants = cva(
     variants: {
       variant: {
         default: [
-          // 3D raised effect on wrapper
-          "shadow-[0_4px_0_0_rgba(0,0,0,0.15),0_6px_12px_-4px_rgba(0,0,0,0.2)]",
+          "shadow-cyber-border",
         ],
         filled: [
-          "shadow-[0_4px_0_0_rgba(0,0,0,0.15),0_6px_12px_-4px_rgba(0,0,0,0.2)]",
+          "shadow-cyber-border",
         ],
         outline: [
-          "shadow-[0_4px_0_0_rgba(0,0,0,0.1),0_6px_12px_-4px_rgba(0,0,0,0.15)]",
+          "shadow-cyber-border",
         ],
         glass: [
-          "shadow-[0_4px_0_0_rgba(255,255,255,0.03),0_6px_12px_-4px_rgba(0,0,0,0.25)]",
+          "shadow-cyber-border",
         ],
       },
       isFocused: {
@@ -149,22 +154,22 @@ const wrapperVariants = cva(
       {
         variant: "default",
         isFocused: true,
-        className: "shadow-[0_4px_0_0_rgba(51,166,255,0.2),0_8px_16px_-4px_rgba(51,166,255,0.15)]",
+        className: "shadow-cyber-border-lg",
       },
       {
         variant: "filled",
         isFocused: true,
-        className: "shadow-[0_4px_0_0_rgba(51,166,255,0.2),0_8px_16px_-4px_rgba(51,166,255,0.15)]",
+        className: "shadow-cyber-border-lg",
       },
       {
         variant: "outline",
         isFocused: true,
-        className: "shadow-[0_4px_0_0_rgba(51,166,255,0.15),0_8px_16px_-4px_rgba(51,166,255,0.1)]",
+        className: "shadow-cyber-border-lg",
       },
       {
         variant: "glass",
         isFocused: true,
-        className: "shadow-[0_4px_0_0_rgba(255,255,255,0.08),0_8px_16px_-4px_rgba(0,0,0,0.3)]",
+        className: "shadow-cyber-border-lg",
       },
     ],
     defaultVariants: {
@@ -185,10 +190,10 @@ const labelVariants = cva(
   {
     variants: {
       variant: {
-        default: "text-surface-200",
-        filled: "text-surface-200",
-        outline: "text-surface-200",
-        glass: "text-white/90",
+        default: "text-primary-500 font-mono",
+        filled: "text-primary-500 font-mono",
+        outline: "text-primary-500 font-mono",
+        glass: "text-primary-500 font-mono",
       },
       size: {
         sm: "text-xs",
@@ -222,10 +227,10 @@ const helperVariants = cva(
   {
     variants: {
       variant: {
-        default: "text-surface-400",
-        filled: "text-surface-400",
-        outline: "text-surface-400",
-        glass: "text-white/60",
+        default: "text-primary-500/70 font-mono text-xs",
+        filled: "text-primary-500/70 font-mono text-xs",
+        outline: "text-primary-500/70 font-mono text-xs",
+        glass: "text-primary-500/70 font-mono text-xs",
       },
       size: {
         sm: "text-xs",
@@ -332,11 +337,10 @@ const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
               <div
                 className={cn(
                   "absolute left-0 top-0 bottom-0 flex items-center",
-                  "text-surface-400 pointer-events-none",
+                  "text-primary-500/60 pointer-events-none",
                   inputSize === "sm" && "pl-3",
                   inputSize === "md" && "pl-4",
-                  inputSize === "lg" && "pl-5",
-                  variant === "glass" && "text-white/60"
+                  inputSize === "lg" && "pl-5"
                 )}
               >
                 {leftElement}
@@ -364,11 +368,10 @@ const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
               <div
                 className={cn(
                   "absolute right-0 top-0 bottom-0 flex items-center",
-                  "text-surface-400",
+                  "text-primary-500/60",
                   inputSize === "sm" && "pr-3",
                   inputSize === "md" && "pr-4",
-                  inputSize === "lg" && "pr-5",
-                  variant === "glass" && "text-white/60"
+                  inputSize === "lg" && "pr-5"
                 )}
               >
                 {rightElement}
@@ -409,38 +412,47 @@ const textareaVariants = cva(
     variants: {
       variant: {
         default: [
-          "bg-surface-900",
-          "border border-surface-700",
-          "text-surface-100",
-          "shadow-[inset_0_2px_4px_rgba(0,0,0,0.2),0_1px_0_rgba(255,255,255,0.05)]",
+          "bg-black",
+          "border border-primary-500/30",
+          "text-primary-500",
+          "font-mono",
+          "placeholder:text-primary-500/40",
+          "shadow-cyber-border",
           "focus:border-primary-500",
-          "focus:shadow-[inset_0_2px_4px_rgba(0,0,0,0.2),0_0_0_3px_rgba(51,166,255,0.15)]",
+          "focus:shadow-cyber-border-lg",
+          "focus:bg-primary-500/5",
         ],
         filled: [
-          "bg-surface-800",
-          "border-2 border-transparent",
-          "text-surface-100",
-          "shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)]",
-          "focus:bg-surface-900",
+          "bg-black",
+          "border-2 border-primary-500/30",
+          "text-primary-500",
+          "font-mono",
+          "placeholder:text-primary-500/40",
+          "shadow-cyber-border",
           "focus:border-primary-500",
-          "focus:shadow-[inset_0_2px_4px_rgba(0,0,0,0.2),0_0_0_3px_rgba(51,166,255,0.15)]",
+          "focus:shadow-cyber-border-lg",
+          "focus:bg-primary-500/10",
         ],
         outline: [
           "bg-transparent",
-          "border-2 border-surface-600",
-          "text-surface-100",
-          "shadow-[0_2px_0_rgba(0,0,0,0.1)]",
-          "focus:border-primary-500",
-          "focus:shadow-[0_2px_0_rgba(0,0,0,0.1),0_0_0_3px_rgba(51,166,255,0.15)]",
+          "border-2 border-primary-500",
+          "text-primary-500",
+          "font-mono",
+          "placeholder:text-primary-500/40",
+          "shadow-cyber-border",
+          "focus:border-primary-400",
+          "focus:shadow-cyber-border-lg",
         ],
         glass: [
-          "bg-white/5 backdrop-blur-md",
-          "border border-white/20",
-          "text-white",
-          "placeholder:text-white/40",
-          "shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_0_rgba(0,0,0,0.1)]",
-          "focus:border-white/40",
-          "focus:shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_0_0_3px_rgba(255,255,255,0.1)]",
+          "bg-primary-500/10 backdrop-blur-md",
+          "border border-primary-500/30",
+          "text-primary-500",
+          "font-mono",
+          "placeholder:text-primary-500/40",
+          "shadow-cyber-border",
+          "focus:border-primary-500",
+          "focus:shadow-cyber-border-lg",
+          "focus:bg-primary-500/15",
         ],
       },
       inputSize: {

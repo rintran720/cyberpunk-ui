@@ -5,15 +5,15 @@ import { cn } from "../../lib/utils";
 const progressVariants = cva(
   [
     "relative w-full overflow-hidden rounded-full",
-    // 3D inset effect
-    "shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]",
-    "border border-surface-700/50",
+    "border border-cyber",
+    "bg-black/80",
+    "shadow-cyber-border",
   ],
   {
     variants: {
       variant: {
-        default: "bg-surface-800",
-        glass: "bg-surface-800/50 backdrop-blur-sm",
+        default: "bg-black/80",
+        glass: "bg-black/50 backdrop-blur-sm",
       },
       size: {
         sm: "h-2",
@@ -32,8 +32,7 @@ const progressVariants = cva(
 const progressIndicatorVariants = cva(
   [
     "h-full rounded-full transition-all duration-500 ease-out",
-    // 3D raised effect
-    "shadow-[0_2px_0_0_rgba(0,0,0,0.2),inset_0_1px_0_0_rgba(255,255,255,0.2)]",
+    "shadow-cyber-primary",
   ],
   {
     variants: {
@@ -103,8 +102,8 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
       <div className="w-full">
         {showLabel && (
           <div className="flex justify-between mb-1">
-            <span className="text-xs text-surface-400">Progress</span>
-            <span className="text-xs font-medium text-surface-200">
+            <span className="text-xs text-primary-500/70 font-mono">Progress</span>
+            <span className="text-xs font-medium text-primary-500 font-mono">
               {label}
             </span>
           </div>
@@ -205,7 +204,7 @@ const CircularProgress = React.forwardRef<SVGSVGElement, CircularProgressProps>(
             cy={svgSize / 2}
             r={radius}
             fill="none"
-            className="stroke-surface-700"
+            className="stroke-primary-500/20"
             strokeWidth={strokeWidth}
           />
           {/* Progress circle */}
@@ -233,7 +232,7 @@ const CircularProgress = React.forwardRef<SVGSVGElement, CircularProgressProps>(
           />
         </svg>
         {showLabel && !indeterminate && (
-          <span className="absolute text-xs font-medium text-surface-200">
+          <span className="absolute text-xs font-medium text-primary-500 font-mono">
             {Math.round(percentage)}%
           </span>
         )}

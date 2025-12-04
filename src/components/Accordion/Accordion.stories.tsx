@@ -147,7 +147,7 @@ export const AllVariants: Story = {
   render: () => (
     <div className="space-y-8">
       <div>
-        <h3 className="text-sm font-medium text-surface-400 mb-3">Default</h3>
+        <h3 className="text-sm font-medium text-primary-500/70 font-mono mb-3">Default</h3>
         <Accordion variant="default" type="single" defaultValue={["v1-item-1"]}>
           <AccordionItem value="v1-item-1">
             <AccordionTrigger>Default accordion item</AccordionTrigger>
@@ -310,8 +310,8 @@ export const RichContent: Story = {
       <AccordionItem value="installation">
         <AccordionTrigger>📦 Installation</AccordionTrigger>
         <AccordionContent>
-          <pre className="bg-surface-900 rounded-lg p-3 text-sm overflow-x-auto">
-            <code className="text-accent-400">
+          <pre className="bg-black/80 border border-cyber rounded-lg p-3 text-sm overflow-x-auto shadow-cyber-border">
+            <code className="text-primary-500 font-mono">
               npm install @votekio/cyberpunk-ui
             </code>
           </pre>
@@ -320,8 +320,8 @@ export const RichContent: Story = {
       <AccordionItem value="usage">
         <AccordionTrigger>🚀 Usage</AccordionTrigger>
         <AccordionContent>
-          <pre className="bg-surface-900 rounded-lg p-3 text-sm overflow-x-auto">
-            <code className="text-primary-300">
+          <pre className="bg-black/80 border border-cyber rounded-lg p-3 text-sm overflow-x-auto shadow-cyber-border">
+            <code className="text-primary-500 font-mono">
               {`import { Accordion } from '@votekio/cyberpunk-ui';
 
 <Accordion>
@@ -341,10 +341,10 @@ export const RichContent: Story = {
 // Interactive demo
 export const InteractiveDemo: Story = {
   render: () => (
-    <div className="p-8 rounded-2xl bg-surface-900/50 backdrop-blur-sm border border-surface-700">
+    <div className="p-8 rounded-2xl bg-black/80 backdrop-blur-sm border border-cyber shadow-cyber-border">
       <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold text-white mb-2">3D Accordion</h2>
-        <p className="text-surface-400">
+        <h2 className="text-2xl font-bold text-primary-500 font-mono mb-2">Cyberpunk Accordion</h2>
+        <p className="text-primary-500/70 font-mono">
           Expand items to see smooth animations
         </p>
       </div>
@@ -353,15 +353,15 @@ export const InteractiveDemo: Story = {
         <AccordionItem value="demo-1">
           <AccordionTrigger>
             <span className="flex items-center gap-3">
-              <span className="w-8 h-8 rounded-lg bg-primary-500/20 flex items-center justify-center text-primary-400">
+              <span className="w-8 h-8 rounded-lg bg-primary-500/20 border border-cyber flex items-center justify-center text-primary-500 shadow-cyber-border">
                 🎨
               </span>
               <span>Beautiful Design</span>
             </span>
           </AccordionTrigger>
           <AccordionContent>
-            <p className="pl-11">
-              Every component is crafted with attention to detail. The 3D
+            <p className="pl-11 font-mono">
+              Every component is crafted with attention to detail. The cyberpunk
               effects create depth and make the interface feel tangible and
               interactive.
             </p>
@@ -371,14 +371,14 @@ export const InteractiveDemo: Story = {
         <AccordionItem value="demo-2">
           <AccordionTrigger>
             <span className="flex items-center gap-3">
-              <span className="w-8 h-8 rounded-lg bg-secondary-500/20 flex items-center justify-center text-secondary-400">
+              <span className="w-8 h-8 rounded-lg bg-primary-500/20 border border-cyber flex items-center justify-center text-primary-500 shadow-cyber-border">
                 ⚡
               </span>
               <span>Smooth Animations</span>
             </span>
           </AccordionTrigger>
           <AccordionContent>
-            <p className="pl-11">
+            <p className="pl-11 font-mono">
               All transitions are carefully tuned for the perfect feel. Expand
               and collapse animations are butter smooth at 60fps.
             </p>
@@ -388,14 +388,14 @@ export const InteractiveDemo: Story = {
         <AccordionItem value="demo-3">
           <AccordionTrigger>
             <span className="flex items-center gap-3">
-              <span className="w-8 h-8 rounded-lg bg-accent-500/20 flex items-center justify-center text-accent-400">
+              <span className="w-8 h-8 rounded-lg bg-primary-500/20 border border-cyber flex items-center justify-center text-primary-500 shadow-cyber-border">
                 ♿
               </span>
               <span>Fully Accessible</span>
             </span>
           </AccordionTrigger>
           <AccordionContent>
-            <p className="pl-11">
+            <p className="pl-11 font-mono">
               Built with accessibility in mind. Full keyboard navigation, proper
               ARIA attributes, and screen reader friendly.
             </p>

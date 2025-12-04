@@ -9,9 +9,9 @@ import { cn } from "../../lib/utils";
 const sliderTrackVariants = cva(
   [
     "relative w-full rounded-full",
-    "bg-surface-700",
-    // 3D inset effect
-    "shadow-[inset_0_2px_4px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(0,0,0,0.2)]",
+    "bg-black/80",
+    "border border-cyber",
+    "shadow-cyber-border",
   ],
   {
     variants: {
@@ -34,14 +34,12 @@ const sliderThumbVariants = cva(
     "cursor-pointer",
     // Only transition scale and shadow, NOT position (left)
     "transition-[transform,box-shadow] duration-150",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-900",
-    // 3D effect
-    "bg-gradient-to-b from-surface-200 to-surface-400",
-    "shadow-[0_2px_4px_rgba(0,0,0,0.3),0_1px_0_0_rgba(0,0,0,0.2),inset_0_1px_0_0_rgba(255,255,255,0.5)]",
-    "hover:shadow-[0_3px_6px_rgba(0,0,0,0.4),0_2px_0_0_rgba(0,0,0,0.2),inset_0_1px_0_0_rgba(255,255,255,0.5)]",
-    "hover:scale-110",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
+    "bg-primary-500",
+    "border border-primary-500",
+    "shadow-cyber-primary",
+    "hover:shadow-cyber-primary-lg hover:scale-110",
     "active:scale-95",
-    "active:shadow-[0_1px_2px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(0,0,0,0.1)]",
   ],
   {
     variants: {
@@ -60,8 +58,7 @@ const sliderThumbVariants = cva(
 const sliderRangeVariants = cva(
   [
     "absolute h-full rounded-full",
-    // 3D raised effect
-    "shadow-[0_1px_0_0_rgba(255,255,255,0.1),inset_0_1px_2px_rgba(0,0,0,0.1)]",
+    "shadow-cyber-primary",
   ],
   {
     variants: {
@@ -264,7 +261,7 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
             >
               {/* Value tooltip */}
               {showValue && (isDragging || activeThumb === index) && (
-                <div className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-surface-800 border border-surface-600 rounded text-xs text-surface-100 whitespace-nowrap shadow-lg">
+                <div className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-black/90 border border-cyber rounded text-xs text-primary-500 font-mono whitespace-nowrap shadow-cyber-border-lg">
                   {value}
                 </div>
               )}

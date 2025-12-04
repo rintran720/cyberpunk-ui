@@ -194,20 +194,20 @@ const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
         {...props}
       >
         {label && (
-          <label className="block text-sm font-medium text-surface-200 mb-2">
+          <label className="block text-sm font-medium text-primary-500 font-mono mb-2">
             {label}
-            {isRequired && <span className="text-red-500 ml-1">*</span>}
+            {isRequired && <span className="text-red-500 font-mono ml-1">*</span>}
           </label>
         )}
 
         <div
           className={cn(
-            "relative border-2 border-dashed rounded-lg transition-colors",
+            "relative border-2 border-dashed rounded-lg transition-all duration-200",
             isDragging
-              ? "border-primary-500 bg-primary-500/10"
-              : "border-surface-600 bg-surface-900/50",
+              ? "border-primary-500 bg-primary-500/10 shadow-cyber-primary"
+              : "border-cyber bg-black/50 shadow-cyber-border",
             disabled && "opacity-50 cursor-not-allowed",
-            error && "border-red-500"
+            error && "border-red-500 shadow-[0_0_10px_rgba(239,68,68,0.6)]"
           )}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
@@ -226,8 +226,10 @@ const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
           <div className="p-6 text-center">
             <svg
               className={cn(
-                "mx-auto h-12 w-12 mb-4",
-                isDragging ? "text-primary-500" : "text-surface-500"
+                "mx-auto h-12 w-12 mb-4 transition-all duration-200",
+                isDragging 
+                  ? "text-primary-500 drop-shadow-[0_0_12px_rgba(64,244,255,0.8)]" 
+                  : "text-primary-500/50"
               )}
               fill="none"
               stroke="currentColor"
@@ -241,23 +243,23 @@ const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
               />
             </svg>
 
-            <p className="text-sm text-surface-300 mb-2">
+            <p className="text-sm text-primary-500/70 font-mono mb-2">
               {dragDrop ? (
                 <>
-                  <span className="font-medium text-primary-400">
+                  <span className="font-medium text-primary-500">
                     Click to upload
                   </span>{" "}
                   or drag and drop
                 </>
               ) : (
-                <span className="font-medium text-primary-400">
+                <span className="font-medium text-primary-500">
                   Click to upload
                 </span>
               )}
             </p>
 
             {accept && (
-              <p className="text-xs text-surface-500 mb-4">
+              <p className="text-xs text-primary-500/50 font-mono mb-4">
                 {accept.includes("*")
                   ? `Accepts: ${accept}`
                   : `Accepts: ${accept.split(",").join(", ")}`}
@@ -265,13 +267,13 @@ const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
             )}
 
             {maxSize && (
-              <p className="text-xs text-surface-500 mb-4">
+              <p className="text-xs text-primary-500/50 font-mono mb-4">
                 Max size: {formatFileSize(maxSize)}
               </p>
             )}
 
             {maxFiles && (
-              <p className="text-xs text-surface-500 mb-4">
+              <p className="text-xs text-primary-500/50 font-mono mb-4">
                 Max files: {maxFiles}
               </p>
             )}
@@ -293,11 +295,11 @@ const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
             {files.map((file, index) => (
               <div
                 key={`${file.name}-${index}`}
-                className="flex items-center justify-between p-3 rounded-lg border border-surface-700 bg-surface-800"
+                className="flex items-center justify-between p-3 rounded-lg border border-cyber bg-black/80 shadow-cyber-border"
               >
                 <div className="flex items-center gap-3 flex-1 min-w-0">
                   <svg
-                    className="h-5 w-5 text-surface-500 flex-shrink-0"
+                    className="h-5 w-5 text-primary-500/70 flex-shrink-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -310,10 +312,10 @@ const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
                     />
                   </svg>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-surface-100 truncate">
+                    <p className="text-sm font-medium text-primary-500 font-mono truncate">
                       {file.name}
                     </p>
-                    <p className="text-xs text-surface-500">
+                    <p className="text-xs text-primary-500/70 font-mono">
                       {formatFileSize(file.size)}
                     </p>
                   </div>
@@ -322,7 +324,7 @@ const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
                   type="button"
                   onClick={() => handleRemove(index)}
                   disabled={disabled}
-                  className="ml-2 p-1 rounded hover:bg-surface-700 text-surface-400 hover:text-red-400 transition-colors"
+                  className="ml-2 p-1 rounded hover:bg-red-500/10 text-primary-500/70 hover:text-red-500 transition-colors"
                 >
                   <svg
                     className="h-4 w-4"
@@ -344,11 +346,11 @@ const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
         )}
 
         {helperText && !error && (
-          <p className="mt-2 text-xs text-surface-500">{helperText}</p>
+          <p className="mt-2 text-xs text-primary-500/70 font-mono">{helperText}</p>
         )}
 
         {error && (
-          <p className="mt-2 text-xs text-red-400">{error}</p>
+          <p className="mt-2 text-xs text-red-500 font-mono">{error}</p>
         )}
       </div>
     );

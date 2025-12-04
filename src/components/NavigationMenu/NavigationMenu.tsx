@@ -80,24 +80,27 @@ const NavigationMenuTrigger = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <DropdownMenuTrigger
     ref={ref}
-    className={cn(
-      "group relative inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium",
-      "text-surface-300 transition-all duration-150",
-      // Hover state with 3D effect
-      "hover:bg-surface-800/80 hover:text-surface-100",
-      "hover:shadow-[0_2px_0_0_rgba(0,0,0,0.1)]",
-      "hover:-translate-y-0.5",
-      // Focus state
-      "focus:bg-surface-800 focus:text-surface-100 focus:outline-none",
-      "focus:shadow-[0_2px_0_0_rgba(0,0,0,0.1)]",
-      // Open state
-      "data-[state=open]:bg-surface-800 data-[state=open]:text-surface-100",
-      "data-[state=open]:shadow-[0_2px_0_0_rgba(0,0,0,0.1)]",
-      // Active state
-      "active:translate-y-0 active:shadow-none",
-      "disabled:pointer-events-none disabled:opacity-50",
-      className
-    )}
+      className={cn(
+        "group relative inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium",
+        "text-primary-500 font-mono transition-all duration-150",
+        "border border-transparent",
+        // Cyberpunk hover state
+        "hover:bg-primary-500/10 hover:text-primary-500",
+        "hover:shadow-cyber-border-lg hover:border-cyber",
+        "hover:drop-shadow-[0_0_8px_rgba(64,244,255,0.4)]",
+        // Focus state
+        "focus:bg-primary-500/10 focus:text-primary-500 focus:outline-none",
+        "focus:shadow-cyber-border-lg focus:border-cyber",
+        "focus:drop-shadow-[0_0_8px_rgba(64,244,255,0.4)]",
+        // Open state
+        "data-[state=open]:bg-primary-500/20 data-[state=open]:text-primary-500",
+        "data-[state=open]:shadow-cyber-primary data-[state=open]:border-primary-500",
+        "data-[state=open]:drop-shadow-[0_0_12px_rgba(64,244,255,0.8)]",
+        // Active state
+        "active:bg-primary-500/20 active:border-primary-500",
+        "disabled:pointer-events-none disabled:opacity-50",
+        className
+      )}
     {...props}
   >
     {children}
@@ -160,20 +163,22 @@ const NavigationMenuLink = React.forwardRef<
     ref={ref}
     className={cn(
       "group relative inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium",
-      "text-surface-300 transition-all duration-150",
-      // Hover state with 3D effect
-      "hover:bg-surface-800/80 hover:text-surface-100",
-      "hover:shadow-[0_2px_0_0_rgba(0,0,0,0.1)]",
-      "hover:-translate-y-0.5",
+      "text-primary-500 font-mono transition-all duration-150",
+      "border border-transparent",
+      // Cyberpunk hover state
+      "hover:bg-primary-500/10 hover:text-primary-500",
+      "hover:shadow-cyber-border-lg hover:border-cyber",
+      "hover:drop-shadow-[0_0_8px_rgba(64,244,255,0.4)]",
       // Focus state
-      "focus:bg-surface-800 focus:text-surface-100 focus:outline-none",
-      "focus:shadow-[0_2px_0_0_rgba(0,0,0,0.1)]",
+      "focus:bg-primary-500/10 focus:text-primary-500 focus:outline-none",
+      "focus:shadow-cyber-border-lg focus:border-cyber",
+      "focus:drop-shadow-[0_0_8px_rgba(64,244,255,0.4)]",
       // Active state
-      "active:translate-y-0 active:shadow-none",
+      "active:bg-primary-500/20 active:border-primary-500",
       "disabled:pointer-events-none disabled:opacity-50",
       // Active link state
       active &&
-        "bg-surface-800 text-surface-100 shadow-[0_2px_0_0_rgba(0,0,0,0.1)]",
+        "bg-primary-500/20 text-primary-500 border-primary-500 shadow-cyber-primary drop-shadow-[0_0_12px_rgba(64,244,255,0.8)]",
       className
     )}
     {...props}

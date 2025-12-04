@@ -9,8 +9,8 @@ import { cn } from "../../lib/utils";
 // ============================================================================
 
 const separatorVariants = cva(
-  // Base styles with 3D effect
-  "shrink-0 bg-surface-700",
+  // Base styles - Cyberpunk
+  "shrink-0",
   {
     variants: {
       orientation: {
@@ -18,14 +18,14 @@ const separatorVariants = cva(
         vertical: "h-full w-[1px]",
       },
       variant: {
-        default: "bg-surface-700",
-        muted: "bg-surface-800",
-        accent: "bg-primary-500/30",
-        gradient: "bg-gradient-to-r from-transparent via-surface-600 to-transparent",
+        default: "bg-[var(--cyber-border-color)]",
+        muted: "bg-primary-500/20",
+        accent: "bg-primary-500/50",
+        gradient: "bg-gradient-to-r from-transparent via-primary-500/30 to-transparent",
         "gradient-accent": "bg-gradient-to-r from-transparent via-primary-500/50 to-transparent",
         "3d": [
-          "bg-surface-800",
-          "shadow-[0_1px_0_0_rgba(255,255,255,0.05)]",
+          "bg-primary-500/40",
+          "shadow-cyber-border",
         ],
       },
       size: {

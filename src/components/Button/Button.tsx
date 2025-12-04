@@ -3,139 +3,160 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/utils";
 
 const buttonVariants = cva(
-  // Base styles for all buttons
+  // Base styles for all buttons - Cyberpunk style
   [
     "relative inline-flex items-center justify-center gap-2",
-    "font-semibold text-sm",
-    "rounded-lg",
-    "transition-all duration-100 ease-out",
+    "font-semibold text-sm font-mono",
+    "rounded",
+    "transition-all duration-200 ease-out",
     "select-none cursor-pointer",
-    "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-950",
+    "border",
+    "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
     "disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none",
-    // 3D effect base
-    "before:absolute before:inset-0 before:rounded-lg before:transition-all before:duration-100",
+    // Cyberpunk glow effect
+    "before:absolute before:inset-0 before:rounded before:transition-all before:duration-200",
+    "after:absolute after:inset-0 after:rounded after:transition-all after:duration-200",
   ],
   {
     variants: {
       variant: {
         primary: [
-          // Main surface
-          "bg-gradient-to-b from-primary-400 to-primary-600",
-          "text-white",
-          "border-t border-primary-300/50",
-          // 3D shadow (bottom extrusion)
-          "shadow-[0_4px_0_0_theme(colors.primary.700),0_6px_8px_-2px_rgba(0,0,0,0.3)]",
-          // Highlight overlay
-          "before:bg-gradient-to-b before:from-white/20 before:to-transparent before:opacity-100",
-          // Hover state
-          "hover:from-primary-300 hover:to-primary-500",
-          "hover:shadow-[0_6px_0_0_theme(colors.primary.700),0_10px_16px_-4px_rgba(0,0,0,0.35)]",
-          "hover:-translate-y-0.5",
-          // Active/Pressed state
-          "active:translate-y-1",
-          "active:shadow-[0_1px_0_0_theme(colors.primary.700),0_2px_4px_-1px_rgba(0,0,0,0.2)]",
-          "active:before:opacity-0",
+          // Cyberpunk neon cyan style
+          "bg-black",
+          "text-primary-500",
+          "border-primary-500",
+          "shadow-cyber-primary",
+          // Glow effect
+          "before:bg-primary-500/10",
+          "after:bg-primary-500/5",
+          // Hover state - brighter glow
+          "hover:text-primary-400",
+          "hover:border-primary-400",
+          "hover:shadow-cyber-glow-lg",
+          "hover:bg-primary-500/5",
+          "hover:before:bg-primary-500/20",
+          // Active state
+          "active:bg-primary-500/10",
+          "active:shadow-cyber-primary",
           // Focus ring
-          "focus-visible:ring-primary-400",
+          "focus-visible:ring-primary-500",
+          "focus-visible:ring-offset-2",
         ],
         secondary: [
-          "bg-gradient-to-b from-secondary-400 to-secondary-600",
-          "text-white",
-          "border-t border-secondary-300/50",
-          "shadow-[0_4px_0_0_theme(colors.secondary.700),0_6px_8px_-2px_rgba(0,0,0,0.3)]",
-          "before:bg-gradient-to-b before:from-white/20 before:to-transparent before:opacity-100",
-          "hover:from-secondary-300 hover:to-secondary-500",
-          "hover:shadow-[0_6px_0_0_theme(colors.secondary.700),0_10px_16px_-4px_rgba(0,0,0,0.35)]",
-          "hover:-translate-y-0.5",
-          "active:translate-y-1",
-          "active:shadow-[0_1px_0_0_theme(colors.secondary.700),0_2px_4px_-1px_rgba(0,0,0,0.2)]",
-          "active:before:opacity-0",
-          "focus-visible:ring-secondary-400",
+          // Cyberpunk magenta style
+          "bg-black",
+          "text-secondary-500",
+          "border-secondary-500",
+          "shadow-cyber-secondary",
+          "before:bg-secondary-500/10",
+          "after:bg-secondary-500/5",
+          "hover:text-secondary-400",
+          "hover:border-secondary-400",
+          "hover:shadow-cyber-glow-lg",
+          "hover:bg-secondary-500/5",
+          "hover:before:bg-secondary-500/20",
+          "active:bg-secondary-500/10",
+          "active:shadow-cyber-secondary",
+          "focus-visible:ring-secondary-500",
+          "focus-visible:ring-offset-2",
         ],
         accent: [
-          "bg-gradient-to-b from-accent-400 to-accent-600",
-          "text-surface-950",
-          "border-t border-accent-300/50",
-          "shadow-[0_4px_0_0_theme(colors.accent.700),0_6px_8px_-2px_rgba(0,0,0,0.3)]",
-          "before:bg-gradient-to-b before:from-white/30 before:to-transparent before:opacity-100",
-          "hover:from-accent-300 hover:to-accent-500",
-          "hover:shadow-[0_6px_0_0_theme(colors.accent.700),0_10px_16px_-4px_rgba(0,0,0,0.35)]",
-          "hover:-translate-y-0.5",
-          "active:translate-y-1",
-          "active:shadow-[0_1px_0_0_theme(colors.accent.700),0_2px_4px_-1px_rgba(0,0,0,0.2)]",
-          "active:before:opacity-0",
-          "focus-visible:ring-accent-400",
+          // Cyberpunk lime green style
+          "bg-black",
+          "text-accent-500",
+          "border-accent-500",
+          "shadow-cyber-accent",
+          "before:bg-accent-500/10",
+          "after:bg-accent-500/5",
+          "hover:text-accent-400",
+          "hover:border-accent-400",
+          "hover:shadow-cyber-glow-lg",
+          "hover:bg-accent-500/5",
+          "hover:before:bg-accent-500/20",
+          "active:bg-accent-500/10",
+          "active:shadow-cyber-accent",
+          "focus-visible:ring-accent-500",
+          "focus-visible:ring-offset-2",
         ],
         ghost: [
+          // Cyberpunk ghost style
           "bg-transparent",
-          "text-surface-300",
-          "border border-surface-600",
-          "shadow-[0_4px_0_0_theme(colors.surface.700),0_6px_8px_-2px_rgba(0,0,0,0.2)]",
-          "before:bg-gradient-to-b before:from-white/5 before:to-transparent before:opacity-100",
-          "hover:bg-surface-800",
-          "hover:text-surface-100",
-          "hover:shadow-[0_6px_0_0_theme(colors.surface.700),0_10px_16px_-4px_rgba(0,0,0,0.25)]",
-          "hover:-translate-y-0.5",
-          "active:translate-y-1",
-          "active:shadow-[0_1px_0_0_theme(colors.surface.700),0_2px_4px_-1px_rgba(0,0,0,0.15)]",
-          "active:before:opacity-0",
-          "focus-visible:ring-surface-400",
+          "text-primary-500",
+          "border-primary-500/30",
+          "shadow-none",
+          "before:bg-primary-500/5",
+          "after:bg-transparent",
+          "hover:bg-primary-500/10",
+          "hover:text-primary-400",
+          "hover:border-primary-400",
+          "hover:shadow-cyber-glow",
+          "active:bg-primary-500/15",
+          "focus-visible:ring-primary-500",
+          "focus-visible:ring-offset-2",
         ],
         danger: [
-          "bg-gradient-to-b from-red-400 to-red-600",
-          "text-white",
-          "border-t border-red-300/50",
-          "shadow-[0_4px_0_0_theme(colors.red.700),0_6px_8px_-2px_rgba(0,0,0,0.3)]",
-          "before:bg-gradient-to-b before:from-white/20 before:to-transparent before:opacity-100",
-          "hover:from-red-300 hover:to-red-500",
-          "hover:shadow-[0_6px_0_0_theme(colors.red.700),0_10px_16px_-4px_rgba(0,0,0,0.35)]",
-          "hover:-translate-y-0.5",
-          "active:translate-y-1",
-          "active:shadow-[0_1px_0_0_theme(colors.red.700),0_2px_4px_-1px_rgba(0,0,0,0.2)]",
-          "active:before:opacity-0",
-          "focus-visible:ring-red-400",
+          // Cyberpunk danger style (red neon)
+          "bg-black",
+          "text-red-500",
+          "border-red-500",
+          "shadow-[0_0_10px_rgba(255,0,0,0.6),0_0_20px_rgba(255,0,0,0.4)]",
+          "before:bg-red-500/10",
+          "after:bg-red-500/5",
+          "hover:text-red-400",
+          "hover:border-red-400",
+          "hover:shadow-[0_0_15px_rgba(255,0,0,0.8),0_0_30px_rgba(255,0,0,0.6)]",
+          "hover:bg-red-500/5",
+          "active:bg-red-500/10",
+          "focus-visible:ring-red-500",
+          "focus-visible:ring-offset-2",
         ],
         glass: [
-          "bg-white/10 backdrop-blur-md",
-          "text-white",
-          "border border-white/20",
-          "shadow-[0_4px_0_0_rgba(255,255,255,0.1),0_6px_8px_-2px_rgba(0,0,0,0.3)]",
-          "before:bg-gradient-to-b before:from-white/20 before:to-transparent before:opacity-100",
-          "hover:bg-white/15",
-          "hover:shadow-[0_6px_0_0_rgba(255,255,255,0.15),0_10px_16px_-4px_rgba(0,0,0,0.35)]",
-          "hover:-translate-y-0.5",
-          "active:translate-y-1",
-          "active:shadow-[0_1px_0_0_rgba(255,255,255,0.1),0_2px_4px_-1px_rgba(0,0,0,0.2)]",
-          "active:before:opacity-0",
-          "focus-visible:ring-white/50",
+          // Cyberpunk glass style
+          "bg-primary-500/10 backdrop-blur-sm",
+          "text-primary-500",
+          "border border-primary-500/30",
+          "shadow-cyber-border",
+          "before:bg-primary-500/10",
+          "after:bg-primary-500/5",
+          "hover:bg-primary-500/15",
+          "hover:text-primary-400",
+          "hover:border-primary-400/50",
+          "hover:shadow-cyber-border-lg",
+          "active:bg-primary-500/20",
+          "focus-visible:ring-primary-500",
+          "focus-visible:ring-offset-2",
         ],
         outline: [
+          // Cyberpunk outline style
           "bg-transparent",
-          "text-surface-200",
-          "border-2 border-surface-500",
-          "shadow-[0_2px_0_0_rgba(0,0,0,0.1)]",
-          "hover:bg-surface-800",
-          "hover:text-surface-100",
-          "hover:border-surface-400",
-          "hover:shadow-[0_3px_0_0_rgba(0,0,0,0.1)]",
-          "hover:-translate-y-0.5",
-          "active:translate-y-0.5",
-          "active:shadow-[0_1px_0_0_rgba(0,0,0,0.1)]",
-          "focus-visible:ring-surface-400",
+          "text-primary-500",
+          "border-2 border-primary-500",
+          "shadow-cyber-border",
+          "before:bg-transparent",
+          "after:bg-transparent",
+          "hover:bg-primary-500/10",
+          "hover:text-primary-400",
+          "hover:border-primary-400",
+          "hover:shadow-cyber-border-lg",
+          "active:bg-primary-500/15",
+          "focus-visible:ring-primary-500",
+          "focus-visible:ring-offset-2",
         ],
         destructive: [
-          "bg-gradient-to-b from-red-400 to-red-600",
-          "text-white",
-          "border-t border-red-300/50",
-          "shadow-[0_4px_0_0_theme(colors.red.700),0_6px_8px_-2px_rgba(0,0,0,0.3)]",
-          "before:bg-gradient-to-b before:from-white/20 before:to-transparent before:opacity-100",
-          "hover:from-red-300 hover:to-red-500",
-          "hover:shadow-[0_6px_0_0_theme(colors.red.700),0_10px_16px_-4px_rgba(0,0,0,0.35)]",
-          "hover:-translate-y-0.5",
-          "active:translate-y-1",
-          "active:shadow-[0_1px_0_0_theme(colors.red.700),0_2px_4px_-1px_rgba(0,0,0,0.2)]",
-          "active:before:opacity-0",
-          "focus-visible:ring-red-400",
+          // Cyberpunk destructive style (red neon)
+          "bg-black",
+          "text-red-500",
+          "border-red-500",
+          "shadow-[0_0_10px_rgba(255,0,0,0.6),0_0_20px_rgba(255,0,0,0.4)]",
+          "before:bg-red-500/10",
+          "after:bg-red-500/5",
+          "hover:text-red-400",
+          "hover:border-red-400",
+          "hover:shadow-[0_0_15px_rgba(255,0,0,0.8),0_0_30px_rgba(255,0,0,0.6)]",
+          "hover:bg-red-500/5",
+          "active:bg-red-500/10",
+          "focus-visible:ring-red-500",
+          "focus-visible:ring-offset-2",
         ],
       },
       size: {
@@ -146,30 +167,19 @@ const buttonVariants = cva(
         icon: "h-10 w-10 p-0 rounded-lg before:rounded-lg",
       },
       depth: {
-        flat: [
-          "shadow-none hover:shadow-none active:shadow-none",
-          "translate-y-0 hover:translate-y-0 active:translate-y-0",
-        ],
-        shallow: [
-          "shadow-[0_2px_0_0_rgba(0,0,0,0.25),0_4px_6px_-2px_rgba(0,0,0,0.2)]",
-          "hover:shadow-[0_3px_0_0_rgba(0,0,0,0.25),0_6px_10px_-3px_rgba(0,0,0,0.25)]",
-          "active:shadow-[0_0px_0_0_rgba(0,0,0,0.25),0_1px_2px_-1px_rgba(0,0,0,0.15)]",
-          "active:translate-y-0.5",
-        ],
+        flat: ["shadow-none hover:shadow-none active:shadow-none"],
+        shallow: ["shadow-cyber-glow", "hover:shadow-cyber-glow-lg"],
         normal: [], // Default, uses variant shadows
         deep: [
-          "shadow-[0_6px_0_0_rgba(0,0,0,0.3),0_10px_16px_-4px_rgba(0,0,0,0.35)]",
-          "hover:shadow-[0_8px_0_0_rgba(0,0,0,0.3),0_14px_24px_-6px_rgba(0,0,0,0.4)]",
-          "hover:-translate-y-1",
-          "active:shadow-[0_2px_0_0_rgba(0,0,0,0.3),0_3px_6px_-2px_rgba(0,0,0,0.2)]",
-          "active:translate-y-1.5",
+          "shadow-cyber-glow-lg",
+          "hover:shadow-cyber-primary hover:animate-cyber-pulse",
         ],
       },
       glow: {
         none: "",
-        primary: "hover:shadow-[0_4px_0_0_theme(colors.primary.700),0_0_20px_theme(colors.primary.500/40)]",
-        secondary: "hover:shadow-[0_4px_0_0_theme(colors.secondary.700),0_0_20px_theme(colors.secondary.500/40)]",
-        accent: "hover:shadow-[0_4px_0_0_theme(colors.accent.700),0_0_20px_theme(colors.accent.500/40)]",
+        primary: "hover:shadow-cyber-primary hover:animate-cyber-pulse",
+        secondary: "hover:shadow-cyber-secondary hover:animate-cyber-pulse",
+        accent: "hover:shadow-cyber-accent hover:animate-cyber-pulse",
       },
       fullWidth: {
         true: "w-full",
@@ -240,7 +250,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     return (
       <button
-        className={cn(buttonVariants({ variant, size, depth, glow, fullWidth, className }))}
+        className={cn(
+          buttonVariants({ variant, size, depth, glow, fullWidth, className })
+        )}
         ref={ref}
         disabled={disabled || isLoading}
         {...props}
@@ -249,9 +261,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           <LoadingSpinner />
         ) : (
           <>
-            {leftIcon && <span className="inline-flex shrink-0">{leftIcon}</span>}
+            {leftIcon && (
+              <span className="inline-flex shrink-0">{leftIcon}</span>
+            )}
             {children}
-            {rightIcon && <span className="inline-flex shrink-0">{rightIcon}</span>}
+            {rightIcon && (
+              <span className="inline-flex shrink-0">{rightIcon}</span>
+            )}
           </>
         )}
       </button>
@@ -262,4 +278,3 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = "Button";
 
 export { Button, buttonVariants };
-

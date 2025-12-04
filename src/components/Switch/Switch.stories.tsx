@@ -73,7 +73,7 @@ export const Controlled: Story = {
           checked={checked}
           onCheckedChange={setChecked}
         />
-        <p className="text-sm text-surface-400">
+        <p className="text-sm text-primary-500/70 font-mono">
           Current state: {checked ? "Enabled" : "Disabled"}
         </p>
       </div>
@@ -83,38 +83,38 @@ export const Controlled: Story = {
 
 export const SettingsExample: Story = {
   render: () => (
-    <div className="w-[400px] p-6 rounded-xl bg-surface-800 border border-surface-700 space-y-6">
-      <h3 className="text-lg font-semibold text-surface-100">Settings</h3>
+    <div className="w-[400px] p-6 rounded-xl bg-black/80 border border-cyber shadow-cyber-border space-y-6">
+      <h3 className="text-lg font-semibold text-primary-500 font-mono">Settings</h3>
       
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-surface-100 font-medium">Email notifications</p>
-            <p className="text-sm text-surface-400">Receive email updates</p>
+            <p className="text-primary-500 font-medium font-mono">Email notifications</p>
+            <p className="text-sm text-primary-500/70 font-mono">Receive email updates</p>
           </div>
           <Switch defaultChecked />
         </div>
         
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-surface-100 font-medium">Push notifications</p>
-            <p className="text-sm text-surface-400">Receive push alerts</p>
+            <p className="text-primary-500 font-medium font-mono">Push notifications</p>
+            <p className="text-sm text-primary-500/70 font-mono">Receive push alerts</p>
           </div>
           <Switch variant="success" defaultChecked />
         </div>
         
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-surface-100 font-medium">Marketing emails</p>
-            <p className="text-sm text-surface-400">Receive promotional content</p>
+            <p className="text-primary-500 font-medium font-mono">Marketing emails</p>
+            <p className="text-sm text-primary-500/70 font-mono">Receive promotional content</p>
           </div>
           <Switch />
         </div>
         
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-surface-100 font-medium">Auto-update</p>
-            <p className="text-sm text-surface-400">Automatically install updates</p>
+            <p className="text-primary-500 font-medium font-mono">Auto-update</p>
+            <p className="text-sm text-primary-500/70 font-mono">Automatically install updates</p>
           </div>
           <Switch variant="warning" defaultChecked />
         </div>

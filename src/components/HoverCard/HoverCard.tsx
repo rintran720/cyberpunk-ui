@@ -257,10 +257,12 @@ const HoverCardContent = React.forwardRef<
         onMouseLeave={handleContentMouseLeave}
         className={cn(
           "z-50 w-64 p-4",
-          "rounded-lg border border-surface-600",
-          "bg-surface-800 text-surface-200",
-          // 3D effect
-          "shadow-[0_8px_24px_rgba(0,0,0,0.4),0_4px_0_0_rgba(0,0,0,0.2)]",
+          "rounded-lg border-2 border-cyber",
+          "bg-black/90 backdrop-blur-md text-primary-500 font-mono",
+          "shadow-cyber-border-lg",
+          "relative overflow-hidden",
+          "before:absolute before:inset-0 before:bg-[linear-gradient(135deg,transparent_30%,var(--cyber-glow-primary)_50%,transparent_70%)] before:opacity-15 before:pointer-events-none",
+          "after:absolute after:inset-0 after:border-2 after:border-primary-500/30 after:rounded-lg after:pointer-events-none",
           // Animation
           "animate-[fade-in_150ms_ease-out]",
           className

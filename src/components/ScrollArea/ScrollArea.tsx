@@ -55,16 +55,16 @@ const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
           orientationClasses[orientation],
           scrollbarSizeClasses[scrollbarSize],
           visibilityClasses[scrollbarVisibility],
-          // Custom scrollbar styles
+          // Custom scrollbar styles - Cyberpunk
           "[&::-webkit-scrollbar]:w-2.5 [&::-webkit-scrollbar]:h-2.5",
-          "[&::-webkit-scrollbar-track]:bg-surface-900 [&::-webkit-scrollbar-track]:rounded-full",
-          "[&::-webkit-scrollbar-thumb]:bg-surface-600 [&::-webkit-scrollbar-thumb]:rounded-full",
-          "[&::-webkit-scrollbar-thumb]:border-2 [&::-webkit-scrollbar-thumb]:border-surface-900",
-          "[&::-webkit-scrollbar-thumb:hover]:bg-surface-500",
-          // 3D effect on thumb
-          "[&::-webkit-scrollbar-thumb]:shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]",
+          "[&::-webkit-scrollbar-track]:bg-black [&::-webkit-scrollbar-track]:rounded-full",
+          "[&::-webkit-scrollbar-thumb]:bg-primary-500/30 [&::-webkit-scrollbar-thumb]:rounded-full",
+          "[&::-webkit-scrollbar-thumb]:border-2 [&::-webkit-scrollbar-thumb]:border-black",
+          "[&::-webkit-scrollbar-thumb]:shadow-cyber-primary",
+          "[&::-webkit-scrollbar-thumb:hover]:bg-primary-500/50",
+          "[&::-webkit-scrollbar-thumb:hover]:shadow-[0_0_8px_rgba(64,244,255,0.8)]",
           // Firefox
-          "scrollbar-color-surface-600-surface-900",
+          "scrollbar-color-primary-500/30-black",
           className
         )}
         {...props}
@@ -140,7 +140,7 @@ const ScrollAreaCorner = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("bg-surface-800", className)}
+    className={cn("bg-black/80 border border-cyber", className)}
     {...props}
   />
 ));

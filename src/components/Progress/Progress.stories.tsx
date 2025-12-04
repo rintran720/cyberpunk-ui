@@ -34,7 +34,9 @@ export const Sizes: Story = {
   render: () => (
     <div className="w-[400px] space-y-6">
       <div>
-        <span className="text-xs text-surface-400 mb-2 block">Small</span>
+        <span className="text-xs text-primary-500/70 font-mono mb-2 block">
+          Small
+        </span>
         <Progress value={40} size="sm" />
       </div>
       <div>
@@ -98,7 +100,7 @@ export const Interactive: Story = {
 
     return (
       <div className="w-[400px]">
-        <Progress value={progress} showLabel color="accent" />
+        <Progress value={progress} showLabel color="primary" />
       </div>
     );
   },
@@ -154,20 +156,30 @@ export const DownloadProgress: Story = {
     }, []);
 
     return (
-      <div className="w-[400px] p-6 rounded-xl bg-surface-800 border border-surface-700">
+      <div className="w-[400px] p-6 rounded-xl bg-black/80 border border-cyber shadow-cyber-border">
         <div className="flex items-center gap-4 mb-4">
-          <CircularProgress value={progress} showLabel size="lg" color="primary" />
+          <CircularProgress
+            value={progress}
+            showLabel
+            size="lg"
+            color="primary"
+          />
           <div>
-            <h3 className="text-sm font-semibold text-surface-100">Downloading...</h3>
-            <p className="text-xs text-surface-400">project-files.zip</p>
+            <h3 className="text-sm font-semibold text-primary-500 font-mono">
+              Downloading...
+            </h3>
+            <p className="text-xs text-primary-500/70 font-mono">
+              project-files.zip
+            </p>
           </div>
         </div>
         <Progress value={progress} size="sm" color="primary" />
-        <p className="text-xs text-surface-400 mt-2">
-          {progress < 100 ? `${Math.round(progress)}% complete` : "Download complete!"}
+        <p className="text-xs text-primary-500/70 font-mono mt-2">
+          {progress < 100
+            ? `${Math.round(progress)}% complete`
+            : "Download complete!"}
         </p>
       </div>
     );
   },
 };
-

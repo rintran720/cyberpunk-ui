@@ -11,9 +11,10 @@ import { cn } from "../../lib/utils";
 const gaugeChartVariants = cva(
   [
     "relative w-full",
-    "bg-surface-800 rounded-2xl border border-surface-700",
-    "shadow-[0_4px_0_0_rgba(0,0,0,0.15),0_8px_16px_-4px_rgba(0,0,0,0.2)]",
+    "bg-black/80 rounded-2xl border-2 border-cyber",
+    "shadow-cyber-border",
     "p-6",
+    "before:absolute before:inset-0 before:rounded-2xl before:bg-[linear-gradient(135deg,transparent_30%,var(--cyber-glow-primary)_50%,transparent_70%)] before:opacity-10 before:pointer-events-none",
   ],
   {
     variants: {
@@ -69,11 +70,11 @@ export interface GaugeChartProps
 
 const colorMap = {
   primary: {
-    fill: "rgb(59, 130, 246)",
-    stroke: "rgb(37, 99, 235)",
+    fill: "rgb(64, 244, 255)",
+    stroke: "rgb(40, 200, 220)",
     gradient: {
-      from: "rgb(59, 130, 246)",
-      to: "rgb(37, 99, 235)",
+      from: "rgb(64, 244, 255)",
+      to: "rgb(40, 200, 220)",
     },
   },
   secondary: {
@@ -304,12 +305,12 @@ export const GaugeChart = React.forwardRef<HTMLDivElement, GaugeChartProps>(
         {(title || description) && (
           <div className="mb-6 text-center">
             {title && (
-              <h3 className="text-lg font-semibold text-surface-100 mb-1">
+              <h3 className="text-lg font-semibold text-primary-500 font-mono mb-1">
                 {title}
               </h3>
             )}
             {description && (
-              <p className="text-sm text-surface-400">{description}</p>
+              <p className="text-sm text-primary-500/70 font-mono">{description}</p>
             )}
           </div>
         )}
@@ -476,15 +477,15 @@ export const GaugeChart = React.forwardRef<HTMLDivElement, GaugeChartProps>(
                   y={type === "semicircle" ? centerY - radius * 0.2 : centerY}
                   textAnchor="middle"
                   dominantBaseline="middle"
-                  className={`${fontSizeMap[size]} font-bold fill-surface-100 pointer-events-none`}
-                  style={{ textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}
+                  className={`${fontSizeMap[size]} font-bold fill-primary-500 font-mono pointer-events-none`}
+                  style={{ textShadow: "0 0 12px rgba(64,244,255,0.9)" }}
                 >
                   {displayValue}
                   {unit && (
                     <tspan
                       className={`${
                         unitFontSize || unitFontSizeMap[size]
-                      } fill-surface-300 ml-1`}
+                      } fill-primary-500/70 font-mono ml-1`}
                     >
                       {unit}
                     </tspan>
@@ -500,7 +501,7 @@ export const GaugeChart = React.forwardRef<HTMLDivElement, GaugeChartProps>(
                     y={centerY + radius * Math.sin(startAngle) * 0.9 + 8}
                     textAnchor="middle"
                     dominantBaseline="middle"
-                    className="text-xs font-medium fill-surface-400 pointer-events-none"
+                    className="text-xs font-medium fill-primary-500/70 font-mono pointer-events-none"
                   >
                     {formatValue ? formatValue(min) : min}
                   </text>
@@ -509,7 +510,7 @@ export const GaugeChart = React.forwardRef<HTMLDivElement, GaugeChartProps>(
                     y={centerY + radius * Math.sin(endAngle) * 0.9 + 8}
                     textAnchor="middle"
                     dominantBaseline="middle"
-                    className="text-xs font-medium fill-surface-400 pointer-events-none"
+                    className="text-xs font-medium fill-primary-500/70 font-mono pointer-events-none"
                   >
                     {formatValue ? formatValue(max) : max}
                   </text>
@@ -523,7 +524,7 @@ export const GaugeChart = React.forwardRef<HTMLDivElement, GaugeChartProps>(
                     y={centerY - radius * 1.15}
                     textAnchor="middle"
                     dominantBaseline="middle"
-                    className="text-xs font-medium fill-surface-400 pointer-events-none"
+                    className="text-xs font-medium fill-primary-500/70 font-mono pointer-events-none"
                   >
                     {formatValue ? formatValue(min) : min}
                   </text>
@@ -532,7 +533,7 @@ export const GaugeChart = React.forwardRef<HTMLDivElement, GaugeChartProps>(
                     y={centerY + radius * 1.15}
                     textAnchor="middle"
                     dominantBaseline="middle"
-                    className="text-xs font-medium fill-surface-400 pointer-events-none"
+                    className="text-xs font-medium fill-primary-500/70 font-mono pointer-events-none"
                   >
                     {formatValue ? formatValue(max) : max}
                   </text>
@@ -590,7 +591,7 @@ export const GaugeChart = React.forwardRef<HTMLDivElement, GaugeChartProps>(
 
           {/* Additional info */}
           {description && !title && (
-            <p className="mt-4 text-sm text-surface-400 text-center">
+            <p className="mt-4 text-sm text-primary-500/70 font-mono text-center">
               {description}
             </p>
           )}

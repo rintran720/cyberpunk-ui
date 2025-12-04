@@ -11,13 +11,14 @@ import { cn } from "../../lib/utils";
 const chartTooltipVariants = cva(
   [
     "absolute z-50",
-    "bg-surface-700 border border-surface-600 rounded-lg px-3 py-2 shadow-lg",
+    "bg-black/90 backdrop-blur-md border-2 border-cyber rounded-lg px-3 py-2 shadow-cyber-border-lg",
+    "text-primary-500 font-mono",
   ],
   {
     variants: {
       variant: {
         default: "",
-        elevated: ["shadow-[0_4px_12px_rgba(0,0,0,0.4)]", "border-surface-500"],
+        elevated: ["shadow-cyber-primary-lg"],
       },
     },
     defaultVariants: {

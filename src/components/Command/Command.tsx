@@ -11,11 +11,10 @@ import { cn } from "../../lib/utils";
 const commandVariants = cva(
   [
     "flex h-full w-full flex-col overflow-hidden rounded-lg",
-    "bg-surface-800 border border-surface-700",
-    // 3D effect with extrusion
-    "shadow-[0_4px_0_0_rgba(0,0,0,0.2),0_8px_16px_-4px_rgba(0,0,0,0.3)]",
-    "before:absolute before:inset-0 before:rounded-lg",
-    "before:bg-gradient-to-b before:from-white/5 before:to-transparent before:pointer-events-none",
+    "bg-black/90 backdrop-blur-md border-2 border-cyber",
+    "shadow-cyber-border-lg",
+    "relative",
+    "before:absolute before:inset-0 before:rounded-lg before:bg-[linear-gradient(135deg,transparent_30%,var(--cyber-glow-primary)_50%,transparent_70%)] before:opacity-10 before:pointer-events-none",
   ],
   {
     variants: {
@@ -84,7 +83,7 @@ const CommandDialog: React.FC<CommandDialogProps> = ({
     <>
       {/* Overlay */}
       <div
-        className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm animate-[fade-in_200ms_ease-out]"
+        className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm animate-[fade-in_200ms_ease-out]"
         onClick={() => onOpenChange?.(false)}
       />
       {/* Dialog */}
@@ -111,9 +110,9 @@ export interface CommandInputProps
 
 const CommandInput = React.forwardRef<HTMLInputElement, CommandInputProps>(
   ({ className, ...props }, ref) => (
-    <div className="flex items-center border-b border-surface-700/50 px-3 bg-surface-900/30">
+    <div className="flex items-center border-b-2 border-cyber px-3 bg-black/50 relative">
       <svg
-        className="mr-2 h-4 w-4 shrink-0 text-surface-500"
+        className="mr-2 h-4 w-4 shrink-0 text-primary-500 drop-shadow-[0_0_4px_rgba(64,244,255,0.8)]"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -129,8 +128,8 @@ const CommandInput = React.forwardRef<HTMLInputElement, CommandInputProps>(
         ref={ref}
         className={cn(
           "flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-none",
-          "text-surface-200 placeholder:text-surface-500",
-          "focus:text-surface-100",
+          "text-primary-500 font-mono placeholder:text-primary-500/40",
+          "focus:text-primary-500 focus:drop-shadow-[0_0_8px_rgba(64,244,255,0.6)]",
           "disabled:cursor-not-allowed disabled:opacity-50",
           className
         )}
@@ -153,17 +152,17 @@ const CommandList = React.forwardRef<HTMLDivElement, CommandListProps>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn(
-        "max-h-[300px] overflow-y-auto overflow-x-hidden p-1",
-        // Custom scrollbar
-        "[&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar]:h-2",
-        "[&::-webkit-scrollbar-track]:bg-surface-900 [&::-webkit-scrollbar-track]:rounded-full",
-        "[&::-webkit-scrollbar-thumb]:bg-surface-600 [&::-webkit-scrollbar-thumb]:rounded-full",
-        "[&::-webkit-scrollbar-thumb]:border [&::-webkit-scrollbar-thumb]:border-surface-900",
-        "[&::-webkit-scrollbar-thumb]:shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]",
-        "[&::-webkit-scrollbar-thumb:hover]:bg-surface-500",
-        className
-      )}
+        className={cn(
+          "max-h-[300px] overflow-y-auto overflow-x-hidden p-1",
+          // Custom scrollbar
+          "[&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar]:h-2",
+          "[&::-webkit-scrollbar-track]:bg-black [&::-webkit-scrollbar-track]:rounded-full",
+          "[&::-webkit-scrollbar-thumb]:bg-primary-500/30 [&::-webkit-scrollbar-thumb]:rounded-full",
+          "[&::-webkit-scrollbar-thumb]:border [&::-webkit-scrollbar-thumb]:border-black",
+          "[&::-webkit-scrollbar-thumb]:shadow-cyber-primary",
+          "[&::-webkit-scrollbar-thumb:hover]:bg-primary-500/50",
+          className
+        )}
       {...props}
     />
   )
@@ -182,7 +181,7 @@ const CommandEmpty = React.forwardRef<HTMLDivElement, CommandEmptyProps>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn("py-6 text-center text-sm text-surface-500", className)}
+      className={cn("py-6 text-center text-sm text-primary-500/70 font-mono", className)}
       {...props}
     />
   )
@@ -203,7 +202,7 @@ const CommandGroup = React.forwardRef<HTMLDivElement, CommandGroupProps>(
   ({ className, heading, children, ...props }, ref) => (
     <div ref={ref} className={cn("overflow-hidden p-1", className)} {...props}>
       {heading && (
-        <div className="px-2 py-1.5 text-xs font-semibold text-surface-400 uppercase tracking-wider">
+        <div className="px-2 py-1.5 text-xs font-semibold text-primary-500/70 font-mono uppercase tracking-wider">
           {heading}
         </div>
       )}
@@ -251,20 +250,20 @@ const CommandItem = React.forwardRef<HTMLButtonElement, CommandItemProps>(
         ref={ref}
         className={cn(
           "relative flex w-full cursor-pointer select-none items-center justify-between rounded-md px-2 py-1.5 text-sm",
-          "text-surface-200 outline-none",
+          "text-primary-500 font-mono outline-none",
           "transition-all duration-150",
-          // 3D hover effect
-          "hover:bg-surface-700/80 hover:text-surface-100",
-          "hover:shadow-[0_2px_0_0_rgba(0,0,0,0.1)]",
-          "hover:-translate-y-0.5",
+          // Cyberpunk hover effect
+          "hover:bg-primary-500/10 hover:text-primary-500",
+          "hover:shadow-cyber-border-lg hover:drop-shadow-[0_0_8px_rgba(64,244,255,0.4)]",
           // Focus state
-          "focus:bg-surface-700 focus:text-surface-100",
-          "focus:shadow-[0_2px_0_0_rgba(0,0,0,0.1)]",
+          "focus:bg-primary-500/10 focus:text-primary-500",
+          "focus:shadow-cyber-border-lg focus:drop-shadow-[0_0_8px_rgba(64,244,255,0.4)]",
           // Selected state
-          "data-[selected=true]:bg-primary-600/20 data-[selected=true]:text-primary-400",
-          "data-[selected=true]:shadow-[0_2px_0_0_rgba(0,0,0,0.1)]",
+          "data-[selected=true]:bg-primary-500/20 data-[selected=true]:text-primary-500",
+          "data-[selected=true]:shadow-cyber-primary data-[selected=true]:drop-shadow-[0_0_12px_rgba(64,244,255,0.8)]",
+          "data-[selected=true]:border-l-2 data-[selected=true]:border-primary-500",
           // Active state
-          "active:translate-y-0 active:shadow-none",
+          "active:bg-primary-500/20",
           "disabled:pointer-events-none disabled:opacity-50",
           className
         )}
@@ -294,7 +293,7 @@ const CommandShortcut = React.forwardRef<HTMLSpanElement, CommandShortcutProps>(
     <span
       ref={ref}
       className={cn(
-        "ml-auto text-xs tracking-widest text-surface-500 shrink-0",
+        "ml-auto text-xs tracking-widest text-primary-500/70 font-mono shrink-0",
         className
       )}
       {...props}
@@ -317,7 +316,7 @@ const CommandSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("-mx-1 h-px bg-surface-700", className)}
+    className={cn("-mx-1 h-px bg-[var(--cyber-border-color)]", className)}
     {...props}
   />
 ));

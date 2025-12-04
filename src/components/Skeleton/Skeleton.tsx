@@ -5,15 +5,15 @@ import { cn } from "../../lib/utils";
 const skeletonVariants = cva(
   [
     "animate-pulse rounded-md",
-    // 3D inset effect
-    "shadow-[inset_0_1px_2px_rgba(0,0,0,0.2)]",
+    "relative overflow-hidden",
+    "before:absolute before:inset-0 before:bg-[linear-gradient(90deg,transparent,var(--cyber-glow-primary),transparent)] before:opacity-20 before:animate-[scan_2s_linear_infinite]",
   ],
   {
     variants: {
       variant: {
-        default: "bg-surface-700/50",
-        lighter: "bg-surface-600/30",
-        darker: "bg-surface-800/70",
+        default: "bg-primary-500/10 border border-primary-500/20",
+        lighter: "bg-primary-500/5 border border-primary-500/10",
+        darker: "bg-primary-500/20 border border-primary-500/30",
       },
     },
     defaultVariants: {
@@ -134,7 +134,7 @@ const SkeletonCard = React.forwardRef<HTMLDivElement, SkeletonCardProps>(
       <div
         ref={ref}
         className={cn(
-          "rounded-xl border border-surface-700 bg-surface-800 p-4 space-y-4",
+          "rounded-xl border border-cyber bg-black/80 p-4 space-y-4 shadow-cyber-border",
           className
         )}
         {...props}
@@ -220,13 +220,13 @@ const SkeletonTable = React.forwardRef<HTMLDivElement, SkeletonTableProps>(
       <div
         ref={ref}
         className={cn(
-          "rounded-xl border border-surface-700 bg-surface-800 overflow-hidden",
+          "rounded-xl border border-cyber bg-black/80 overflow-hidden shadow-cyber-border",
           className
         )}
         {...props}
       >
         {/* Header */}
-        <div className="border-b border-surface-700 p-4">
+        <div className="border-b border-cyber p-4">
           <div className="flex gap-4">
             {Array.from({ length: columns }).map((_, index) => (
               <Skeleton
@@ -243,7 +243,7 @@ const SkeletonTable = React.forwardRef<HTMLDivElement, SkeletonTableProps>(
             key={rowIndex}
             className={cn(
               "p-4",
-              rowIndex < rows - 1 && "border-b border-surface-700/50"
+              rowIndex < rows - 1 && "border-b border-cyber"
             )}
           >
             <div className="flex gap-4">

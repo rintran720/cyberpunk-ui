@@ -142,9 +142,9 @@ const DialogPortal: React.FC<DialogPortalProps> = ({ children }) => {
 const overlayVariants = cva(["fixed inset-0 z-50", "animate-overlay-show"], {
   variants: {
     variant: {
-      default: "bg-black/60 backdrop-blur-sm",
-      elevated: "bg-surface-950/80 backdrop-blur-md",
-      glass: "bg-black/40 backdrop-blur-lg",
+      default: "bg-black/80 backdrop-blur-sm",
+      elevated: "bg-black/90 backdrop-blur-md",
+      glass: "bg-black/70 backdrop-blur-lg",
     },
   },
   defaultVariants: {
@@ -197,28 +197,19 @@ const contentVariants = cva(
     variants: {
       variant: {
         default: [
-          "bg-surface-800",
-          "border border-surface-700/50",
-          // 3D shadow effect
-          "shadow-[0_8px_0_0_rgba(0,0,0,0.25),0_16px_40px_-8px_rgba(0,0,0,0.4)]",
-          // Top highlight
-          "before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent",
+          "bg-black/90",
+          "border border-primary-500/30",
+          "shadow-cyber-border-lg",
         ],
         elevated: [
-          "bg-gradient-to-b from-surface-700 to-surface-800",
-          "border border-surface-600/30",
-          // Deep 3D shadow
-          "shadow-[0_12px_0_0_rgba(0,0,0,0.3),0_24px_60px_-12px_rgba(0,0,0,0.5)]",
-          // Stronger highlight
-          "before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-white/30 before:to-transparent",
+          "bg-black/95",
+          "border border-primary-500/50",
+          "shadow-cyber-border-lg",
         ],
         glass: [
-          "bg-white/10 backdrop-blur-xl",
-          "border border-white/20",
-          // Glass shadow
-          "shadow-[0_8px_0_0_rgba(255,255,255,0.05),0_16px_40px_-8px_rgba(0,0,0,0.4)]",
-          // Glass highlight
-          "before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent",
+          "bg-primary-500/10 backdrop-blur-xl",
+          "border border-primary-500/30",
+          "shadow-cyber-border-lg",
         ],
       },
       size: {
@@ -360,9 +351,10 @@ const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>(
               }}
               className={cn(
                 "absolute right-4 top-4 z-10",
-                "p-2 rounded-lg",
-                "text-surface-400 hover:text-surface-100",
-                "hover:bg-surface-700/50",
+                "p-2 rounded",
+                "text-primary-500/60 hover:text-primary-500",
+                "hover:bg-primary-500/10",
+                "border border-primary-500/30 hover:border-primary-500",
                 "transition-colors duration-200",
                 "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
               )}
@@ -393,7 +385,7 @@ const DialogHeader = React.forwardRef<HTMLDivElement, DialogHeaderProps>(
         ref={ref}
         className={cn(
           "px-6 pt-6 pb-4",
-          variant === "glass" ? "text-white" : "text-surface-50",
+          "text-primary-500 font-mono",
           className
         )}
         {...props}
@@ -413,7 +405,7 @@ const DialogTitle = React.forwardRef<HTMLHeadingElement, DialogTitleProps>(
     return (
       <h2
         ref={ref}
-        className={cn("text-xl font-semibold", className)}
+        className={cn("text-xl font-semibold font-mono text-primary-500", className)}
         {...props}
       />
     );
@@ -436,8 +428,7 @@ const DialogDescription = React.forwardRef<
     <p
       ref={ref}
       className={cn(
-        "mt-2 text-sm",
-        variant === "glass" ? "text-white/70" : "text-surface-400",
+        "mt-2 text-sm font-mono text-primary-500/70",
         className
       )}
       {...props}
@@ -459,7 +450,7 @@ const DialogBody = React.forwardRef<HTMLDivElement, DialogBodyProps>(
         ref={ref}
         className={cn(
           "px-6 py-4",
-          variant === "glass" ? "text-white/90" : "text-surface-300",
+          "text-primary-500/80 font-mono",
           className
         )}
         {...props}
@@ -484,7 +475,7 @@ const DialogFooter = React.forwardRef<HTMLDivElement, DialogFooterProps>(
         className={cn(
           "px-6 pb-6 pt-4",
           "flex items-center justify-end gap-3",
-          variant === "default" && "border-t border-surface-700/50",
+          "border-t border-primary-500/20",
           className
         )}
         {...props}

@@ -39,12 +39,12 @@ const useAccordionItemContext = () => {
 // Accordion Root
 const accordionVariants = cva("w-full", {
   variants: {
-    variant: {
-      default: "space-y-2",
-      bordered: "space-y-0 border border-surface-700 rounded-xl overflow-hidden",
-      elevated: "space-y-3",
-      glass: "space-y-2",
-    },
+      variant: {
+        default: "space-y-2",
+        bordered: "space-y-0 border border-cyber rounded-xl overflow-hidden shadow-cyber-border",
+        elevated: "space-y-3",
+        glass: "space-y-2",
+      },
   },
   defaultVariants: {
     variant: "default",
@@ -129,28 +129,26 @@ const accordionItemVariants = cva(
       variant: {
         default: [
           "rounded-xl",
-          "bg-surface-800/80",
-          "border border-surface-700/50",
-          // 3D shadow effect
-          "shadow-[0_4px_0_0_rgba(0,0,0,0.2),0_6px_12px_-4px_rgba(0,0,0,0.25)]",
+          "bg-black/80",
+          "border border-cyber",
+          "shadow-cyber-border",
         ],
         bordered: [
-          "border-b border-surface-700",
+          "border-b border-cyber",
           "last:border-b-0",
-          "bg-surface-800/50",
+          "bg-black/50",
         ],
         elevated: [
           "rounded-xl",
-          "bg-gradient-to-b from-surface-700/80 to-surface-800/90",
-          "border border-surface-600/30",
-          // Deep 3D shadow
-          "shadow-[0_6px_0_0_rgba(0,0,0,0.25),0_10px_20px_-6px_rgba(0,0,0,0.3)]",
+          "bg-black/90",
+          "border border-cyber",
+          "shadow-cyber-border-lg",
         ],
         glass: [
           "rounded-xl",
-          "bg-white/5 backdrop-blur-md",
-          "border border-white/10",
-          "shadow-[0_4px_0_0_rgba(255,255,255,0.05),0_8px_16px_-4px_rgba(0,0,0,0.3)]",
+          "bg-black/50 backdrop-blur-md",
+          "border border-cyber",
+          "shadow-cyber-border",
         ],
       },
     },
@@ -200,7 +198,7 @@ const accordionTriggerVariants = cva(
     "flex items-center justify-between w-full",
     "text-left font-medium",
     "transition-all duration-200",
-    "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-900",
+    "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
     "cursor-pointer select-none",
     // Highlight on top for 3D effect
     "relative",
@@ -210,25 +208,25 @@ const accordionTriggerVariants = cva(
       variant: {
         default: [
           "px-5 py-4",
-          "text-surface-100",
-          "hover:bg-surface-700/50",
-          "before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent",
+          "text-primary-500 font-mono",
+          "hover:bg-primary-500/10",
+          "before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-primary-500/30 before:to-transparent",
         ],
         bordered: [
           "px-5 py-4",
-          "text-surface-100",
-          "hover:bg-surface-700/30",
+          "text-primary-500 font-mono",
+          "hover:bg-primary-500/10",
         ],
         elevated: [
           "px-5 py-4",
-          "text-surface-50",
-          "hover:bg-white/5",
-          "before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent",
+          "text-primary-500 font-mono",
+          "hover:bg-primary-500/10",
+          "before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-primary-500/50 before:to-transparent",
         ],
         glass: [
           "px-5 py-4",
-          "text-white",
-          "hover:bg-white/10",
+          "text-primary-500 font-mono",
+          "hover:bg-primary-500/10",
         ],
       },
       size: {
@@ -289,8 +287,8 @@ const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTriggerPro
           <span
             className={cn(
               "ml-4 shrink-0 transition-transform duration-300 ease-out",
-              "text-surface-400",
-              isExpanded && "rotate-180 text-primary-400"
+              "text-primary-500/70",
+              isExpanded && "rotate-180 text-primary-500"
             )}
           >
             {icon || <ChevronIcon />}
@@ -312,10 +310,10 @@ const accordionContentVariants = cva(
   {
     variants: {
       variant: {
-        default: "text-surface-300",
-        bordered: "text-surface-300 border-t border-surface-700/50",
-        elevated: "text-surface-200",
-        glass: "text-white/80",
+        default: "text-primary-500/70 font-mono",
+        bordered: "text-primary-500/70 font-mono border-t border-cyber",
+        elevated: "text-primary-500/70 font-mono",
+        glass: "text-primary-500/70 font-mono",
       },
     },
     defaultVariants: {

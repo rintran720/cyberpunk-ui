@@ -7,33 +7,34 @@ const switchVariants = cva(
     "relative inline-flex items-center shrink-0 cursor-pointer",
     "rounded-full",
     "transition-all duration-200",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-900",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
     "disabled:cursor-not-allowed disabled:opacity-50",
-    // 3D inset effect when off
-    "shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]",
+    "border border-cyber",
+    "bg-black/80",
+    "shadow-cyber-border",
   ],
   {
     variants: {
       variant: {
         default: [
-          "bg-surface-700",
-          "data-[state=checked]:bg-primary-500",
-          "data-[state=checked]:shadow-[0_2px_0_0_rgba(20,111,225,0.3),0_4px_8px_-2px_rgba(0,0,0,0.2)]",
+          "bg-black/80 border-cyber",
+          "data-[state=checked]:bg-primary-500 data-[state=checked]:border-primary-500",
+          "data-[state=checked]:shadow-cyber-primary",
         ],
         success: [
-          "bg-surface-700",
-          "data-[state=checked]:bg-green-500",
-          "data-[state=checked]:shadow-[0_2px_0_0_rgba(34,197,94,0.3),0_4px_8px_-2px_rgba(0,0,0,0.2)]",
+          "bg-black/80 border-cyber",
+          "data-[state=checked]:bg-emerald-500 data-[state=checked]:border-emerald-500",
+          "data-[state=checked]:shadow-[0_0_10px_rgba(16,185,129,0.6)]",
         ],
         warning: [
-          "bg-surface-700",
-          "data-[state=checked]:bg-amber-500",
-          "data-[state=checked]:shadow-[0_2px_0_0_rgba(245,158,11,0.3),0_4px_8px_-2px_rgba(0,0,0,0.2)]",
+          "bg-black/80 border-cyber",
+          "data-[state=checked]:bg-amber-500 data-[state=checked]:border-amber-500",
+          "data-[state=checked]:shadow-[0_0_10px_rgba(245,158,11,0.6)]",
         ],
         danger: [
-          "bg-surface-700",
-          "data-[state=checked]:bg-red-500",
-          "data-[state=checked]:shadow-[0_2px_0_0_rgba(239,68,68,0.3),0_4px_8px_-2px_rgba(0,0,0,0.2)]",
+          "bg-black/80 border-cyber",
+          "data-[state=checked]:bg-red-500 data-[state=checked]:border-red-500",
+          "data-[state=checked]:shadow-[0_0_10px_rgba(239,68,68,0.6)]",
         ],
       },
       size: {
@@ -51,10 +52,9 @@ const switchVariants = cva(
 
 const thumbVariants = cva(
   [
-    "pointer-events-none block rounded-full bg-white",
+    "pointer-events-none block rounded-full bg-primary-500",
     "transition-transform duration-200",
-    // 3D raised thumb
-    "shadow-[0_2px_4px_rgba(0,0,0,0.2),0_1px_0_rgba(255,255,255,0.1)_inset]",
+    "shadow-cyber-primary",
   ],
   {
     variants: {
@@ -144,13 +144,13 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
     return (
       <label className="inline-flex items-center gap-3 cursor-pointer">
         {labelPosition === "left" && (
-          <span className={cn("text-sm text-surface-200", disabled && "opacity-50")}>
+          <span className={cn("text-sm text-primary-500 font-mono", disabled && "opacity-50")}>
             {label}
           </span>
         )}
         {switchElement}
         {labelPosition === "right" && (
-          <span className={cn("text-sm text-surface-200", disabled && "opacity-50")}>
+          <span className={cn("text-sm text-primary-500 font-mono", disabled && "opacity-50")}>
             {label}
           </span>
         )}

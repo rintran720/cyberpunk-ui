@@ -29,7 +29,7 @@ const paginationItemVariants = cva(
     "rounded-lg",
     "transition-all duration-100 ease-out",
     "select-none cursor-pointer",
-    "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-950",
+    "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
     "disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none",
     // 3D effect base
     "before:absolute before:inset-0 before:rounded-lg before:transition-all before:duration-100",
@@ -38,32 +38,27 @@ const paginationItemVariants = cva(
     variants: {
       variant: {
         default: [
-          "bg-surface-800",
-          "text-surface-200",
-          "border border-surface-700",
-          "shadow-[0_2px_0_0_rgba(0,0,0,0.15),0_4px_8px_-2px_rgba(0,0,0,0.2)]",
-          "before:bg-gradient-to-b before:from-white/5 before:to-transparent before:opacity-100",
-          "hover:bg-surface-700",
-          "hover:text-surface-100",
-          "hover:shadow-[0_3px_0_0_rgba(0,0,0,0.15),0_6px_12px_-2px_rgba(0,0,0,0.25)]",
-          "hover:-translate-y-0.5",
-          "active:translate-y-0.5",
-          "active:shadow-[0_1px_0_0_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.15)]",
-          "active:before:opacity-0",
-          "focus-visible:ring-primary-400",
+          "bg-black/80",
+          "text-primary-500 font-mono",
+          "border border-cyber",
+          "shadow-cyber-border",
+          "hover:bg-primary-500/10",
+          "hover:text-primary-500",
+          "hover:shadow-cyber-border-lg",
+          "hover:drop-shadow-[0_0_8px_rgba(64,244,255,0.4)]",
+          "active:bg-primary-500/20",
+          "focus-visible:ring-primary-500",
         ],
         active: [
-          "bg-gradient-to-b from-primary-400 to-primary-600",
-          "text-white",
-          "border-t border-primary-300/50",
-          "shadow-[0_2px_0_0_theme(colors.primary.700),0_4px_8px_-2px_rgba(0,0,0,0.3)]",
-          "before:bg-gradient-to-b before:from-white/20 before:to-transparent before:opacity-100",
-          "hover:from-primary-300 hover:to-primary-500",
-          "hover:shadow-[0_3px_0_0_theme(colors.primary.700),0_6px_12px_-2px_rgba(0,0,0,0.35)]",
-          "hover:-translate-y-0.5",
-          "active:translate-y-0.5",
-          "active:shadow-[0_1px_0_0_theme(colors.primary.700),0_2px_4px_-1px_rgba(0,0,0,0.2)]",
-          "focus-visible:ring-primary-400",
+          "bg-primary-500/20",
+          "text-primary-500 font-mono font-bold",
+          "border-2 border-primary-500",
+          "shadow-cyber-primary",
+          "drop-shadow-[0_0_12px_rgba(64,244,255,0.8)]",
+          "hover:bg-primary-500/30",
+          "hover:shadow-cyber-primary",
+          "active:bg-primary-500/20",
+          "focus-visible:ring-primary-500",
         ],
       },
       size: {
@@ -223,7 +218,7 @@ const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
                 1
               </PaginationItem>
               {pageNumbers[0] !== 1 && pageNumbers[0] !== "ellipsis" && (
-                <span className="px-2 text-surface-400">...</span>
+                <span className="px-2 text-primary-500/50 font-mono">...</span>
               )}
             </>
           )}
@@ -257,7 +252,7 @@ const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
           !pageNumbers.includes(totalPages) && (
             <>
               {pageNumbers[pageNumbers.length - 1] !== "ellipsis" && (
-                <span className="px-2 text-surface-400">...</span>
+                <span className="px-2 text-primary-500/50 font-mono">...</span>
               )}
               <PaginationItem
                 variant="default"

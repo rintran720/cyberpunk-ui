@@ -19,7 +19,7 @@ export const Default: Story = {
     <RadioGroup defaultValue="option-1">
       <div className="flex items-center gap-2">
         <RadioGroupItem value="option-1" />
-        <label className="text-sm text-surface-200">Option 1</label>
+        <label className="text-sm text-primary-500 font-mono">Option 1</label>
       </div>
       <div className="flex items-center gap-2">
         <RadioGroupItem value="option-2" />
@@ -69,7 +69,7 @@ export const Sizes: Story = {
   render: () => (
     <div className="space-y-6">
       <div>
-        <p className="text-sm text-surface-400 mb-2">Small</p>
+        <p className="text-sm text-primary-500/70 font-mono mb-2">Small</p>
         <RadioGroup defaultValue="a" orientation="horizontal">
           <div className="flex items-center gap-2">
             <RadioGroupItem value="a" size="sm" />
@@ -153,8 +153,8 @@ export const Controlled: Story = {
           <RadioWithLabel value="banana" label="Banana" />
           <RadioWithLabel value="orange" label="Orange" />
         </RadioGroup>
-        <p className="text-sm text-surface-400">
-          Selected: <span className="text-surface-100">{value}</span>
+        <p className="text-sm text-primary-500/70 font-mono">
+          Selected: <span className="text-primary-500 font-mono">{value}</span>
         </p>
       </div>
     );
@@ -176,23 +176,23 @@ export const CardStyle: Story = {
             key={option.value}
             onClick={() => setPlan(option.value)}
             className={cn(
-              "p-4 rounded-lg border cursor-pointer transition-all",
+              "p-4 rounded-lg border cursor-pointer transition-all font-mono",
               plan === option.value
-                ? "border-primary-500 bg-primary-500/10 shadow-[0_0_0_1px_rgba(var(--color-primary-500),0.5)]"
-                : "border-surface-600 bg-surface-800 hover:border-surface-500"
+                ? "border-primary-500 bg-primary-500/10 shadow-cyber-primary"
+                : "border-cyber bg-black/80 hover:border-cyber-hover shadow-cyber-border"
             )}
           >
             <div className="flex items-start gap-3">
               <RadioGroupItem value={option.value} />
               <div className="flex-1">
                 <div className="flex items-center justify-between">
-                  <span className="font-medium text-surface-100">{option.label}</span>
-                  <span className="text-sm text-primary-400">{option.price}</span>
+                  <span className="font-medium text-primary-500 font-mono">{option.label}</span>
+                  <span className="text-sm text-primary-500 font-mono">{option.price}</span>
                 </div>
                 <ul className="mt-2 space-y-1">
                   {option.features.map((feature, i) => (
-                    <li key={i} className="text-xs text-surface-400 flex items-center gap-1">
-                      <svg className="w-3 h-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <li key={i} className="text-xs text-primary-500/70 font-mono flex items-center gap-1">
+                      <svg className="w-3 h-3 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       {feature}

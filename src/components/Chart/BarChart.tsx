@@ -12,9 +12,10 @@ import { ChartTooltip } from "./ChartTooltip";
 const barChartVariants = cva(
   [
     "relative w-full",
-    "bg-surface-800 rounded-2xl border border-surface-700",
-    "shadow-[0_4px_0_0_rgba(0,0,0,0.15),0_8px_16px_-4px_rgba(0,0,0,0.2)]",
+    "bg-black/80 rounded-2xl border-2 border-cyber",
+    "shadow-cyber-border",
     "p-6",
+    "before:absolute before:inset-0 before:rounded-2xl before:bg-[linear-gradient(135deg,transparent_30%,var(--cyber-glow-primary)_50%,transparent_70%)] before:opacity-10 before:pointer-events-none",
   ],
   {
     variants: {
@@ -141,10 +142,10 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
     // Color gradients for bars
     const colorGradients = {
       primary: {
-        from: "rgb(59, 130, 246)",
-        via: "rgb(96, 165, 250)",
-        to: "rgb(147, 197, 253)",
-        shadow: "rgb(37, 99, 235)",
+        from: "rgb(64, 244, 255)",
+        via: "rgb(96, 244, 255)",
+        to: "rgb(147, 244, 255)",
+        shadow: "rgb(40, 200, 220)",
       },
       secondary: {
         from: "rgb(168, 85, 247)",
@@ -194,12 +195,12 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
         {(title || description) && (
           <div className="mb-6">
             {title && (
-              <h3 className="text-lg font-semibold text-surface-100 mb-1">
+              <h3 className="text-lg font-semibold text-primary-500 font-mono mb-1">
                 {title}
               </h3>
             )}
             {description && (
-              <p className="text-sm text-surface-400">{description}</p>
+              <p className="text-sm text-primary-500/70 font-mono">{description}</p>
             )}
           </div>
         )}
@@ -242,7 +243,7 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                 y={label.y}
                 textAnchor="end"
                 dominantBaseline="middle"
-                className="text-xs fill-surface-400 pointer-events-none"
+                className="text-xs fill-primary-500/70 font-mono pointer-events-none"
               >
                 {Math.round(label.value)}
               </text>
@@ -259,8 +260,8 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                   y2={label.y}
                   stroke="currentColor"
                   strokeWidth="1"
-                  strokeOpacity="0.1"
-                  className="text-surface-600"
+                  strokeOpacity="0.15"
+                  className="text-primary-500/20"
                 />
               ))}
 
@@ -310,8 +311,8 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                   renderTooltip(item)
                 ) : (
                   <div className="text-sm">
-                    <div className="font-semibold">{item.label}</div>
-                    <div className="text-surface-300">Value: {item.value}</div>
+                  <div className="font-semibold font-mono">{item.label}</div>
+                  <div className="text-primary-500/70 font-mono">Value: {item.value}</div>
                   </div>
                 );
 
@@ -372,8 +373,8 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                       x={x + barWidth / 2}
                       y={y - 6}
                       textAnchor="middle"
-                      className="text-xs font-semibold fill-surface-200 pointer-events-none"
-                      style={{ textShadow: "0 1px 2px rgba(0,0,0,0.5)" }}
+                      className="text-xs font-semibold fill-primary-500 font-mono pointer-events-none"
+                      style={{ textShadow: "0 0 8px rgba(64,244,255,0.8)" }}
                     >
                       {item.value}
                     </text>
@@ -383,7 +384,7 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                     x={x + barWidth / 2}
                     y={chartHeight - padding.bottom + 16}
                     textAnchor="middle"
-                    className="text-xs fill-surface-400 pointer-events-none"
+                    className="text-xs fill-primary-500/70 font-mono pointer-events-none"
                   >
                     {item.label}
                   </text>

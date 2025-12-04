@@ -17,11 +17,11 @@ const labelVariants = cva(
   {
     variants: {
       variant: {
-        default: "text-surface-200",
-        muted: "text-surface-400",
-        accent: "text-primary-400",
-        error: "text-red-400",
-        success: "text-green-400",
+        default: "text-primary-500 font-mono",
+        muted: "text-primary-500/70 font-mono",
+        accent: "text-primary-500 font-mono",
+        error: "text-red-500 font-mono",
+        success: "text-emerald-500 font-mono",
       },
       size: {
         sm: "text-xs",
@@ -80,16 +80,16 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
         >
           {children}
           {required && (
-            <span className="text-red-400" aria-hidden="true">
+            <span className="text-red-500 font-mono" aria-hidden="true">
               *
             </span>
           )}
         </label>
         {description && !error && (
-          <p className="text-xs text-surface-500">{description}</p>
+          <p className="text-xs text-primary-500/70 font-mono">{description}</p>
         )}
         {error && (
-          <p className="text-xs text-red-400">{error}</p>
+          <p className="text-xs text-red-500 font-mono">{error}</p>
         )}
       </div>
     );
@@ -122,7 +122,7 @@ const SimpleLabel = React.forwardRef<HTMLLabelElement, SimpleLabelProps>(
       >
         {children}
         {required && (
-          <span className="text-red-400" aria-hidden="true">
+          <span className="text-red-500 font-mono" aria-hidden="true">
             *
           </span>
         )}

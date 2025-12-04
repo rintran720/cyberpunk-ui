@@ -49,8 +49,8 @@ export const Default: Story = {
       </PopoverTrigger>
       <PopoverContent>
         <div className="space-y-2">
-          <h4 className="font-medium text-surface-100">Popover Title</h4>
-          <p className="text-sm text-surface-400">
+          <h4 className="font-medium text-primary-500 font-mono">Popover Title</h4>
+          <p className="text-sm text-primary-500/70 font-mono">
             This is a simple popover with some content.
           </p>
         </div>
@@ -68,34 +68,34 @@ export const WithForm: Story = {
       <PopoverContent className="w-80">
         <div className="space-y-4">
           <div className="space-y-2">
-            <h4 className="font-medium text-surface-100">Dimensions</h4>
-            <p className="text-sm text-surface-400">
+            <h4 className="font-medium text-primary-500 font-mono">Dimensions</h4>
+            <p className="text-sm text-primary-500/70 font-mono">
               Set the dimensions for the layer.
             </p>
           </div>
           <div className="grid gap-3">
             <div className="grid grid-cols-3 items-center gap-4">
-              <label className="text-sm text-surface-300">Width</label>
+              <label className="text-sm text-primary-500 font-mono">Width</label>
               <input
                 type="text"
                 defaultValue="100%"
-                className="col-span-2 h-8 px-2 rounded-md bg-surface-900 border border-surface-600 text-surface-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+                className="col-span-2 h-8 px-2 rounded-md bg-black/80 border border-cyber text-primary-500 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 placeholder:text-primary-500/40"
               />
             </div>
             <div className="grid grid-cols-3 items-center gap-4">
-              <label className="text-sm text-surface-300">Height</label>
+              <label className="text-sm text-primary-500 font-mono">Height</label>
               <input
                 type="text"
                 defaultValue="25px"
-                className="col-span-2 h-8 px-2 rounded-md bg-surface-900 border border-surface-600 text-surface-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+                className="col-span-2 h-8 px-2 rounded-md bg-black/80 border border-cyber text-primary-500 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 placeholder:text-primary-500/40"
               />
             </div>
             <div className="grid grid-cols-3 items-center gap-4">
-              <label className="text-sm text-surface-300">Max. Height</label>
+              <label className="text-sm text-primary-500 font-mono">Max. Height</label>
               <input
                 type="text"
                 defaultValue="none"
-                className="col-span-2 h-8 px-2 rounded-md bg-surface-900 border border-surface-600 text-surface-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+                className="col-span-2 h-8 px-2 rounded-md bg-black/80 border border-cyber text-primary-500 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 placeholder:text-primary-500/40"
               />
             </div>
           </div>
@@ -207,11 +207,11 @@ export const WithCloseButton: Story = {
       <PopoverContent className="w-72">
         <div className="flex justify-between items-start">
           <div className="space-y-1">
-            <h4 className="font-medium text-surface-100">Notification</h4>
-            <p className="text-sm text-surface-400">You have a new message.</p>
+            <h4 className="font-medium text-primary-500 font-mono">Notification</h4>
+            <p className="text-sm text-primary-500/70 font-mono">You have a new message.</p>
           </div>
           <PopoverClose asChild>
-            <button className="text-surface-400 hover:text-surface-100 transition-colors">
+            <button className="text-primary-500/70 hover:text-primary-500 transition-colors">
               <svg
                 className="h-4 w-4"
                 fill="none"
@@ -247,13 +247,13 @@ export const UserProfile: Story = {
   render: () => (
     <Popover>
       <PopoverTrigger asChild>
-        <button className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-surface-800 transition-colors">
-          <div className="w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center text-white text-sm font-medium">
+        <button className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-primary-500/10 transition-colors border border-cyber bg-black/80 shadow-cyber-border">
+          <div className="w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center text-black text-sm font-medium font-mono">
             JD
           </div>
-          <span className="text-surface-200 text-sm">John Doe</span>
+          <span className="text-primary-500 text-sm font-mono">John Doe</span>
           <svg
-            className="h-4 w-4 text-surface-400"
+            className="h-4 w-4 text-primary-500/70"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -268,17 +268,17 @@ export const UserProfile: Story = {
         </button>
       </PopoverTrigger>
       <PopoverContent align="end" className="w-64">
-        <div className="flex items-center gap-3 pb-4 border-b border-surface-700">
-          <div className="w-12 h-12 rounded-full bg-primary-600 flex items-center justify-center text-white text-lg font-medium">
+        <div className="flex items-center gap-3 pb-4 border-b border-cyber">
+          <div className="w-12 h-12 rounded-full bg-primary-500 flex items-center justify-center text-black text-lg font-medium font-mono">
             JD
           </div>
           <div>
-            <p className="font-medium text-surface-100">John Doe</p>
-            <p className="text-sm text-surface-400">john@example.com</p>
+            <p className="font-medium text-primary-500 font-mono">John Doe</p>
+            <p className="text-sm text-primary-500/70 font-mono">john@example.com</p>
           </div>
         </div>
         <div className="py-2 space-y-1">
-          <button className="w-full flex items-center gap-2 px-2 py-2 text-sm text-surface-300 hover:bg-surface-700 rounded-md transition-colors">
+          <button className="w-full flex items-center gap-2 px-2 py-2 text-sm text-primary-500 font-mono hover:bg-primary-500/10 rounded-md transition-colors">
             <svg
               className="h-4 w-4"
               fill="none"
@@ -317,9 +317,9 @@ export const UserProfile: Story = {
             Settings
           </button>
         </div>
-        <div className="pt-2 border-t border-surface-700">
+        <div className="pt-2 border-t border-cyber">
           <PopoverClose asChild>
-            <button className="w-full flex items-center gap-2 px-2 py-2 text-sm text-red-400 hover:bg-surface-700 rounded-md transition-colors">
+            <button className="w-full flex items-center gap-2 px-2 py-2 text-sm text-red-500 font-mono hover:bg-red-500/10 rounded-md transition-colors">
               <svg
                 className="h-4 w-4"
                 fill="none"
@@ -361,14 +361,14 @@ export const Controlled: Story = {
             <Button variant="outline">Controlled Popover</Button>
           </PopoverTrigger>
           <PopoverContent>
-            <p className="text-sm text-surface-300">
+            <p className="text-sm text-primary-500 font-mono">
               This popover is controlled externally.
             </p>
           </PopoverContent>
         </Popover>
-        <p className="text-sm text-surface-400">
+        <p className="text-sm text-primary-500/70 font-mono">
           State:{" "}
-          <span className="text-primary-400">{open ? "open" : "closed"}</span>
+          <span className="text-primary-500 font-mono">{open ? "open" : "closed"}</span>
         </p>
       </div>
     );
@@ -394,10 +394,10 @@ export const ComplexForm: Story = {
         <PopoverContent className="w-[500px]">
           <div className="space-y-6">
             <div>
-              <h3 className="text-lg font-semibold text-surface-100 mb-1">
+              <h3 className="text-lg font-semibold text-primary-500 font-mono mb-1">
                 Create New Task
               </h3>
-              <p className="text-sm text-surface-400">
+              <p className="text-sm text-primary-500/70 font-mono">
                 Fill in the details below to create a new task.
               </p>
             </div>
@@ -573,8 +573,8 @@ export const RichContent: Story = {
         <PopoverContent className="w-[400px]">
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="font-semibold text-surface-100">Notifications</h3>
-              <button className="text-xs text-primary-400 hover:text-primary-300">
+              <h3 className="font-semibold text-primary-500 font-mono">Notifications</h3>
+              <button className="text-xs text-primary-500 hover:text-primary-500 font-mono">
                 Mark all as read
               </button>
             </div>
@@ -588,7 +588,7 @@ export const RichContent: Story = {
                   className={`p-3 rounded-lg border transition-colors cursor-pointer ${
                     notification.unread
                       ? "bg-primary-500/10 border-primary-500/20 hover:bg-primary-500/20"
-                      : "bg-surface-900 border-surface-700 hover:bg-surface-800"
+                      : "bg-black/50 border-cyber hover:bg-black/70"
                   }`}
                 >
                   <div className="flex items-start gap-3">
@@ -599,17 +599,17 @@ export const RichContent: Story = {
                     </Avatar>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-2">
-                        <p className="text-sm font-medium text-surface-100">
+                        <p className="text-sm font-medium text-primary-500 font-mono">
                           {notification.title}
                         </p>
                         {notification.unread && (
                           <div className="w-2 h-2 rounded-full bg-primary-500 flex-shrink-0 mt-1" />
                         )}
                       </div>
-                      <p className="text-sm text-surface-400 mt-1">
+                      <p className="text-sm text-primary-500/70 font-mono mt-1">
                         {notification.message}
                       </p>
-                      <p className="text-xs text-surface-500 mt-1">
+                      <p className="text-xs text-primary-500/70 font-mono mt-1">
                         {notification.time}
                       </p>
                     </div>
@@ -621,7 +621,7 @@ export const RichContent: Story = {
             <Separator />
 
             <div className="text-center">
-              <button className="text-sm text-primary-400 hover:text-primary-300">
+              <button className="text-sm text-primary-500 hover:text-primary-500 font-mono">
                 View all notifications
               </button>
             </div>
@@ -678,10 +678,10 @@ export const TeamMembers: Story = {
         <PopoverContent className="w-[320px]">
           <div className="space-y-4">
             <div>
-              <h3 className="font-semibold text-surface-100 mb-1">
+              <h3 className="font-semibold text-primary-500 font-mono mb-1">
                 Team Members
               </h3>
-              <p className="text-sm text-surface-400">
+              <p className="text-sm text-primary-500/70 font-mono">
                 {members.filter((m) => m.status === "online").length} online
               </p>
             </div>
@@ -692,31 +692,31 @@ export const TeamMembers: Story = {
               {members.map((member) => (
                 <div
                   key={member.id}
-                  className="flex items-center gap-3 p-2 rounded-lg hover:bg-surface-800 transition-colors cursor-pointer"
+                  className="flex items-center gap-3 p-2 rounded-lg hover:bg-primary-500/10 transition-colors cursor-pointer"
                 >
                   <div className="relative">
                     <Avatar size="md">
                       <AvatarFallback>{member.avatar}</AvatarFallback>
                     </Avatar>
                     {member.status === "online" && (
-                      <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-surface-800 rounded-full" />
+                      <div className="absolute bottom-0 right-0 w-3 h-3 bg-primary-500 border-2 border-black rounded-full" />
                     )}
                     {member.status === "away" && (
-                      <div className="absolute bottom-0 right-0 w-3 h-3 bg-amber-500 border-2 border-surface-800 rounded-full" />
+                      <div className="absolute bottom-0 right-0 w-3 h-3 bg-amber-500 border-2 border-black rounded-full" />
                     )}
                     {member.status === "offline" && (
-                      <div className="absolute bottom-0 right-0 w-3 h-3 bg-surface-600 border-2 border-surface-800 rounded-full" />
+                      <div className="absolute bottom-0 right-0 w-3 h-3 bg-primary-500/30 border-2 border-black rounded-full" />
                     )}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-surface-100 truncate">
+                    <p className="text-sm font-medium text-primary-500 font-mono truncate">
                       {member.name}
                     </p>
-                    <p className="text-xs text-surface-400 truncate">
+                    <p className="text-xs text-primary-500/70 font-mono truncate">
                       {member.role}
                     </p>
                   </div>
-                  <button className="text-surface-400 hover:text-surface-200 transition-colors">
+                  <button className="text-primary-500/70 hover:text-primary-500 transition-colors">
                     <svg
                       className="h-4 w-4"
                       fill="none"
@@ -789,10 +789,10 @@ export const SettingsPanel: Story = {
         <PopoverContent className="w-[400px]">
           <div className="space-y-6">
             <div>
-              <h3 className="text-lg font-semibold text-surface-100 mb-1">
+              <h3 className="text-lg font-semibold text-primary-500 font-mono mb-1">
                 Settings
               </h3>
-              <p className="text-sm text-surface-400">
+              <p className="text-sm text-primary-500/70 font-mono">
                 Manage your application preferences
               </p>
             </div>
@@ -801,14 +801,14 @@ export const SettingsPanel: Story = {
 
             <div className="space-y-4">
               <div className="space-y-3">
-                <h4 className="text-sm font-medium text-surface-300 uppercase tracking-wider">
+                <h4 className="text-sm font-medium text-primary-500/70 font-mono uppercase tracking-wider">
                   Appearance
                 </h4>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div>
                       <Label>Dark Mode</Label>
-                      <p className="text-xs text-surface-500">
+                      <p className="text-xs text-primary-500/70 font-mono">
                         Enable dark theme
                       </p>
                     </div>
@@ -844,14 +844,14 @@ export const SettingsPanel: Story = {
               <Separator />
 
               <div className="space-y-3">
-                <h4 className="text-sm font-medium text-surface-300 uppercase tracking-wider">
+                <h4 className="text-sm font-medium text-primary-500/70 font-mono uppercase tracking-wider">
                   Notifications
                 </h4>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div>
                       <Label>Push Notifications</Label>
-                      <p className="text-xs text-surface-500">
+                      <p className="text-xs text-primary-500/70 font-mono">
                         Receive push notifications
                       </p>
                     </div>
@@ -865,7 +865,7 @@ export const SettingsPanel: Story = {
                   <div className="flex items-center justify-between">
                     <div>
                       <Label>Email Alerts</Label>
-                      <p className="text-xs text-surface-500">
+                      <p className="text-xs text-primary-500/70 font-mono">
                         Receive email notifications
                       </p>
                     </div>
@@ -882,14 +882,14 @@ export const SettingsPanel: Story = {
               <Separator />
 
               <div className="space-y-3">
-                <h4 className="text-sm font-medium text-surface-300 uppercase tracking-wider">
+                <h4 className="text-sm font-medium text-primary-500/70 font-mono uppercase tracking-wider">
                   General
                 </h4>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div>
                       <Label>Auto Save</Label>
-                      <p className="text-xs text-surface-500">
+                      <p className="text-xs text-primary-500/70 font-mono">
                         Automatically save changes
                       </p>
                     </div>

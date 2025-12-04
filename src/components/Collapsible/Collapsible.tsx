@@ -133,6 +133,12 @@ const CollapsibleTrigger = React.forwardRef<
       onClick={handleClick}
       className={cn(
         "flex items-center justify-between w-full",
+        "text-primary-500 font-mono",
+        "px-4 py-3 rounded-lg",
+        "bg-black/50 border border-cyber",
+        "shadow-cyber-border",
+        "hover:bg-primary-500/10 hover:shadow-cyber-border-lg",
+        "transition-all duration-200",
         "disabled:cursor-not-allowed disabled:opacity-50",
         className
       )}
@@ -195,6 +201,9 @@ const CollapsibleContent = React.forwardRef<
       data-state={open ? "open" : "closed"}
       className={cn(
         "overflow-hidden transition-all duration-300 ease-in-out",
+        "px-4 py-2",
+        "text-primary-500/70 font-mono",
+        "border-t border-cyber mt-2",
         className
       )}
       style={{ height: height !== undefined ? `${height}px` : "auto" }}

@@ -30,13 +30,12 @@ const useRadioGroupContext = () => {
 const radioItemVariants = cva(
   [
     "relative flex items-center justify-center shrink-0",
-    "rounded-full border",
+    "rounded-full border border-cyber",
     "transition-all duration-200",
     "cursor-pointer",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-1 focus-visible:ring-offset-surface-900",
-    // 3D effect - unchecked
-    "bg-surface-800 border-surface-600",
-    "shadow-[inset_0_1px_2px_rgba(0,0,0,0.2),0_1px_0_0_rgba(255,255,255,0.05)]",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-1 focus-visible:ring-offset-black",
+    "bg-black/80",
+    "shadow-cyber-border",
   ],
   {
     variants: {
@@ -56,9 +55,8 @@ const radioIndicatorVariants = cva(
   [
     "rounded-full",
     "transition-all duration-200",
-    // 3D effect - raised dot
-    "bg-gradient-to-b from-primary-400 to-primary-600",
-    "shadow-[0_1px_1px_rgba(0,0,0,0.3),inset_0_0.5px_0_0_rgba(255,255,255,0.3)]",
+    "bg-primary-500",
+    "shadow-cyber-primary",
   ],
   {
     variants: {
@@ -179,7 +177,7 @@ const RadioGroupItem = React.forwardRef<HTMLButtonElement, RadioGroupItemProps>(
         onClick={() => !isDisabled && onValueChange(value)}
         className={cn(
           radioItemVariants({ size }),
-          isSelected && "border-primary-500 bg-surface-700",
+          isSelected && "border-primary-500 bg-primary-500/10 shadow-cyber-primary",
           isDisabled && "opacity-50 cursor-not-allowed",
           className
         )}
@@ -222,7 +220,7 @@ const RadioGroupLabel = React.forwardRef<HTMLLabelElement, RadioGroupLabelProps>
       <label
         ref={ref}
         className={cn(
-          "text-sm font-medium text-surface-200 cursor-pointer select-none",
+          "text-sm font-medium text-primary-500 font-mono cursor-pointer select-none",
           className
         )}
         {...props}
@@ -256,12 +254,12 @@ const RadioWithLabel = React.forwardRef<HTMLButtonElement, RadioWithLabelProps>(
         <div className="flex flex-col">
           <label
             htmlFor={id}
-            className="text-sm font-medium text-surface-200 cursor-pointer select-none leading-none"
+            className="text-sm font-medium text-primary-500 font-mono cursor-pointer select-none leading-none"
           >
             {label}
           </label>
           {description && (
-            <p className="text-xs text-surface-400 mt-1">{description}</p>
+            <p className="text-xs text-primary-500/70 font-mono mt-1">{description}</p>
           )}
         </div>
       </div>

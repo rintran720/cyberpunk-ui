@@ -118,18 +118,14 @@ const Select: React.FC<SelectProps> = ({
 const selectTriggerVariants = cva(
   [
     "inline-flex items-center justify-between gap-2 rounded-lg px-4 py-2.5",
-    "text-sm font-medium text-surface-100",
-    "border border-surface-600",
+    "text-sm font-medium text-primary-500 font-mono",
+    "border border-cyber",
     "transition-all duration-200",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-900",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
     "disabled:cursor-not-allowed disabled:opacity-50",
-    // 3D effect
-    "bg-surface-800",
-    "shadow-[0_4px_0_0_rgba(0,0,0,0.2),inset_0_1px_0_0_rgba(255,255,255,0.05)]",
-    "hover:shadow-[0_2px_0_0_rgba(0,0,0,0.2),inset_0_1px_0_0_rgba(255,255,255,0.05)]",
-    "hover:translate-y-[2px]",
-    "active:shadow-[0_0px_0_0_rgba(0,0,0,0.2),inset_0_2px_4px_rgba(0,0,0,0.2)]",
-    "active:translate-y-[4px]",
+    "bg-black/80",
+    "shadow-cyber-border",
+    "hover:border-cyber-hover hover:shadow-cyber-border-lg",
   ],
   {
     variants: {
@@ -203,10 +199,10 @@ const SelectTrigger = React.forwardRef<HTMLButtonElement, SelectTriggerProps>(
         )}
         {...props}
       >
-        <span className={cn(!value && "text-surface-400")}>
+        <span className={cn(!value && "text-primary-500/40", "font-mono")}>
           {children || displayText}
         </span>
-        <ChevronIcon open={open} className="text-surface-400" />
+        <ChevronIcon open={open} className="text-primary-500/70" />
       </button>
     );
   }
@@ -229,7 +225,7 @@ const SelectValue: React.FC<SelectValueProps> = ({
   const { value, displayValue } = useSelectContext();
   // Show displayValue if available, otherwise show placeholder
   const text = displayValue || (value ? value : placeholder);
-  return <span className={cn(!value && "text-surface-400")}>{text}</span>;
+  return <span className={cn(!value && "text-primary-500/40", "font-mono")}>{text}</span>;
 };
 
 // ============================================================================
@@ -351,10 +347,9 @@ const SelectContent = React.forwardRef<HTMLDivElement, SelectContentProps>(
         className={cn(
           "absolute z-50 w-full min-w-[180px]",
           position === "bottom" ? "mt-2" : "mb-2 bottom-full",
-          "rounded-lg border border-surface-600",
-          "bg-surface-800 p-1",
-          // 3D effect
-          "shadow-[0_8px_16px_rgba(0,0,0,0.3),0_4px_0_0_rgba(0,0,0,0.2)]",
+          "rounded-lg border border-cyber",
+          "bg-black/90 backdrop-blur-md p-1",
+          "shadow-cyber-border-lg",
           // Show/hide based on open state
           open
             ? position === "bottom"
@@ -445,11 +440,11 @@ const SelectItem = React.forwardRef<HTMLDivElement, SelectItemProps>(
         onMouseDown={handleMouseDown}
         className={cn(
           "relative flex cursor-pointer select-none items-center rounded-md px-3 py-2",
-          "text-sm text-surface-200",
+          "text-sm text-primary-500 font-mono",
           "transition-colors duration-150",
-          "hover:bg-surface-700 hover:text-surface-100",
-          "focus:bg-surface-700 focus:outline-none",
-          isSelected && "bg-primary-500/20 text-primary-400",
+          "hover:bg-primary-500/10 hover:text-primary-500",
+          "focus:bg-primary-500/10 focus:outline-none",
+          isSelected && "bg-primary-500/20 text-primary-500",
           disabled && "pointer-events-none opacity-50",
           className
         )}
@@ -509,7 +504,7 @@ const SelectLabel = React.forwardRef<HTMLDivElement, SelectLabelProps>(
       <div
         ref={ref}
         className={cn(
-          "px-3 py-1.5 text-xs font-semibold text-surface-400 uppercase tracking-wider",
+          "px-3 py-1.5 text-xs font-semibold text-primary-500/70 font-mono uppercase tracking-wider",
           className
         )}
         {...props}
@@ -531,7 +526,7 @@ const SelectSeparator = React.forwardRef<
   return (
     <div
       ref={ref}
-      className={cn("my-1 h-px bg-surface-700", className)}
+      className={cn("my-1 h-px", "bg-[var(--cyber-border-color)]", className)}
       {...props}
     />
   );

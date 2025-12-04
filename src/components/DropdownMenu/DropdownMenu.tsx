@@ -191,10 +191,9 @@ const DropdownMenuContent = React.forwardRef<
         role="menu"
         className={cn(
           "absolute z-50 top-full min-w-[180px] p-1",
-          "rounded-lg border border-surface-600",
-          "bg-surface-800",
-          // 3D effect
-          "shadow-[0_8px_16px_rgba(0,0,0,0.3),0_4px_0_0_rgba(0,0,0,0.2)]",
+          "rounded-lg border border-cyber",
+          "bg-black/90 backdrop-blur-md",
+          "shadow-cyber-border-lg",
           alignmentClasses[align],
           className
         )}
@@ -286,11 +285,11 @@ const DropdownMenuItem = React.forwardRef<
         onClick={handleClick}
         className={cn(
           "relative flex w-full cursor-pointer select-none items-center rounded-md px-3 py-2",
-          "text-sm text-surface-200",
+          "text-sm text-primary-500 font-mono",
           "transition-colors duration-150",
-          "hover:bg-surface-700 hover:text-surface-100",
-          "focus:bg-surface-700 focus:outline-none",
-          "active:bg-surface-600",
+          "hover:bg-primary-500/10 hover:text-primary-500",
+          "focus:bg-primary-500/10 focus:outline-none",
+          "active:bg-primary-500/20",
           disabled && "pointer-events-none opacity-50",
           inset && "pl-8",
           className
@@ -397,7 +396,7 @@ const DropdownMenuLabel = React.forwardRef<
     <div
       ref={ref}
       className={cn(
-        "px-3 py-1.5 text-xs font-semibold text-surface-400 uppercase tracking-wider",
+        "px-3 py-1.5 text-xs font-semibold text-primary-500/70 font-mono uppercase tracking-wider",
         inset && "pl-8",
         className
       )}
@@ -420,7 +419,7 @@ const DropdownMenuSeparator = React.forwardRef<
     <div
       ref={ref}
       role="separator"
-      className={cn("my-1 h-px bg-surface-700", className)}
+      className={cn("my-1 h-px bg-[var(--cyber-border-color)]", className)}
       {...props}
     />
   );
@@ -440,7 +439,7 @@ const DropdownMenuShortcut = React.forwardRef<
     <span
       ref={ref}
       className={cn(
-        "ml-auto text-xs tracking-widest text-surface-500",
+        "ml-auto text-xs tracking-widest text-primary-500/70 font-mono",
         className
       )}
       {...props}
@@ -545,10 +544,10 @@ const DropdownMenuSubTrigger = React.forwardRef<
       onMouseLeave={context?.handleClose}
       className={cn(
         "relative flex w-full cursor-pointer select-none items-center rounded-md px-3 py-2",
-        "text-sm text-surface-200",
+        "text-sm text-primary-500 font-mono",
         "transition-colors duration-150",
-        "hover:bg-surface-700 hover:text-surface-100",
-        "focus:bg-surface-700 focus:outline-none",
+        "hover:bg-primary-500/10 hover:text-primary-500",
+        "focus:bg-primary-500/10 focus:outline-none",
         inset && "pl-8",
         className
       )}
@@ -592,9 +591,9 @@ const DropdownMenuSubContent = React.forwardRef<
       onMouseLeave={context?.handleClose}
       className={cn(
         "absolute left-full top-0 z-50 min-w-[180px] p-1 ml-1",
-        "rounded-lg border border-surface-600",
-        "bg-surface-800",
-        "shadow-[0_8px_16px_rgba(0,0,0,0.3),0_4px_0_0_rgba(0,0,0,0.2)]",
+        "rounded-lg border border-cyber",
+        "bg-black/90 backdrop-blur-md",
+        "shadow-cyber-border-lg",
         "animate-in fade-in-0 zoom-in-95 slide-in-from-left-2",
         className
       )}
@@ -638,9 +637,9 @@ const DropdownMenuSearch = React.forwardRef<
         placeholder={placeholder}
         className={cn(
           "w-full px-3 py-1.5 text-sm",
-          "rounded-md border border-surface-600",
-          "bg-surface-700 text-surface-200",
-          "placeholder:text-surface-500",
+          "rounded-md border border-cyber",
+          "bg-black/80 text-primary-500 font-mono",
+          "placeholder:text-primary-500/40",
           "focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500",
           "transition-colors duration-150",
           className

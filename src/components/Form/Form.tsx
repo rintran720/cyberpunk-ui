@@ -34,13 +34,13 @@ const formLabelVariants = cva(
   [
     "block",
     "text-sm font-medium",
-    "text-surface-200",
+    "text-primary-500 font-mono",
     "mb-2",
   ],
   {
     variants: {
       required: {
-        true: "after:content-['*'] after:ml-1 after:text-red-400",
+        true: "after:content-['*'] after:ml-1 after:text-red-500 after:font-mono",
         false: "",
       },
     },
@@ -55,9 +55,9 @@ const formMessageVariants = cva(
   {
     variants: {
       variant: {
-        error: "text-red-400",
-        helper: "text-surface-400",
-        success: "text-green-400",
+        error: "text-red-500 font-mono",
+        helper: "text-primary-500/70 font-mono",
+        success: "text-emerald-500 font-mono",
       },
     },
     defaultVariants: {
@@ -264,7 +264,7 @@ const FormDescription = React.forwardRef<HTMLParagraphElement, FormDescriptionPr
     return (
       <p
         ref={ref}
-        className={cn("text-sm text-surface-400 mt-1", className)}
+        className={cn("text-sm text-primary-500/70 font-mono mt-1", className)}
         {...props}
       >
         {children}

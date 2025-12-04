@@ -9,40 +9,39 @@ import { cn } from "../../lib/utils";
 // ============================================================================
 
 const toggleVariants = cva(
-  // Base styles with 3D effect
+  // Base styles - Cyberpunk
   [
-    "inline-flex items-center justify-center rounded-md font-medium",
+    "inline-flex items-center justify-center rounded-md font-medium font-mono",
     "transition-all duration-150",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-900",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
     "disabled:pointer-events-none disabled:opacity-50",
-    // 3D base
     "border",
   ],
   {
     variants: {
       variant: {
         default: [
-          "bg-surface-800 border-surface-600 text-surface-300",
-          "hover:bg-surface-700 hover:text-surface-100",
-          "shadow-[0_2px_0_0_rgba(0,0,0,0.3),inset_0_1px_0_0_rgba(255,255,255,0.05)]",
-          "active:shadow-[0_0px_0_0_rgba(0,0,0,0.3)] active:translate-y-[2px]",
+          "bg-black/80 border-cyber text-primary-500",
+          "hover:bg-primary-500/10 hover:border-cyber-hover",
+          "shadow-cyber-border",
+          "active:shadow-cyber-border-lg",
           // Pressed state
-          "data-[state=on]:bg-primary-600 data-[state=on]:border-primary-500 data-[state=on]:text-white",
-          "data-[state=on]:shadow-[0_2px_0_0_rgba(0,0,0,0.3),inset_0_1px_0_0_rgba(255,255,255,0.1)]",
+          "data-[state=on]:bg-primary-500 data-[state=on]:border-primary-500 data-[state=on]:text-black",
+          "data-[state=on]:shadow-cyber-primary",
         ],
         outline: [
-          "bg-transparent border-surface-600 text-surface-300",
-          "hover:bg-surface-800 hover:text-surface-100",
-          "shadow-[0_2px_0_0_rgba(0,0,0,0.2)]",
-          "active:shadow-none active:translate-y-[2px]",
+          "bg-transparent border-cyber text-primary-500",
+          "hover:bg-primary-500/10 hover:border-cyber-hover",
+          "shadow-cyber-border",
+          "active:shadow-cyber-border-lg",
           // Pressed state
-          "data-[state=on]:bg-surface-800 data-[state=on]:border-primary-500 data-[state=on]:text-primary-400",
+          "data-[state=on]:bg-primary-500/20 data-[state=on]:border-primary-500 data-[state=on]:text-primary-500",
         ],
         ghost: [
-          "bg-transparent border-transparent text-surface-300",
-          "hover:bg-surface-800 hover:text-surface-100",
+          "bg-transparent border-transparent text-primary-500",
+          "hover:bg-primary-500/10",
           // Pressed state
-          "data-[state=on]:bg-surface-800 data-[state=on]:text-primary-400",
+          "data-[state=on]:bg-primary-500/20 data-[state=on]:text-primary-500",
         ],
       },
       size: {
@@ -204,7 +203,7 @@ const ToggleGroup = React.forwardRef<HTMLDivElement, ToggleGroupProps>(
           <div
             ref={ref}
             role="group"
-            className={cn("inline-flex gap-1 rounded-lg p-1 bg-surface-900", className)}
+            className={cn("inline-flex gap-1 rounded-lg p-1 bg-black/50 border border-cyber", className)}
             {...divProps}
           >
             {children}

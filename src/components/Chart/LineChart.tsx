@@ -12,9 +12,10 @@ import { ChartTooltip } from "./ChartTooltip";
 const lineChartVariants = cva(
   [
     "relative w-full",
-    "bg-surface-800 rounded-2xl border border-surface-700",
-    "shadow-[0_4px_0_0_rgba(0,0,0,0.15),0_8px_16px_-4px_rgba(0,0,0,0.2)]",
+    "bg-black/80 rounded-2xl border-2 border-cyber",
+    "shadow-cyber-border",
     "p-6",
+    "before:absolute before:inset-0 before:rounded-2xl before:bg-[linear-gradient(135deg,transparent_30%,var(--cyber-glow-primary)_50%,transparent_70%)] before:opacity-10 before:pointer-events-none",
   ],
   {
     variants: {
@@ -83,9 +84,9 @@ export interface LineChartProps
 
 const colorMap = {
   primary: {
-    stroke: "rgb(59, 130, 246)",
-    fill: "rgba(59, 130, 246, 0.1)",
-    dot: "rgb(59, 130, 246)",
+    stroke: "rgb(64, 244, 255)",
+    fill: "rgba(64, 244, 255, 0.1)",
+    dot: "rgb(64, 244, 255)",
   },
   secondary: {
     stroke: "rgb(168, 85, 247)",
@@ -98,14 +99,14 @@ const colorMap = {
     dot: "rgb(101, 221, 9)",
   },
   success: {
-    stroke: "rgb(34, 197, 94)",
-    fill: "rgba(34, 197, 94, 0.1)",
-    dot: "rgb(34, 197, 94)",
+    stroke: "rgb(16, 185, 129)",
+    fill: "rgba(16, 185, 129, 0.1)",
+    dot: "rgb(16, 185, 129)",
   },
   warning: {
-    stroke: "rgb(234, 179, 8)",
-    fill: "rgba(234, 179, 8, 0.1)",
-    dot: "rgb(234, 179, 8)",
+    stroke: "rgb(245, 158, 11)",
+    fill: "rgba(245, 158, 11, 0.1)",
+    dot: "rgb(245, 158, 11)",
   },
   danger: {
     stroke: "rgb(239, 68, 68)",
@@ -241,12 +242,12 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
         {(title || description) && (
           <div className="mb-6">
             {title && (
-              <h3 className="text-lg font-semibold text-surface-100 mb-1">
+              <h3 className="text-lg font-semibold text-primary-500 font-mono mb-1">
                 {title}
               </h3>
             )}
             {description && (
-              <p className="text-sm text-surface-400">{description}</p>
+              <p className="text-sm text-primary-500/70 font-mono">{description}</p>
             )}
           </div>
         )}
@@ -276,8 +277,8 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
                     y2={y}
                     stroke="currentColor"
                     strokeWidth="1"
-                    strokeOpacity="0.1"
-                    className="text-surface-600"
+                    strokeOpacity="0.15"
+                    className="text-primary-500/20"
                   />
                 );
               })}
@@ -308,7 +309,7 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
                     strokeWidth="3"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
+                    className="drop-shadow-[0_0_8px_rgba(64,244,255,0.6)]"
                   />
 
                   {/* Data points */}
@@ -363,10 +364,10 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
                                 renderTooltip(point, serie.name)
                               ) : (
                                 <div className="text-sm">
-                                  <div className="font-semibold">
+                                  <div className="font-semibold font-mono">
                                     {serie.name}
                                   </div>
-                                  <div className="text-surface-300">
+                                  <div className="text-primary-500/70 font-mono">
                                     {point.label}: {point.value}
                                   </div>
                                 </div>
@@ -395,7 +396,7 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
                   x={x}
                   y={chartHeight - 8}
                   textAnchor="middle"
-                  className="text-xs fill-surface-400 pointer-events-none"
+                  className="text-xs fill-primary-500/70 font-mono pointer-events-none"
                 >
                   {label}
                 </text>
@@ -432,7 +433,7 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
                       boxShadow: "0 2px 4px rgba(0,0,0,0.3)",
                     }}
                   />
-                  <span className="text-sm text-surface-300 font-medium">
+                  <span className="text-sm text-primary-500 font-mono font-medium">
                     {serie.name}
                   </span>
                 </div>

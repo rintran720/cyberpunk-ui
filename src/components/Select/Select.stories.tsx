@@ -146,7 +146,9 @@ export const WithDisabledItems: Story = {
       <SelectContent>
         <SelectItem value="free">Free Plan</SelectItem>
         <SelectItem value="pro">Pro Plan</SelectItem>
-        <SelectItem value="enterprise" disabled>Enterprise (Coming Soon)</SelectItem>
+        <SelectItem value="enterprise" disabled>
+          Enterprise (Coming Soon)
+        </SelectItem>
       </SelectContent>
     </Select>
   ),
@@ -196,11 +198,15 @@ export const WithIcons: Story = {
 
 export const FormExample: Story = {
   render: () => (
-    <div className="w-[400px] space-y-4 p-6 rounded-lg border border-surface-700 bg-surface-800">
-      <h3 className="text-lg font-semibold text-surface-100 mb-4">User Registration</h3>
+    <div className="w-[400px] space-y-4 p-6 rounded-lg border border-cyber bg-black/80 shadow-cyber-border">
+      <h3 className="text-lg font-semibold text-primary-500 font-mono mb-4">
+        User Registration
+      </h3>
       <div className="space-y-4">
         <div>
-          <label className="block text-sm text-surface-300 mb-2">Country</label>
+          <label className="block text-sm text-primary-500 font-mono mb-2">
+            Country
+          </label>
           <Select>
             <SelectTrigger>
               <SelectValue placeholder="Select your country" />
@@ -214,7 +220,9 @@ export const FormExample: Story = {
           </Select>
         </div>
         <div>
-          <label className="block text-sm text-surface-300 mb-2">Language</label>
+          <label className="block text-sm text-primary-500 font-mono mb-2">
+            Language
+          </label>
           <Select defaultValue="en">
             <SelectTrigger>
               <SelectValue placeholder="Select language" />
@@ -231,4 +239,3 @@ export const FormExample: Story = {
     </div>
   ),
 };
-

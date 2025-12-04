@@ -1,17 +1,24 @@
+/* Import theme system (CSS-only) - must be before @tailwind */
+@import "./themes.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Import theme system (CSS-only) */
-@import "./themes.css";
-
 @layer base {
   :root {
-    /* 3D UI CSS Variables */
-    --ui-3d-depth: 4px;
-    --ui-3d-depth-sm: 2px;
-    --ui-3d-depth-lg: 6px;
-    --ui-3d-depth-xl: 8px;
+    /* Cyberpunk UI CSS Variables - Cyber Cyan #40F4FF */
+    --cyber-glow-primary: 0 0 20px rgba(64, 244, 255, 0.6),
+      0 0 40px rgba(64, 244, 255, 0.4);
+    --cyber-glow-secondary: 0 0 20px rgba(255, 0, 255, 0.6),
+      0 0 40px rgba(255, 0, 255, 0.4);
+    --cyber-glow-accent: 0 0 20px rgba(64, 244, 255, 0.6),
+      0 0 40px rgba(64, 244, 255, 0.4);
+    --cyber-border-glow: 0 0 10px currentColor, inset 0 0 10px currentColor;
+
+    /* Cyber border color - Cyber Cyan #40F4FF */
+    --cyber-border-color: rgba(64, 244, 255, 0.3);
+    --cyber-border-color-hover: rgba(64, 244, 255, 0.5);
 
     /* Transition timing */
     --ui-transition-fast: 100ms;
@@ -19,42 +26,188 @@
     --ui-transition-slow: 300ms;
 
     /* Border radius */
-    --ui-radius-sm: 6px;
-    --ui-radius: 8px;
-    --ui-radius-lg: 12px;
-    --ui-radius-xl: 16px;
+    --ui-radius-sm: 4px;
+    --ui-radius: 6px;
+    --ui-radius-lg: 8px;
+    --ui-radius-xl: 12px;
     --ui-radius-full: 9999px;
+  }
+
+  /* Cyberpunk base styles */
+  body {
+    background: #000000;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Scan lines effect */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 255, 255, 0.03) 0px,
+      rgba(0, 255, 255, 0.03) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    pointer-events: none;
+    z-index: 9999;
+    animation: scanlines 8s linear infinite;
+  }
+
+  @keyframes scanlines {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(4px);
+    }
+  }
+
+  /* Grid pattern overlay */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        rgba(0, 255, 255, 0.03) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 9998;
   }
 }
 
 @layer components {
-  /* Base 3D surface styling */
-  .surface-3d {
+  /* Cyberpunk neon glow effect */
+  .cyber-glow {
+    position: relative;
+    box-shadow: var(--cyber-glow-primary);
+  }
+
+  .cyber-glow-primary {
+    box-shadow: var(--cyber-glow-primary);
+  }
+
+  .cyber-glow-secondary {
+    box-shadow: var(--cyber-glow-secondary);
+  }
+
+  .cyber-glow-accent {
+    box-shadow: var(--cyber-glow-accent);
+  }
+
+  /* Cyberpunk border glow */
+  .cyber-border {
+    border: 1px solid currentColor;
+    box-shadow: var(--cyber-border-glow);
+  }
+
+  /* Cyberpunk surface with subtle glow */
+  .cyber-surface {
     @apply relative;
-    background-image: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.15) 0%,
-      rgba(0, 0, 0, 0.05) 100%
-    );
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2),
+      inset 0 0 10px rgba(0, 255, 255, 0.05);
   }
 
-  .surface-3d-dark {
-    @apply relative;
-    background-image: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.08) 0%,
-      rgba(0, 0, 0, 0.15) 100%
-    );
+  /* Glitch effect */
+  .cyber-glitch {
+    position: relative;
   }
 
-  /* 3D pressed effect */
-  .press-3d {
-    @apply transition-all duration-100;
+  .cyber-glitch::before,
+  .cyber-glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
-  .press-3d:active {
-    transform: translateY(var(--ui-3d-depth-sm));
-    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.15);
+  .cyber-glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00ff;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+  }
+
+  .cyber-glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 #00ffff, 2px 2px #ff00ff;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 1s infinite linear alternate-reverse;
+  }
+
+  @keyframes glitch-anim {
+    0% {
+      clip: rect(31px, 9999px, 94px, 0);
+    }
+    20% {
+      clip: rect(54px, 9999px, 29px, 0);
+    }
+    40% {
+      clip: rect(16px, 9999px, 65px, 0);
+    }
+    60% {
+      clip: rect(42px, 9999px, 88px, 0);
+    }
+    80% {
+      clip: rect(23px, 9999px, 12px, 0);
+    }
+    100% {
+      clip: rect(78px, 9999px, 51px, 0);
+    }
+  }
+
+  @keyframes glitch-anim2 {
+    0% {
+      clip: rect(65px, 9999px, 100px, 0);
+    }
+    20% {
+      clip: rect(12px, 9999px, 33px, 0);
+    }
+    40% {
+      clip: rect(88px, 9999px, 54px, 0);
+    }
+    60% {
+      clip: rect(29px, 9999px, 76px, 0);
+    }
+    80% {
+      clip: rect(51px, 9999px, 19px, 0);
+    }
+    100% {
+      clip: rect(94px, 9999px, 42px, 0);
+    }
+  }
+
+  /* Neon pulse animation */
+  .cyber-pulse {
+    animation: cyber-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes cyber-pulse {
+    0%,
+    100% {
+      box-shadow: 0 0 5px currentColor, 0 0 10px currentColor,
+        0 0 15px currentColor;
+    }
+    50% {
+      box-shadow: 0 0 10px currentColor, 0 0 20px currentColor,
+        0 0 30px currentColor;
+    }
   }
 }
 
@@ -207,5 +360,14 @@
 
   .text-themed {
     color: var(--color-foreground);
+  }
+
+  /* Cyber border color utility */
+  .border-cyber {
+    border-color: var(--cyber-border-color);
+  }
+
+  .border-cyber-hover:hover {
+    border-color: var(--cyber-border-color-hover);
   }
 }

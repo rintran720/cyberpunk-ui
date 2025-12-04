@@ -108,8 +108,8 @@ export const Controlled: Story = {
           <BoldIcon />
           {pressed ? "On" : "Off"}
         </Toggle>
-        <p className="text-sm text-surface-400">
-          State: <span className="text-primary-400">{pressed ? "pressed" : "not pressed"}</span>
+        <p className="text-sm text-primary-500/70 font-mono">
+          State: <span className="text-primary-500 font-mono">{pressed ? "pressed" : "not pressed"}</span>
         </p>
       </div>
     );
@@ -154,8 +154,8 @@ export const SingleToggleGroup: Story = {
             </svg>
           </ToggleGroupItem>
         </ToggleGroup>
-        <p className="text-sm text-surface-400">
-          Alignment: <span className="text-primary-400">{value || "none"}</span>
+        <p className="text-sm text-primary-500/70 font-mono">
+          Alignment: <span className="text-primary-500 font-mono">{value || "none"}</span>
         </p>
       </div>
     );
@@ -182,8 +182,8 @@ export const MultipleToggleGroup: Story = {
             <StrikethroughIcon />
           </ToggleGroupItem>
         </ToggleGroup>
-        <p className="text-sm text-surface-400">
-          Active: <span className="text-primary-400">{value.length > 0 ? value.join(", ") : "none"}</span>
+        <p className="text-sm text-primary-500/70 font-mono">
+          Active: <span className="text-primary-500 font-mono">{value.length > 0 ? value.join(", ") : "none"}</span>
         </p>
       </div>
     );
@@ -194,7 +194,7 @@ export const ToggleGroupVariants: Story = {
   render: () => (
     <div className="space-y-4">
       <div>
-        <p className="text-sm text-surface-400 mb-2">Default</p>
+        <p className="text-sm text-primary-500/70 font-mono mb-2">Default</p>
         <ToggleGroup type="single" defaultValue="1" variant="default">
           <ToggleGroupItem value="1">Option 1</ToggleGroupItem>
           <ToggleGroupItem value="2">Option 2</ToggleGroupItem>
@@ -227,7 +227,7 @@ export const TextFormattingToolbar: Story = {
     const [alignment, setAlignment] = React.useState("left");
     
     return (
-      <div className="p-4 rounded-lg bg-surface-800 border border-surface-700 shadow-3d space-y-3">
+      <div className="p-4 rounded-lg bg-black/80 border border-cyber shadow-cyber-border space-y-3">
         <div className="flex gap-2">
           <ToggleGroup type="multiple" value={formatting} onValueChange={setFormatting}>
             <ToggleGroupItem value="bold" aria-label="Toggle bold">
@@ -241,7 +241,7 @@ export const TextFormattingToolbar: Story = {
             </ToggleGroupItem>
           </ToggleGroup>
           
-          <div className="w-px h-8 bg-surface-700" />
+          <div className="w-px h-8 bg-[var(--cyber-border-color)]" />
           
           <ToggleGroup type="single" value={alignment} onValueChange={setAlignment}>
             <ToggleGroupItem value="left" aria-label="Align left">
@@ -262,7 +262,7 @@ export const TextFormattingToolbar: Story = {
           </ToggleGroup>
         </div>
         
-        <div className="text-xs text-surface-500">
+        <div className="text-xs text-primary-500/70 font-mono">
           Formatting: {formatting.join(", ") || "none"} | Alignment: {alignment}
         </div>
       </div>

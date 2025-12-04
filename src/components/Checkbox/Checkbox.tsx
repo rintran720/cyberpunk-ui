@@ -5,35 +5,35 @@ import { cn } from "../../lib/utils";
 const checkboxVariants = cva(
   [
     "shrink-0 rounded",
-    "border-2",
+    "border border-cyber",
     "transition-all duration-150",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-900",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
     "disabled:cursor-not-allowed disabled:opacity-50",
-    // 3D inset effect
-    "shadow-[inset_0_1px_2px_rgba(0,0,0,0.2)]",
+    "bg-black/80",
+    "shadow-cyber-border",
   ],
   {
     variants: {
       variant: {
         default: [
-          "border-surface-500 bg-surface-800",
+          "border-cyber bg-black/80",
           "data-[state=checked]:border-primary-500 data-[state=checked]:bg-primary-500",
-          "data-[state=checked]:shadow-[0_2px_0_0_rgba(20,111,225,0.3)]",
+          "data-[state=checked]:shadow-cyber-primary",
         ],
         success: [
-          "border-surface-500 bg-surface-800",
-          "data-[state=checked]:border-green-500 data-[state=checked]:bg-green-500",
-          "data-[state=checked]:shadow-[0_2px_0_0_rgba(34,197,94,0.3)]",
+          "border-cyber bg-black/80",
+          "data-[state=checked]:border-emerald-500 data-[state=checked]:bg-emerald-500",
+          "data-[state=checked]:shadow-[0_0_10px_rgba(16,185,129,0.6)]",
         ],
         warning: [
-          "border-surface-500 bg-surface-800",
+          "border-cyber bg-black/80",
           "data-[state=checked]:border-amber-500 data-[state=checked]:bg-amber-500",
-          "data-[state=checked]:shadow-[0_2px_0_0_rgba(245,158,11,0.3)]",
+          "data-[state=checked]:shadow-[0_0_10px_rgba(245,158,11,0.6)]",
         ],
         danger: [
-          "border-surface-500 bg-surface-800",
+          "border-cyber bg-black/80",
           "data-[state=checked]:border-red-500 data-[state=checked]:bg-red-500",
-          "data-[state=checked]:shadow-[0_2px_0_0_rgba(239,68,68,0.3)]",
+          "data-[state=checked]:shadow-[0_0_10px_rgba(239,68,68,0.6)]",
         ],
       },
       size: {
@@ -207,9 +207,11 @@ const Checkbox = React.forwardRef<HTMLButtonElement, CheckboxProps>(
           )}
         </div>
         <div className="flex flex-col">
-          <span className="text-sm text-surface-200">{label}</span>
+          <span className="text-sm text-primary-500 font-mono">{label}</span>
           {description && (
-            <span className="text-xs text-surface-400">{description}</span>
+            <span className="text-xs text-primary-500/70 font-mono">
+              {description}
+            </span>
           )}
         </div>
       </div>

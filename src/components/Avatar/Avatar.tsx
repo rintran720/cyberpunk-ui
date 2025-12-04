@@ -5,9 +5,8 @@ import { cn } from "../../lib/utils";
 const avatarVariants = cva(
   [
     "relative inline-flex shrink-0 overflow-hidden rounded-full",
-    // 3D effect
-    "shadow-[0_4px_8px_rgba(0,0,0,0.3),inset_0_1px_0_0_rgba(255,255,255,0.1)]",
-    "border-2 border-surface-600",
+    "border-2 border-cyber",
+    "shadow-cyber-border",
   ],
   {
     variants: {
@@ -20,10 +19,10 @@ const avatarVariants = cva(
         "2xl": "h-20 w-20 text-xl",
       },
       variant: {
-        default: "bg-surface-700",
-        primary: "bg-primary-500/20 border-primary-500/50",
-        secondary: "bg-secondary-500/20 border-secondary-500/50",
-        accent: "bg-accent-500/20 border-accent-500/50",
+        default: "bg-black/80",
+        primary: "bg-primary-500/20 border-primary-500",
+        secondary: "bg-primary-500/10 border-primary-500/50",
+        accent: "bg-primary-500/20 border-primary-500",
       },
     },
     defaultVariants: {
@@ -108,8 +107,8 @@ const AvatarFallback = React.forwardRef<HTMLSpanElement, AvatarFallbackProps>(
         ref={ref}
         className={cn(
           "flex h-full w-full items-center justify-center",
-          "bg-gradient-to-br from-surface-600 to-surface-700",
-          "font-medium text-surface-200",
+          "bg-gradient-to-br from-primary-500/20 to-primary-500/10",
+          "font-medium text-primary-500 font-mono",
           className
         )}
         {...props}
@@ -154,7 +153,7 @@ const AvatarGroup = React.forwardRef<HTMLDivElement, AvatarGroupProps>(
         ))}
         {remainingCount > 0 && (
           <Avatar size={size} className="relative z-0">
-            <AvatarFallback className="bg-surface-600 text-surface-300">
+            <AvatarFallback className="bg-black/80 text-primary-500 font-mono">
               +{remainingCount}
             </AvatarFallback>
           </Avatar>
@@ -178,8 +177,8 @@ export interface AvatarWithStatusProps extends AvatarProps {
 }
 
 const statusColors = {
-  online: "bg-green-500",
-  offline: "bg-surface-500",
+  online: "bg-primary-500",
+  offline: "bg-primary-500/30",
   away: "bg-amber-500",
   busy: "bg-red-500",
 };
@@ -208,12 +207,11 @@ const AvatarWithStatus = React.forwardRef<HTMLSpanElement, AvatarWithStatusProps
         {status && (
           <span
             className={cn(
-              "absolute block rounded-full ring-2 ring-surface-900",
+              "absolute block rounded-full ring-2 ring-black",
               statusColors[status],
               statusSizes[size ?? "md"],
               positions[statusPosition],
-              // 3D effect
-              "shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
+              "shadow-cyber-primary"
             )}
           />
         )}

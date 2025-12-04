@@ -297,7 +297,7 @@ export const ContextMenu: Story = {
       <>
         <div
           onContextMenu={handleContextMenu}
-          className="w-[300px] h-[200px] rounded-lg border border-dashed border-surface-600 flex items-center justify-center text-surface-400 text-sm"
+          className="w-[300px] h-[200px] rounded-lg border border-dashed border-cyber flex items-center justify-center text-primary-500/70 font-mono text-sm bg-black/50 shadow-cyber-border"
         >
           Right-click here
         </div>
@@ -305,35 +305,35 @@ export const ContextMenu: Story = {
         {open && (
           <div className="fixed inset-0 z-40" onClick={() => setOpen(false)}>
             <div
-              className="absolute z-50 min-w-[180px] p-1 rounded-lg border border-surface-600 bg-surface-800 shadow-[0_8px_16px_rgba(0,0,0,0.3),0_4px_0_0_rgba(0,0,0,0.2)]"
+              className="absolute z-50 min-w-[180px] p-1 rounded-lg border border-cyber bg-black/90 backdrop-blur-md shadow-cyber-border-lg"
               style={{ left: position.x, top: position.y }}
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setOpen(false)}
-                className="relative flex w-full cursor-pointer select-none items-center rounded-md px-3 py-2 text-sm text-surface-200 hover:bg-surface-700"
+                className="relative flex w-full cursor-pointer select-none items-center rounded-md px-3 py-2 text-sm text-primary-500 font-mono hover:bg-primary-500/10"
               >
                 Cut
-                <span className="ml-auto text-xs text-surface-500">⌘X</span>
+                <span className="ml-auto text-xs text-primary-500/70 font-mono">⌘X</span>
               </button>
               <button
                 onClick={() => setOpen(false)}
-                className="relative flex w-full cursor-pointer select-none items-center rounded-md px-3 py-2 text-sm text-surface-200 hover:bg-surface-700"
+                className="relative flex w-full cursor-pointer select-none items-center rounded-md px-3 py-2 text-sm text-primary-500 font-mono hover:bg-primary-500/10"
               >
                 Copy
-                <span className="ml-auto text-xs text-surface-500">⌘C</span>
+                <span className="ml-auto text-xs text-primary-500/70 font-mono">⌘C</span>
               </button>
               <button
                 onClick={() => setOpen(false)}
-                className="relative flex w-full cursor-pointer select-none items-center rounded-md px-3 py-2 text-sm text-surface-200 hover:bg-surface-700"
+                className="relative flex w-full cursor-pointer select-none items-center rounded-md px-3 py-2 text-sm text-primary-500 font-mono hover:bg-primary-500/10"
               >
                 Paste
-                <span className="ml-auto text-xs text-surface-500">⌘V</span>
+                <span className="ml-auto text-xs text-primary-500/70 font-mono">⌘V</span>
               </button>
-              <div className="my-1 h-px bg-surface-700" />
+              <div className="my-1 h-px bg-[var(--cyber-border-color)]" />
               <button
                 onClick={() => setOpen(false)}
-                className="relative flex w-full cursor-pointer select-none items-center rounded-md px-3 py-2 text-sm text-red-400 hover:bg-surface-700"
+                className="relative flex w-full cursor-pointer select-none items-center rounded-md px-3 py-2 text-sm text-red-500 font-mono hover:bg-red-500/10"
               >
                 Delete
               </button>
