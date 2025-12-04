@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import theme system (CSS-only) */
+@import "./themes.css";
+
+@layer base {
+  :root {
+    /* 3D UI CSS Variables */
+    --ui-3d-depth: 4px;
+    --ui-3d-depth-sm: 2px;
+    --ui-3d-depth-lg: 6px;
+    --ui-3d-depth-xl: 8px;
+
+    /* Transition timing */
+    --ui-transition-fast: 100ms;
+    --ui-transition-normal: 200ms;
+    --ui-transition-slow: 300ms;
+
+    /* Border radius */
+    --ui-radius-sm: 6px;
+    --ui-radius: 8px;
+    --ui-radius-lg: 12px;
+    --ui-radius-xl: 16px;
+    --ui-radius-full: 9999px;
+  }
+}
+
+@layer components {
+  /* Base 3D surface styling */
+  .surface-3d {
+    @apply relative;
+    background-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(0, 0, 0, 0.05) 100%
+    );
+  }
+
+  .surface-3d-dark {
+    @apply relative;
+    background-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(0, 0, 0, 0.15) 100%
+    );
+  }
+
+  /* 3D pressed effect */
+  .press-3d {
+    @apply transition-all duration-100;
+  }
+
+  .press-3d:active {
+    transform: translateY(var(--ui-3d-depth-sm));
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@layer utilities {
+  /* Tooltip animation - simple fade only to avoid transform conflicts */
+  @keyframes tooltip-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Toast enter animation */
+  @keyframes toast-in {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Simple fade-in animation (for components with transform positioning) */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  /* Sheet slide animations */
+  @keyframes slide-in-from-right {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-out-to-right {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes slide-in-from-left {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-out-to-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes slide-in-from-top {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-out-to-top {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-100%);
+    }
+  }
+
+  @keyframes slide-in-from-bottom {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-out-to-bottom {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(100%);
+    }
+  }
+
+  /* Perspective utilities for true 3D transforms */
+  .perspective-500 {
+    perspective: 500px;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .perspective-2000 {
+    perspective: 2000px;
+  }
+
+  /* Preserve 3D for nested transforms */
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  /* Backface visibility */
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .backface-visible {
+    backface-visibility: visible;
+  }
+
+  /* Theme-aware background */
+  .bg-themed {
+    background-color: var(--color-background);
+  }
+
+  .text-themed {
+    color: var(--color-foreground);
+  }
+}

@@ -1,0 +1,63 @@
+# Source files
+src/
+.storybook/
+*.stories.tsx
+*.stories.ts
+
+# Development files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Build outputs (keep dist/)
+storybook-static/
+*.tsbuildinfo
+
+# Config files
+tsconfig.json
+vite.config.ts
+postcss.config.js
+tailwind.config.js
+vercel.json
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation
+README.md
+*.md
+
+# Tests
+__tests__/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Misc
+.eslintrc*
+.prettierrc*
+.editorconfig
+

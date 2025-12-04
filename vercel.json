@@ -1,0 +1,13 @@
+{
+  "buildCommand": "npm run build:storybook",
+  "outputDirectory": "storybook-static",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": null,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
