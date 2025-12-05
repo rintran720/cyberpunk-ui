@@ -253,6 +253,22 @@ export { Label, SimpleLabel, labelVariants } from "./components/Label";
 export type { LabelProps, SimpleLabelProps } from "./components/Label";
 
 export {
+  Text,
+  Heading,
+  Paragraph,
+  Span,
+  Code,
+  textVariants,
+} from "./components/Text";
+export type {
+  TextProps,
+  HeadingProps,
+  ParagraphProps,
+  SpanProps,
+  CodeProps,
+} from "./components/Text";
+
+export {
   Toggle,
   ToggleGroup,
   ToggleGroupItem,

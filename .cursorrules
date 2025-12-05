@@ -1,0 +1,93 @@
+# Cursor Rules - Natural, Human-Like Code Style
+
+## General Philosophy
+
+Write code that feels natural and human-written, not overly polished or AI-generated. Prioritize pragmatism over perfection.
+
+## Code Style Guidelines
+
+### Comments & Documentation
+
+- Keep comments minimal and only when necessary
+- Avoid verbose JSDoc comments for simple functions
+- Use inline comments sparingly - code should be self-explanatory
+- Prefer TODO comments over perfect implementations when appropriate
+- Don't over-explain obvious code
+
+### Variable Naming
+
+- Use concise, natural variable names (e.g., `data` instead of `userDataObject`)
+- Allow some abbreviations if they're clear in context (e.g., `idx`, `temp`, `val`)
+- Don't over-describe in variable names - context matters
+- Use `i`, `j` for loop indices (not `index`, `counter`)
+- Prefer shorter names for local variables
+
+### Code Structure
+
+- Don't over-engineer - simple solutions are often better
+- Allow minor inconsistencies if they make sense pragmatically
+- Use early returns liberally - don't nest unnecessarily
+- Prefer functional style but don't force it everywhere
+- Mix patterns naturally - don't be dogmatic about one approach
+
+### TypeScript
+
+- Use `any` sparingly but don't avoid it when it's the pragmatic choice
+- Prefer type inference over explicit types when obvious
+- Don't create overly complex type definitions for simple cases
+- Use `as` assertions when you know better than TypeScript
+- Allow some `@ts-ignore` comments when dealing with third-party libs
+
+### React Patterns
+
+- Use hooks naturally - don't over-optimize with useMemo/useCallback
+- Prefer inline styles/classes over complex abstractions when simple
+- Don't create wrapper components for trivial cases
+- Use default props or optional chaining - both are fine
+- Mix controlled and uncontrolled components as needed
+
+### Error Handling
+
+- Don't wrap everything in try-catch - let errors bubble when appropriate
+- Use simple error messages - no need for elaborate error objects
+- Console.error is fine for debugging - don't over-engineer logging
+
+### Testing & Quality
+
+- Write tests for critical paths, not everything
+- Allow some technical debt if it's not blocking
+- Don't refactor working code just for "clean code" principles
+- Prefer working code over perfect code
+
+### Code Examples to Avoid (AI-like patterns)
+
+- ❌ Overly descriptive variable names: `const userAuthenticationTokenObject = ...`
+- ❌ Verbose comments: `// This function takes a user object and returns...`
+- ❌ Perfect JSDoc for simple functions
+- ❌ Over-abstracted utility functions
+- ❌ Unnecessary type guards and validations
+- ❌ Overly structured error handling
+- ❌ Perfect code organization (allow some messiness)
+
+### Code Examples to Prefer (Human-like patterns)
+
+- ✅ `const token = ...` instead of `const userAuthenticationToken = ...`
+- ✅ `// handle edge case` instead of long explanations
+- ✅ Direct solutions over abstractions
+- ✅ `if (!data) return null` instead of elaborate checks
+- ✅ Mix of styles and patterns
+- ✅ Some shortcuts and pragmatic choices
+
+## Specific to This Project
+
+- This is a UI component library - prioritize usability over perfection
+- Storybook stories should be practical, not exhaustive
+- CSS classes can be verbose (Tailwind) but keep logic simple
+- Component props should be intuitive, not over-typed
+
+## Remember
+
+- Humans write code that works, not perfect code
+- Some inconsistency is natural and acceptable
+- Pragmatic solutions > theoretical perfection
+- Code should feel like it was written by a person, not a machine

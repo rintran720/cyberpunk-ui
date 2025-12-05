@@ -2,7 +2,7 @@
 
 # @votekio/cyberpunk-ui
 
-A beautiful 3D-styled UI component library built with React and TailwindCSS. Inspired by shadcn/ui but with a unique 3D aesthetic featuring depth, shadows, and interactive press effects.
+3D-styled UI component library for React. Built with TailwindCSS, inspired by shadcn/ui but with a unique 3D look - depth, shadows, and press effects.
 
 [![npm version](https://img.shields.io/npm/v/@votekio/cyberpunk-ui.svg)](https://www.npmjs.com/package/@votekio/cyberpunk-ui)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -14,15 +14,15 @@ A beautiful 3D-styled UI component library built with React and TailwindCSS. Ins
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **John Tran**
 
-- 📧 Email: [rintran720@gmail.com](mailto:rintran720@gmail.com)
-- 🌐 GitHub: [@rintran720](https://github.com/rintran720)
-- ☕ Support: [Buy Me a Coffee](https://buymeacoffee.com/rintran720)
+- Email: [rintran720@gmail.com](mailto:rintran720@gmail.com)
+- GitHub: [@rintran720](https://github.com/rintran720)
+- Support: [Buy Me a Coffee](https://buymeacoffee.com/rintran720)
 
-If you find this library useful, consider supporting the project! 🎉
+If you find this useful, consider supporting the project!
 
 ## ✨ Features
 
@@ -33,11 +33,11 @@ If you find this library useful, consider supporting the project! 🎉
 - 🎛️ **Customizable Depth** - Flat, Shallow, Normal, Deep options
 - ✨ **Glow Effects** - Optional glow on hover
 - ♿ **Accessible** - Keyboard navigation and focus states
-- 🌙 **Theme System** - 5 pre-built themes + custom theme support
+- 🎨 **CSS Variables** - Customize colors via CSS variables
 - 🖥️ **SSR Support** - Works with Next.js, Remix, Gatsby, etc.
 - 📖 **Storybook** - Interactive documentation and playground
 
-## 📦 Components
+## Components
 
 | Component          | Description                                 |
 | ------------------ | ------------------------------------------- |
@@ -93,11 +93,10 @@ If you find this library useful, consider supporting the project! 🎉
 | **RadarChart**     | Radar/spider charts for comparisons         |
 | **ComposedChart**  | Combined bar, line, and area charts         |
 | **GaugeChart**     | Gauge/speedometer charts for metrics        |
-| **ThemeProvider**  | Theme context provider                      |
 
-## 🚀 Getting Started
+## Getting Started
 
-### Installation
+### Install
 
 ```bash
 npm install @votekio/cyberpunk-ui
@@ -109,7 +108,7 @@ pnpm add @votekio/cyberpunk-ui
 
 ### Setup TailwindCSS
 
-Add the library to your `tailwind.config.js` content paths:
+Add to your `tailwind.config.js`:
 
 ```js
 module.exports = {
@@ -117,13 +116,11 @@ module.exports = {
     // ... your paths
     "./node_modules/@votekio/cyberpunk-ui/dist/**/*.{js,ts,jsx,tsx}",
   ],
-  // ... rest of config
+  // ... rest
 };
 ```
 
 ### Import Styles
-
-Import the library styles in your app:
 
 ```tsx
 import "@votekio/cyberpunk-ui/dist/styles.css";
@@ -132,68 +129,53 @@ import "@votekio/cyberpunk-ui/dist/styles.css";
 ### Use Components
 
 ```tsx
-import { Button, ThemeProvider } from "@votekio/cyberpunk-ui";
+import { Button } from "@votekio/cyberpunk-ui";
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="dark">
-      <Button variant="primary" size="lg">
-        Click Me!
-      </Button>
-    </ThemeProvider>
+    <Button variant="primary" size="lg">
+      Click Me!
+    </Button>
   );
 }
 ```
 
-## 🎨 Theme System (CSS-First)
+## Color System
 
-The library uses **CSS Variables** for theming, optimized for **Server Side Rendering**.
+Uses CSS variables for colors. Set them directly in your CSS.
 
-### Method 1: CSS Class (Recommended for SSR)
+### Using Theme Classes
 
-Add a class or data attribute to the `<html>` tag:
+Add class or data attribute to `<html>`:
 
 ```html
 <!-- Using class -->
 <html class="theme-dark">
   <!-- Or data attribute -->
-  <html data-theme="dark">
-    <!-- Or data-theme with Next.js -->
-    <html data-theme="ocean"></html>
-  </html>
+  <html data-theme="dark"></html>
 </html>
 ```
 
 ### Available Themes
 
-- `theme-dark` / `data-theme="dark"` - Dark theme (default)
-- `theme-light` / `data-theme="light"` - Light theme
+- `theme-dark` / `data-theme="dark"` - Dark (default)
+- `theme-light` / `data-theme="light"` - Light
 - `theme-ocean` / `data-theme="ocean"` - Cyan/teal
 - `theme-sunset` / `data-theme="sunset"` - Orange/pink
 - `theme-forest` / `data-theme="forest"` - Green
 
-### Customize Colors with CSS
+### Customize Colors
+
+Override CSS variables in your CSS:
 
 ```css
-/* Override primary color */
+/* Override single color */
 :root {
-  --color-primary-500: #ef4444; /* Red */
+  --color-primary-500: #ef4444;
 }
 
-/* Or use utility class */
-<html class="theme-dark primary-rose">
-
-/* Available color classes */
-.primary-blue, .primary-rose, .primary-violet, .primary-emerald...
-.secondary-purple, .secondary-pink, .secondary-teal...
-.accent-green, .accent-yellow, .accent-orange...
-```
-
-### Full Color Override (CSS)
-
-```css
+/* Full color palette override */
 :root {
-  /* Primary - Custom Red */
   --color-primary-50: #fef2f2;
   --color-primary-100: #fee2e2;
   --color-primary-200: #fecaca;
@@ -206,47 +188,16 @@ Add a class or data attribute to the `<html>` tag:
   --color-primary-900: #7f1d1d;
   --color-primary-950: #450a0a;
 
-  /* Secondary - Custom Purple */
   --color-secondary-500: #8b5cf6;
-
-  /* Accent - Custom Teal */
   --color-accent-500: #14b8a6;
 }
 ```
 
-### Method 2: ThemeProvider (Client-side)
+All colors are controlled via CSS variables - no JavaScript needed.
 
-If you need dynamic theme switching with JavaScript:
+## SSR Support
 
-```tsx
-import { ThemeProvider, useTheme } from "@votekio/cyberpunk-ui";
-
-function App() {
-  return (
-    <ThemeProvider defaultTheme="dark">
-      <YourApp />
-    </ThemeProvider>
-  );
-}
-
-function ThemeSwitcher() {
-  const { themeName, setTheme, availableThemes } = useTheme();
-
-  return (
-    <select value={themeName} onChange={(e) => setTheme(e.target.value)}>
-      {availableThemes.map((name) => (
-        <option key={name} value={name}>
-          {name}
-        </option>
-      ))}
-    </select>
-  );
-}
-```
-
-## 🖥️ Server Side Rendering (SSR)
-
-The library is fully compatible with SSR frameworks like Next.js, Remix, and Gatsby.
+Works with Next.js, Remix, Gatsby, etc.
 
 ### SSR Utilities
 
@@ -262,10 +213,10 @@ import {
 
 // Check environment
 if (isBrowser) {
-  // Client-side only code
+  // client-side only
 }
 
-// Hook to check if component mounted
+// Check if mounted
 function MyComponent() {
   const isMounted = useIsMounted();
 
@@ -274,30 +225,21 @@ function MyComponent() {
   return <div>{window.innerWidth}</div>;
 }
 
-// Safe localStorage hook
-const [theme, setTheme] = useLocalStorage("theme", "dark");
+// Safe localStorage
+const [value, setValue] = useLocalStorage("key", "default");
 
-// Window size hook (SSR-safe)
+// Window size (SSR-safe)
 const { width, height } = useWindowSize();
 
-// Dark mode preference detection
+// Dark mode preference
 const prefersDark = usePrefersDarkMode();
 ```
 
 ### Next.js App Router
 
-```tsx
-// app/providers.tsx
-"use client";
+No special setup needed. Just import styles and use components. Colors are controlled via CSS variables.
 
-import { ThemeProvider } from "@votekio/cyberpunk-ui";
-
-export function Providers({ children }) {
-  return <ThemeProvider defaultTheme="dark">{children}</ThemeProvider>;
-}
-```
-
-## 📚 Component Examples
+## Component Examples
 
 ### Button
 
@@ -786,121 +728,106 @@ import { GaugeChart } from "@votekio/cyberpunk-ui";
 />
 ```
 
-## 🛠️ Development
+## Development
 
 ```bash
-# Install dependencies
+# Install
 npm install
 
-# Start Storybook development server
+# Start Storybook
 npm run dev
 
-# Build the library
+# Build library
 npm run build
 
-# Build Storybook for production
+# Build Storybook
 npm run build:storybook
 ```
 
-## 🚀 Deployment
+## Deployment
 
 ### Deploy to Vercel
 
-The project is configured to deploy Storybook to Vercel automatically.
+Project is set up to deploy Storybook to Vercel.
 
-#### Option 1: Deploy via Vercel CLI
+**Option 1: Vercel CLI**
 
 ```bash
-# Install Vercel CLI
 npm i -g vercel
-
-# Deploy
 vercel
 ```
 
-#### Option 2: Deploy via Vercel Dashboard
+**Option 2: Vercel Dashboard**
 
-1. Push your code to GitHub/GitLab/Bitbucket
+1. Push to GitHub/GitLab/Bitbucket
 2. Go to [Vercel Dashboard](https://vercel.com/dashboard)
-3. Click "Add New Project"
-4. Import your repository
-5. Vercel will automatically detect the configuration from `vercel.json`
-6. Click "Deploy"
+3. Add New Project
+4. Import repo
+5. Vercel auto-detects `vercel.json`
+6. Deploy
 
-The `vercel.json` file is already configured with:
+`vercel.json` is configured with:
 
-- Build command: `npm run build:storybook`
-- Output directory: `storybook-static`
+- Build: `npm run build:storybook`
+- Output: `storybook-static`
 - Framework: Static Site
 
-#### Manual Build & Deploy
+**Manual Build**
 
 ```bash
-# Build Storybook
 npm run build:storybook
-
-# The output will be in storybook-static/
-# You can deploy this folder to any static hosting service
+# Output in storybook-static/
 ```
 
 ### Publish to npm
 
-The library is configured to be published to npm.
+**Prerequisites**
 
-#### Prerequisites
+1. Create npm account at [npmjs.com](https://www.npmjs.com/)
+2. Login: `npm login`
 
-1. Create an npm account at [npmjs.com](https://www.npmjs.com/)
-2. Login to npm via CLI:
-   ```bash
-   npm login
-   ```
-
-#### Build & Publish
+**Build & Publish**
 
 ```bash
-# Build the library (this will also copy CSS files)
+# Build (copies CSS too)
 npm run build
 
-# Verify the build output
+# Check output
 ls dist/
 
-# Publish to npm (this will run prepublishOnly script automatically)
+# Publish (runs prepublishOnly automatically)
 npm publish
 
-# For scoped packages, publish publicly:
+# For scoped packages
 npm publish --access public
 ```
 
-#### Version Management
+**Version Management**
 
 ```bash
-# Update version before publishing
 npm version patch   # 0.1.0 -> 0.1.1
 npm version minor   # 0.1.0 -> 0.2.0
 npm version major   # 0.1.0 -> 1.0.0
 
-# Then publish
 npm publish --access public
 ```
 
-#### What Gets Published
+**What Gets Published**
 
-The following files are included in the npm package:
+Included:
 
-- `dist/` - Built JavaScript, TypeScript definitions, and CSS files
-- `README.md` - Documentation
-- `package.json` - Package metadata
+- `dist/` - JS, TS defs, CSS
+- `README.md`
+- `package.json`
 
-The following are excluded (via `.npmignore`):
+Excluded (via `.npmignore`):
 
-- Source files (`src/`)
+- `src/`
 - Storybook files
-- Development configs
+- Dev configs
 - Tests
 
-#### After Publishing
-
-Users can install and use the package:
+**After Publishing**
 
 ```bash
 npm install @votekio/cyberpunk-ui
@@ -911,18 +838,18 @@ import { Button } from "@votekio/cyberpunk-ui";
 import "@votekio/cyberpunk-ui/styles/globals.css";
 ```
 
-## 💝 Support
+## Support
 
-If this project has helped you in any way, or you'd like to support its continued development, please consider:
+If this helped you, consider:
 
-- ⭐ **Starring** this repository
-- 🐛 **Reporting** bugs or suggesting features
-- 💬 **Sharing** with others who might find it useful
-- ☕ **[Buying me a coffee](https://buymeacoffee.com/rintran720)** to support development
+- ⭐ Star the repo
+- 🐛 Report bugs or suggest features
+- 💬 Share with others
+- ☕ [Buy me a coffee](https://buymeacoffee.com/rintran720)
 
-Your support means the world to me! 🙏
+Thanks! 🙏
 
-## 📄 License
+## License
 
 MIT © [John Tran](https://github.com/rintran720)
 
@@ -932,6 +859,6 @@ MIT © [John Tran](https://github.com/rintran720)
 
 Made with ❤️ by [John Tran](https://github.com/rintran720)
 
-[☕ Buy Me a Coffee](https://buymeacoffee.com/rintran720) • [📖 Documentation](https://cyberpunk-ui-tawny.vercel.app/) • [🐛 Report Bug](https://github.com/rintran720/cyberpunk-ui/issues)
+[☕ Buy Me a Coffee](https://buymeacoffee.com/rintran720) • [📖 Docs](https://cyberpunk-ui-tawny.vercel.app/) • [🐛 Report Bug](https://github.com/rintran720/cyberpunk-ui/issues)
 
 </div>

@@ -61,3 +61,5 @@ pnpm-debug.log*
 .prettierrc*
 .editorconfig
 
+# Cursor rules
+.cursorrules
